@@ -1,0 +1,333 @@
+{% extends "base.html" %} {% load static %} {% block title %} Blog Amigos
+{%endblock%} {% block content %}
+<div class="w-11/12 max-w-[1600px] mx-auto">
+  {% comment %} MOVIE POST LIST {% endcomment %}
+  <div>
+    <div class="flex items-center py-4">
+      <!-- Your text here -->
+      <span class="flex-shrink text-[16px] px-4 font-[900] font-open-sans">
+        <a href="{% url 'movies' %}">PHIM ẢNH</a>
+      </span>
+
+      <!-- The right line -->
+      <div class="flex-grow h-[1px] bg-gray-300"></div>
+    </div>
+    <div class="py-5 flex">
+      <div class="pr-5 w-[500px]">
+        {% for post in posts_movie|slice:"1:6"%}
+        <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
+          <div class="w-[150px] h-[100px] cursor-pointer flex-shrink-0">
+            <a href="{% url 'post_view' pk=post.pk %}">
+              <img
+                src="{{ post.image.url }}"
+                class="w-full h-full object-cover"
+              />
+            </a>
+          </div>
+          <div class="flex flex-col gap-y-2">
+            <h3 class="cursor-pointer hover:underline font-playfair">
+              <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+            </h3>
+            <div>
+              {% for tag in post.tag.all %} {% if 'Review' in tag.name %}
+              <p class="badge-review flex-shrink-0 inline">Review</p>
+              {% elif 'Cảm Nhận' in tag.name %}
+              <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
+              {% elif 'Bàn Luận' in tag.name %}
+              <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
+              {% endif %} {% endfor %}
+            </div>
+            <p class="text-sm text-gray-600">
+              {{post.description|slice:":120"}}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      {% comment %} RIGHT SIDE {% endcomment %}
+      <div
+        class="flex flex-col flex-1 gap-y-2 border-l border-gray-400 overflow-hidden pl-5"
+      >
+        <div class="w-full h-[500px] cursor-pointer flex-shrink-0">
+          <a href="{% url 'post_view' pk=posts_movie.0.pk %}">
+            <img
+              src="{{ posts_movie.0.image.url }}"
+              class="w-full h-full object-cover"
+            />
+          </a>
+        </div>
+        <h3
+          class="text-[30px] font-[600] font-playfair hover:underline leading-[50px]"
+        >
+          <a href="{% url 'post_view' pk=posts_movie.0.pk %}"
+            >{{ posts_movie.0.title }}</a
+          >
+        </h3>
+        <div>
+          {% for tag in posts_movie.0.tag.all %} {% if 'Review' in tag.name %}
+          <p class="badge-review flex-shrink-0 inline">Review</p>
+          {% elif 'Cảm Nhận' in tag.name %}
+          <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
+          {% elif 'Bàn Luận' in tag.name %}
+          <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
+          {% endif %} {% endfor %}
+        </div>
+        <p class="text-gray-600">{{ posts_movie.0.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} VIDEO GAME POST LIST {% endcomment %}
+  <div>
+    <div class="flex items-center py-4">
+      <!-- Your text here -->
+      <span class="flex-shrink text-[16px] px-4 font-open-sans font-[900]">
+        <a href="{% url 'video_games' %}">VIDEO GAME</a>
+      </span>
+
+      <!-- The right line -->
+      <div class="flex-grow h-[1px] bg-gray-300"></div>
+    </div>
+    <div class="py-5 flex flex-row-reverse">
+      <div class="pl-5 w-[500px]">
+        {% for post in posts_video_game|slice:"1:6"%}
+        <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
+          <div class="w-[150px] h-[100px] cursor-pointer flex-shrink-0">
+            <a href="{% url 'post_view' pk=post.pk %}">
+              <img
+                src="{{ post.image.url }}"
+                class="w-full h-full object-cover"
+              />
+            </a>
+          </div>
+          <div class="flex flex-col gap-y-2">
+            <h3 class="cursor-pointer hover:underline font-playfair">
+              <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+            </h3>
+            <div>
+              {% for tag in post.tag.all %} {% if 'Review' in tag.name %}
+              <p class="badge-review flex-shrink-0 inline">Review</p>
+              {% elif 'Cảm Nhận' in tag.name %}
+              <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
+              {% elif 'Bàn Luận' in tag.name %}
+              <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
+              {% endif %} {% endfor %}
+            </div>
+            <p class="text-sm text-gray-600">
+              {{post.description|slice:":120"}}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      {% comment %} LEFT SIDE {% endcomment %}
+      <div
+        class="flex flex-col flex-1 gap-y-2 border-r border-gray-400 overflow-hidden pr-5"
+      >
+        <div class="w-full h-[500px] cursor-pointer flex-shrink-0">
+          <a href="{% url 'post_view' pk=posts_video_game.0.pk %}">
+            <img
+              src="{{ posts_video_game.0.image.url }}"
+              class="w-full h-full object-cover"
+            />
+          </a>
+        </div>
+        <h3
+          class="text-[30px] font-[600] font-playfair hover:underline leading-[50px]"
+        >
+          <a href="{% url 'post_view' pk=posts_video_game.0.pk %}"
+            >{{ posts_video_game.0.title }}</a
+          >
+        </h3>
+        <div>
+          {%for tag in posts_video_game.0.tag.all%} {%if 'Review' in tag.name%}
+          <p class="badge-review flex-shrink-0 inline">Review</p>
+          {% elif 'Cảm Nhận' in tag.name %}
+          <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
+          {% elif 'Bàn Luận' in tag.name %}
+          <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
+          {% endif %} {% endfor %}
+        </div>
+        <p class="text-gray-600">{{ posts_video_game.0.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} ANIME POST LIST {% endcomment %}
+  <div>
+    <div class="flex items-center py-4">
+      <!-- Your text here -->
+      <span class="flex-shrink text-[16px] px-4 font-[900] font-open-sans">
+        <a href="{% url 'animes' %}">ANIME</a>
+      </span>
+
+      <!-- The right line -->
+      <div class="flex-grow h-[1px] bg-gray-300"></div>
+    </div>
+    <div class="py-5">
+      <swiper-container class='flex swiper-container-anime' autoplay-delay='5000'>
+        {% for post in posts_anime %}
+        <swiper-slide>
+          <div
+            class="px-2 flex flex-col gap-y-3 border-l border-gray-400 first:border-l-0"
+          >
+            <div class="w-full h-[200px]">
+              <a href="{% url 'post_view' pk=post.pk %}">
+                <img
+                  src="{{ post.image.url }}"
+                  alt="{{ post.title }}"
+                  class="w-full h-full object-cover object-center"
+                />
+              </a>
+            </div>
+            <h3 class="cursor-pointer hover:underline font-playfair">
+              <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+            </h3>
+            <div>
+              {%for tag in post.tag.all%} {%if 'Review' in tag.name%}
+              <p class="badge-review flex-shrink-0 inline">Review</p>
+              {% elif 'Cảm Nhận' in tag.name %}
+              <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
+              {% elif 'Bàn Luận' in tag.name %}
+              <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
+              {% endif %} {% endfor %}
+            </div>
+            <p class="text-sm text-gray-600">{{post.description|slice:":120"}}</p>
+          </div>
+        </swiper-slide>
+        {% endfor %}
+      </swiper-container>
+    </div>
+  </div>
+
+  {% comment %} MANGA POST LIST {% endcomment %}
+  <div>
+    <div class="flex items-center py-4">
+      <!-- Your text here -->
+      <span class="flex-shrink text-[16px] px-4 font-[900] font-open-sans">
+        <a href="{% url 'mangas' %}">MANGA</a>
+      </span>
+
+      <!-- The right line -->
+      <div class="flex-grow h-[1px] bg-gray-300"></div>
+    </div>
+    <div class="py-5">
+      <swiper-container class="flex swiper-container-manga" autoplay-delay='5000'>
+
+        {% for post in posts_manga %}
+        <swiper-slide>
+          <div
+          class="px-2 flex flex-col gap-y-3 border-l border-gray-400 first:border-l-0"
+          >
+            <div class="w-full h-[200px]">
+              <a href="{% url 'post_view' pk=post.pk %}">
+                <img
+                  src="{{ post.image.url }}"
+                  alt="{{ post.title }}"
+                  class="w-full h-full object-cover object-center"
+                />
+              </a>
+            </div>
+            <h3 class="cursor-pointer hover:underline font-playfair">
+              <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+            </h3>
+            <div>
+              {%for tag in post.tag.all%} {%if 'Review' in tag.name%}
+              <p class="badge-review flex-shrink-0 inline">Review</p>
+              {% elif 'Cảm Nhận' in tag.name %}
+              <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
+              {% elif 'Bàn Luận' in tag.name %}
+              <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
+              {% endif %} {% endfor %}
+            </div>
+            <p class="text-sm text-gray-600">{{post.description|slice:":120"}}</p>
+          </div>
+        </swiper-slide>
+        {% endfor %}
+      </swiper-container>
+    </div>
+  </div>
+
+  {% comment %} MUSIC POSTS SLIDE {% endcomment %}
+  <div>
+    <div class="flex items-center py-4">
+      <!-- Your text here -->
+      <span class="flex-shrink text-[16px] px-4 font-[900] font-open-sans">
+        <a href="{% url 'musics' %}">Âm Nhạc</a>
+      </span>
+
+      <!-- The right line -->
+      <div class="flex-grow h-[1px] bg-gray-300"></div>
+    </div>
+    <swiper-container class="mySwiper" pagination="true" pagination-type='progressbar' space-between="30" effect="fade"
+    centered-slides="true" autoplay-delay="3000" autoplay-disable-on-interaction="false">
+    {% for post in posts_music %}
+      <swiper-slide
+      class="h-[90vh] relative w-full"
+    >
+    <img src="{{ post.image.url }}" alt="" class='w-full h-full object-cover object-center'>
+      <div class="absolute h-[90vh] w-full bg-no-repeat bg-black/50 top-0"></div>
+      <div class="absolute top-2/4 left-16">
+        <h3
+          class="text-center text-white hover:underline font-playfair text-[5vh] tracking-[3px] max-w-[800px] leading-[60px]"
+          style="text-decoration-color: white"
+        >
+          <a href="{% url 'post_view' pk=post.pk %}"
+            >{{ post.title }}</a
+          >
+        </h3>
+        </div>
+      </swiper-slide>
+    {% endfor %}
+    </swiper-container>
+   
+  </div>
+  
+  {% comment %} ALL POSTS {% endcomment %}
+  <div>
+    <div class="flex items-center py-4">
+      <!-- Your text here -->
+      <span class="flex-shrink text-[16px] px-4 font-[900] font-open-sans">
+        <a href="{% url 'posts' %}">DANH SÁCH BÀI VIẾT</a>
+      </span>
+
+      <!-- The right line -->
+      <div class="flex-grow h-[1px] bg-gray-300"></div>
+    </div>
+  </div>
+  <div class="flex gap-x-6">
+    <div class="flex flex-1 flex-col">
+      {% for post in posts|slice:":10" %}
+      <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
+        <div class="w-[250px] h-[200px] cursor-pointer flex-shrink-0">
+          <a href="{% url 'post_view' pk=post.pk %}">
+            <img
+              src="{{ post.image.url }}"
+              class="w-full h-full object-cover"
+            />
+          </a>
+        </div>
+        <div class="flex flex-col gap-y-2">
+          <h3 class="cursor-pointer hover:underline font-playfair">
+            <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+          </h3>
+          <div>
+            {% for tag in post.tag.all %} {% if 'Review' in tag.name %}
+            <p class="badge-review flex-shrink-0 inline">Review</p>
+            {% elif 'Cảm Nhận' in tag.name %}
+            <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
+            {% elif 'Bàn Luận' in tag.name %}
+            <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
+            {% endif %} {% endfor %}
+          </div>
+          <p class="text-sm text-gray-600">{{post.description}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="w-64 flex-none">Sidebar</div>
+  </div>
+  {% endblock %}
+</div>

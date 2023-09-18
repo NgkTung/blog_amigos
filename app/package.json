@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "tailwindcss": "npx tailwindcss -i ./static/css/global.css -o ./static/css/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  },
+  "dependencies": {
+    "swiper": "^10.2.0",
+    "tw-elements": "^1.0.0"
+  }
+}

@@ -1,0 +1,59 @@
+<!-- Sidebar overlay -->
+<div
+  class="sidebarOverlay fixed inset-0 bg-gray-800 bg-opacity-50 z-50 hidden"
+></div>
+
+<!-- Sidebar -->
+<div
+  class="sidebar fixed p-4 inset-y-0 left-0 w-96 bg-white shadow z-50 -translate-x-full transform ease-in-out transition-transform duration-300"
+>
+  <div class="text-right w-full close-btn">
+    <button>
+      <svg
+        fill="#000000"
+        width="30px"
+        height="30px"
+        viewBox="0 0 256 256"
+        id="Flat"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M202.82861,197.17188a3.99991,3.99991,0,1,1-5.65722,5.65624L128,133.65723,58.82861,202.82812a3.99991,3.99991,0,0,1-5.65722-5.65624L122.343,128,53.17139,58.82812a3.99991,3.99991,0,0,1,5.65722-5.65624L128,122.34277l69.17139-69.17089a3.99991,3.99991,0,0,1,5.65722,5.65624L133.657,128Z"
+        />
+      </svg>
+    </button>
+  </div>
+  <ul class="[&>*:last-child]:border-b-0">
+    <li class="py-3 border-b-2 font-[500]">
+      <a href="{% url 'movies' %}">Phim Ảnh</a>
+    </li>
+    <li class="py-3 border-b-2 font-[500]">
+      <a href="{% url 'video_games' %}">Video Game</a>
+    </li>
+    <li class="py-3 border-b-2 font-[500]">
+      <a href="{% url 'animes' %}">Anime</a>
+    </li>
+    <li class="py-3 border-b-2 font-[500]">
+      <a href="{% url 'mangas' %}">Manga</a>
+    </li>
+    <li class="py-3 border-b-2 font-[500]">
+      <a href="{% url 'musics' %}">Âm Nhạc</a>
+    </li>
+    <li class="py-3 border-b-2 font-[500]">
+      <a href="{% url 'about-me' %}">Về Tôi</a>
+    </li>
+  </ul>
+  <div class="flex gap-x-8 py-4">
+    <a
+      href="https://www.facebook.com/profile.php?id=100009958477102"
+      target="_blank"
+      ><i class="fa-brands fa-facebook-f"></i
+    ></a>
+    <a href="https://twitter.com/minh_anh30" target="_blank"
+      ><i class="fa-brands fa-x-twitter"></i
+    ></a>
+    <a href="mailto:tinproht123@gmail.com" target="_blank"
+      ><i class="fa-solid fa-envelope"></i
+    ></a>
+  </div>
+</div>

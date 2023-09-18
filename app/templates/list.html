@@ -1,0 +1,105 @@
+{% extends 'base.html' %} {% block title %} Blog Amigos {% endblock%} {% load
+static %} {% block content %}
+<div class="mx-auto w-11/12 max-w-[1600px]">
+  <div class="pb-10 flex flex-col gap-y-4">
+    <p class="text-5xl tracking-[2px] font-[600] font-playfair">{{tag.name}}</p>
+    <p class="font-playfair w-full max-w-[800px]">{{tag.description}}</p>
+    <ul class="flex gap-x-4">
+      {% for sub_tag in sub_tags %}
+      <li class="py-1 px-5 bg-black/80 hover:bg-black/50 text-white">
+        <a href="{% url sub_tag.url_name %}">{{ sub_tag.name|safe }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <div class="flex gap-x-8 h-[400px] border-y-2 py-10">
+      <div class="flex-1">
+        <a href="{% url 'post_view' pk=posts.0.pk %}">
+          <img
+            class="w-full object-cover h-full"
+            src="{{ posts.0.image.url }}"
+            alt=""
+          />
+        </a>
+      </div>
+      <div class="flex flex-col gap-y-3 flex-1 justify-center">
+        <h3
+          class="text-[30px] font-[600] font-playfair hover:underline leading-[50px]"
+        >
+          <a href="{% url 'post_view' pk=posts.0.pk %}">{{ posts.0.title}}</a>
+        </h3>
+        <div>
+          {% for tag in posts.0.tag.all %} {% if 'Review' in tag.name %}
+          <p class="badge-review flex-shrink-0 inline">Review</p>
+          {% elif 'Cảm Nhận' in tag.name %}
+          <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
+          {% elif 'Bàn Luận' in tag.name %}
+          <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
+          {% endif %} {% endfor %}
+        </div>
+        <p class="text-sm text-gray-600">{{ posts.0.description }}</p>
+      </div>
+    </div>
+    {% comment %} Post list {% endcomment %}
+    <div class="flex">
+      <div class="flex flex-1 flex-col border-2 border-red-800 pr-4">
+        {% for post in posts|slice:"1:" %}
+        <div class="flex gap-x-6 border-b-2 py-4">
+          <div class="w-[250px] h-[200px] cursor-pointer flex-shrink-0">
+            <a href="{% url 'post_view' pk=post.pk %}">
+              <img
+                src="{{ post.image.url }}"
+                class="w-full h-full object-cover"
+              />
+            </a>
+          </div>
+          <div class="flex flex-col gap-y-5">
+            <h3 class="cursor-pointer hover:underline font-playfair">
+              <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+            </h3>
+            <div>
+              {% for tag in post.tag.all %} {% if 'Review' in tag.name %}
+              <p class="badge-review flex-shrink-0 inline">Review</p>
+              {% elif 'Cảm Nhận' in tag.name %}
+              <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
+              {% elif 'Bàn Luận' in tag.name %}
+              <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
+              {% endif %} {% endfor %}
+            </div>
+            <p class="text-sm text-gray-600">{{post.description}}</p>
+          </div>
+        </div>
+        {% endfor %}
+        <span class="text-center my-10">
+          {% if posts.has_previous %}
+              <a href="?page=1" class="mx-1 px-3 py-2 {% if posts.number == 1 %}active-link{% endif %}">&laquo; Trước</a>
+          {% endif %}
+  
+          {% if posts.number > 3 %}
+          <a href="?page=1" class="mx-1 px-3 py-2">1</a>
+          <span class="mx-1 px-3 py-2">...</span>
+      {% endif %}
+
+      {% for i in posts.paginator.page_range %}
+          {% if i > posts.number|add:"-3" and i < posts.number|add:"3" %}
+              {% if posts.number == i %}
+                <div class="active-link">
+                  <a href="?page={{ i }}" class="mx-1">{{ i }}</a>
+                </div>
+              {% else %}
+                  <a href="?page={{ i }}" class="mx-1 px-3 py-2">{{ i }}</a>
+              {% endif %}
+          {% endif %}
+      {% endfor %}
+  
+          {% if posts.has_next %}
+              <a href="?page={{ posts.paginator.num_pages }}" class="mx-1 px-3 py-2">Sau &raquo;</a>
+          {% endif %}
+      </span>
+      </div>
+      {% include 'tag-sidebar.html' %}
+    </div>
+  </div>
+</div>
+{% endblock %}
