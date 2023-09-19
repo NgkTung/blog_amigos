@@ -4,24 +4,23 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import os
-
-load_dotenv()
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-q06^4*wh08f)znqh*58rj=+cw2_n(r56s0g7-8h#v35(c^+&@3'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS"), "localhost"]
+ALLOWED_HOSTS += os.environ.get("ALLOWED_HOSTS").split()
 
 # Application definition
 
@@ -71,14 +70,9 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv("DB_NAME"),
-        'USER': os.getenv("DB_USERNAME"),
-        'PASSWORD': os.getenv("DB_PASSWORD"),
-        'HOST': os.getenv("DB_HOST"),
-        'PORT': os.getenv("DB_PORT")
-    }
+    'default': dj_database_url.config(
+        default="sqlite:///" + os.path.join(BASE_DIR, "db.sqlite3")
+    )
 }
 
 
@@ -117,6 +111,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     ('node_modules', os.path.join(BASE_DIR, 'node_modules/')),
