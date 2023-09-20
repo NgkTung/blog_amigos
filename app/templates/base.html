@@ -9,7 +9,10 @@
       href="https://fonts.googleapis.com/css?family=Lato&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="{% static 'images/favicon.png' %}" />
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/dige8bejc/image/upload/v1695184555/tpbuuwke2nzxwaaxtsxg.png"
+    />
     <link href="{% static 'css/output.css' %}" rel="stylesheet" />
     <link
       rel="stylesheet"
@@ -129,40 +132,38 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
     <script>
+      const swiperElAnime = document.querySelector(".swiper-container-anime");
+      const swiperElManga = document.querySelector(".swiper-container-manga");
 
-        const swiperElAnime = document.querySelector(".swiper-container-anime");
-        const swiperElManga= document.querySelector(".swiper-container-manga");
-      
+      const params = {
+        centeredSlides: false,
+        keyboard: {
+          enabled: true,
+        },
+        breakpoints: {
+          "@0.75": {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
+          "@1.00": {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
+          "@1.50": {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+          },
+        },
+        pagination: {
+          clickable: true,
+        },
+      };
 
-        const params = {
-          centeredSlides: false,
-          keyboard: {
-            enabled: true,
-          },
-          breakpoints: {
-            "@0.75": {
-              slidesPerView: 1,
-              slidesPerGroup: 1
-            },
-            "@1.00": {
-              slidesPerView: 3,
-              slidesPerGroup: 3
-            },
-            "@1.50": {
-              slidesPerView: 5,
-              slidesPerGroup: 5
-            },
-          },
-          pagination: {
-            clickable: true,
-          },
-        };
-        
-        Object.assign(swiperElAnime, params)
-        Object.assign(swiperElManga, params)
-        
-        swiperElAnime.initialize();
-        swiperElManga.initialize();
+      Object.assign(swiperElAnime, params);
+      Object.assign(swiperElManga, params);
+
+      swiperElAnime.initialize();
+      swiperElManga.initialize();
       // JavaScript code for sidebar toggle functionality
       const sidebarToggle = document.querySelector(".sidebarToggle");
       const sidebar = document.querySelector(".sidebar");
