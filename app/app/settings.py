@@ -4,7 +4,6 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import os
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,17 +13,18 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = 'django-insecure-q06^4*wh08f)znqh*58rj=+cw2_n(r56s0g7-8h#v35(c^+&@3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS"), "127.0.0.1"]
-ALLOWED_HOSTS += os.environ.get("ALLOWED_HOSTS", "").split()
+ALLOWED_HOSTS = ["tinproht123.pythonanywhere.com"]
+# ALLOWED_HOSTS += os.environ.get("ALLOWED_HOSTS", "").split()
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -32,19 +32,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tinymce',
-    'core',
-    'corsheaders'
+    'core'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -77,11 +76,11 @@ DATABASES = {
     # )
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv("DB_NAME"),
-        'USER': os.getenv("DB_USERNAME"),
-        'PASSWORD': os.getenv("DB_PASSWORD"),
-        'HOST': os.getenv("DB_HOST"),
-        'PORT': os.getenv("DB_PORT")
+        'NAME': 'tinproht123$blog_amigos',
+        'USER': 'tinproht123',
+        'PASSWORD': 'Hermajesty123',
+        'HOST': 'tinproht123.mysql.pythonanywhere-services.com',
+        # 'PORT': os.getenv("DB_PORT")
     }
 }
 
@@ -120,19 +119,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    ('node_modules', os.path.join(BASE_DIR, 'node_modules/')),
-]
+STATIC_URL = '/static'
+STATIC_ROOT = '/home/tinproht123/blog_amigos/app/static'
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+#     ('node_modules', os.path.join(BASE_DIR, 'node_modules/')),
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-TINY_KEY = os.getenv('TINY_KEY')
+TINY_KEY = 'e1z2ci0o58be0byyvt0497u14ass22p30vuy9sdf6ch9hqm3'
 TINYMCE_JS_URL = "https://cdn.tiny.cloud/1/{TINY_KEY}/tinymce/6/tinymce.min.js"
 
 TINYMCE_COMPRESSOR = False
@@ -153,9 +152,9 @@ TINYMCE_DEFAULT_CONFIG = {
 
 }
 
-CLOUD_NAME = os.getenv('CLOUD_NAME')
-CLOUD_API_KEY = os.getenv('CLOUD_API_KEY')
-CLOUD_API_SECRET = os.getenv('CLOUD_API_SECRET')
+CLOUD_NAME = 'dige8bejc'
+CLOUD_API_KEY = '626772879517829'
+CLOUD_API_SECRET = '7gwoTCA5_FvXBt6sdkjNDKTEki0'
 
 cloudinary.config(
     cloud_name=CLOUD_NAME,
@@ -163,19 +162,32 @@ cloudinary.config(
     api_secret=CLOUD_API_SECRET
 )
 
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_WHITELIST = [
-    'http://tinproht123.pythonanywhere.com',
-    'http://localhost:3000',
-    # Add other allowed origins as needed
-]
+# CORS_ORIGIN_WHITELIST = [
+#     '*',
+#     'http://tinproht123.pythonanywhere.com',
+#     'http://localhost:3000',
+#     # Add other allowed origins as needed
+# ]
 
-CORS_ALLOW_METHODS = [
-    'GET',
-    'POST',
-    'PUT',
-    'PATCH',
-    'DELETE',
-    'OPTIONS',
-]
+# CORS_ALLOW_METHODS = [
+#     'GET',
+#     'POST',
+#     'PUT',
+#     'PATCH',
+#     'DELETE',
+#     'OPTIONS',
+# ]
+
+# CORS_ALLOW_HEADERS = [
+#     'accept',
+#     'accept-encoding',
+#     'authorization',
+#     'content-type',
+#     'dnt',
+#     'origin',
+#     'user-agent',
+#     'x-csrftoken',
+#     'x-requested-with',
+# ]
