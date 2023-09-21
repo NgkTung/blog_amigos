@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, post_view, about_me, posts_all, movies_all, movies_review, movies_thought, movies_discuss, animes_all, animes_review, animes_thought, animes_discuss, video_games_all, video_games_review, video_games_thought, mangas_all, mangas_review, mangas_thought, musics_all, posts_review_all, posts_thought_all, posts_critique_all
+from .views import index, post_view, about_me, posts_all, movies_all, movies_review, movies_thought, movies_discuss, animes_all, animes_review, animes_thought, animes_discuss, video_games_all, video_games_review, video_games_thought, mangas_all, mangas_review, mangas_thought, musics_all, musics_thought, musics_album, musics_song, posts_review_all, posts_thought_all, posts_critique_all
 
 urlpatterns = [
     # Home page
@@ -29,6 +29,13 @@ urlpatterns = [
     path('video-games/thought', video_games_thought, name='video_games_thought'),
     # Musics pages
     path('musics/', musics_all, name='musics'),
+    path('musics/thought', musics_thought, name='musics_thought'),
+    path('musics/album', musics_album, name='musics_album'),
+    path('musics/song', musics_song, name='musics_song'),
+
+    # Post details
     path('posts/<int:pk>', post_view, name='post_view'),
+
+    # About me page
     path('about-me/', about_me, name='about-me')
 ]

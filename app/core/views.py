@@ -184,3 +184,27 @@ def musics_all(request):
     tag = Tag.objects.get(name='Âm Nhạc')
     sub_tags = Tag.objects.filter(parent_tag__name='Âm Nhạc')
     return render(request, 'list.html', {'posts': posts, 'tag': tag, 'sub_tags': sub_tags})
+
+
+def musics_thought(request):
+    posts = Post.objects.filter(
+        tag__name='Cảm Nhận', tag__parent_tag__name='Âm Nhạc').order_by('-created_at')
+    tag = Tag.objects.get(
+        parent_tag__name='Âm Nhạc', name='Cảm Nhận')
+    return render(request, 'list.html', {'posts': posts, 'tag': tag})
+
+
+def musics_album(request):
+    posts = Post.objects.filter(
+        tag__name='Album', tag__parent_tag__name='Âm Nhạc').order_by('-created_at')
+    tag = Tag.objects.get(
+        parent_tag__name='Âm Nhạc', name='Album')
+    return render(request, 'list.html', {'posts': posts, 'tag': tag})
+
+
+def musics_song(request):
+    posts = Post.objects.filter(
+        tag__name='Bài Hát', tag__parent_tag__name='Âm Nhạc').order_by('-created_at')
+    tag = Tag.objects.get(
+        parent_tag__name='Âm Nhạc', name='Bài Hát')
+    return render(request, 'list.html', {'posts': posts, 'tag': tag})

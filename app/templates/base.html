@@ -73,23 +73,30 @@
     <nav
       class="flex gap-x-20 justify-center items-center border-t-2 border-b-2 my-5 list-none sticky top-0 bg-white z-40"
     >
-      <li class="text-[18px] font-[600] hover:text-red-600 transition-all py-4">
+      <li
+        class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/movies/' in request.path %}text-red-600{% endif %}"
+      >
         <a href="{% url 'movies' %}">Phim Ảnh</a>
       </li>
-      <li class="text-[18px] font-[600] hover:text-red-600 transition-all py-4">
+      <li
+        class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/video-games/' in request.path %}text-red-600{% endif %}"
+      >
         <a href="{% url 'video_games' %}">Video Game</a>
       </li>
-      <li class="text-[18px] font-[600] hover:text-red-600 transition-all py-4">
+      <li
+        class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/animes/' in request.path %}text-red-600{% endif %}"
+      >
         <a href="{% url 'animes' %}">Anime</a>
       </li>
-      <li class="text-[18px] font-[600] hover:text-red-600 transition-all py-4">
+      <li
+        class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/mangas/' in request.path %}text-red-600{% endif %}"
+      >
         <a href="{% url 'mangas' %}">Manga</a>
       </li>
-      <li class="text-[18px] font-[600] hover:text-red-600 transition-all py-4">
+      <li
+        class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/musics/' in request.path %}text-red-600{% endif %}"
+      >
         <a href="{% url 'musics' %}">Âm Nhạc</a>
-      </li>
-      <li class="text-[18px] font-[600] hover:text-red-600 transition-all py-4">
-        <a href="{% url 'about-me' %}">Về tôi</a>
       </li>
     </nav>
 
@@ -119,39 +126,8 @@
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+    {% block script %} {% endblock %}
     <script>
-      const swiperElAnime = document.querySelector(".swiper-container-anime");
-      const swiperElManga = document.querySelector(".swiper-container-manga");
-
-      const params = {
-        centeredSlides: false,
-        keyboard: {
-          enabled: true,
-        },
-        breakpoints: {
-          "@0.75": {
-            slidesPerView: 1,
-            slidesPerGroup: 1,
-          },
-          "@1.00": {
-            slidesPerView: 3,
-            slidesPerGroup: 3,
-          },
-          "@1.50": {
-            slidesPerView: 5,
-            slidesPerGroup: 5,
-          },
-        },
-        pagination: {
-          clickable: true,
-        },
-      };
-
-      Object.assign(swiperElAnime, params);
-      Object.assign(swiperElManga, params);
-
-      swiperElAnime.initialize();
-      swiperElManga.initialize();
       // JavaScript code for sidebar toggle functionality
       const sidebarToggle = document.querySelector(".sidebarToggle");
       const sidebar = document.querySelector(".sidebar");
@@ -161,6 +137,7 @@
       sidebarToggle.addEventListener("click", () => {
         sidebar.classList.toggle("-translate-x-full");
         sidebarOverlay.classList.toggle("hidden");
+        console.log("click");
       });
 
       sidebarOverlay.addEventListener("click", () => {

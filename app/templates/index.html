@@ -348,5 +348,40 @@
     </div>
     <div class="w-64 flex-none">Sidebar</div>
   </div>
+  {% endblock %} {% block script %}
+  <script>
+    const swiperElAnime = document.querySelector(".swiper-container-anime");
+    const swiperElManga = document.querySelector(".swiper-container-manga");
+
+    const params = {
+      centeredSlides: false,
+      keyboard: {
+        enabled: true,
+      },
+      breakpoints: {
+        "@0.75": {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+        },
+        "@1.00": {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+        },
+        "@1.50": {
+          slidesPerView: 5,
+          slidesPerGroup: 5,
+        },
+      },
+      pagination: {
+        clickable: true,
+      },
+    };
+
+    Object.assign(swiperElAnime, params);
+    Object.assign(swiperElManga, params);
+
+    swiperElAnime.initialize();
+    swiperElManga.initialize();
+  </script>
   {% endblock %}
 </div>
