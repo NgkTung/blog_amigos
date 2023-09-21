@@ -167,7 +167,10 @@
       <div class="flex-grow h-[1px] bg-gray-300"></div>
     </div>
     <div class="py-5">
-      <swiper-container class='flex swiper-container-anime' autoplay-delay='5000'>
+      <swiper-container
+        class="flex swiper-container-anime"
+        autoplay-delay="5000"
+      >
         {% for post in posts_anime %}
         <swiper-slide>
           <div
@@ -194,7 +197,9 @@
               <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
               {% endif %} {% endfor %}
             </div>
-            <p class="text-sm text-gray-600">{{post.description|slice:":120"}}</p>
+            <p class="text-sm text-gray-600">
+              {{post.description|slice:":120"}}
+            </p>
           </div>
         </swiper-slide>
         {% endfor %}
@@ -214,12 +219,14 @@
       <div class="flex-grow h-[1px] bg-gray-300"></div>
     </div>
     <div class="py-5">
-      <swiper-container class="flex swiper-container-manga" autoplay-delay='5000'>
-
+      <swiper-container
+        class="flex swiper-container-manga"
+        autoplay-delay="5000"
+      >
         {% for post in posts_manga %}
         <swiper-slide>
           <div
-          class="px-2 flex flex-col gap-y-3 border-l border-gray-400 first:border-l-0"
+            class="px-2 flex flex-col gap-y-3 border-l border-gray-400 first:border-l-0"
           >
             <div class="w-full h-[200px]">
               <a href="{% url 'post_view' pk=post.pk %}">
@@ -242,7 +249,9 @@
               <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
               {% endif %} {% endfor %}
             </div>
-            <p class="text-sm text-gray-600">{{post.description|slice:":120"}}</p>
+            <p class="text-sm text-gray-600">
+              {{post.description|slice:":120"}}
+            </p>
           </div>
         </swiper-slide>
         {% endfor %}
@@ -261,30 +270,40 @@
       <!-- The right line -->
       <div class="flex-grow h-[1px] bg-gray-300"></div>
     </div>
-    <swiper-container class="mySwiper" pagination="true" pagination-type='progressbar' space-between="30" effect="fade"
-    centered-slides="true" autoplay-delay="3000" autoplay-disable-on-interaction="false">
-    {% for post in posts_music %}
-      <swiper-slide
-      class="h-[90vh] relative w-full"
+    <swiper-container
+      class="mySwiper"
+      pagination="true"
+      pagination-type="progressbar"
+      space-between="30"
+      effect="fade"
+      centered-slides="true"
+      autoplay-delay="3000"
+      autoplay-disable-on-interaction="false"
     >
-    <img src="{{ post.image.url }}" alt="" class='w-full h-full object-cover object-center'>
-      <div class="absolute h-[90vh] w-full bg-no-repeat bg-black/50 top-0"></div>
-      <div class="absolute top-2/4 left-16">
-        <h3
-          class="text-center text-white hover:underline font-playfair text-[5vh] tracking-[3px] max-w-[800px] leading-[60px]"
-          style="text-decoration-color: white"
-        >
-          <a href="{% url 'post_view' pk=post.pk %}"
-            >{{ post.title }}</a
+      {% for post in posts_music %}
+      <swiper-slide class="h-[70vh] relative w-full">
+        <img
+          src="{{ post.image.url }}"
+          alt=""
+          class="w-full h-full object-cover object-center"
+        />
+        <!-- FILTER DARKEN  -->
+        <div
+          class="absolute h-[70vh] w-full bg-no-repeat bg-black/50 top-0"
+        ></div>
+        <div class="absolute top-2/4 left-16">
+          <h3
+            class="text-center text-white hover:underline font-playfair text-[5vh] tracking-[3px] max-w-[800px] leading-[60px]"
+            style="text-decoration-color: white"
           >
-        </h3>
+            <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+          </h3>
         </div>
       </swiper-slide>
-    {% endfor %}
+      {% endfor %}
     </swiper-container>
-   
   </div>
-  
+
   {% comment %} ALL POSTS {% endcomment %}
   <div>
     <div class="flex items-center py-4">

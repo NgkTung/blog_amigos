@@ -69,41 +69,29 @@
           ></a>
         </div>
       </div>
-      <nav
-        class="flex gap-x-20 justify-center items-center border-t-2 border-b-2 my-5 list-none"
-      >
-        <li
-          class="text-[18px] font-[600] hover:text-red-600 transition-all py-4"
-        >
-          <a href="{% url 'movies' %}">Phim Ảnh</a>
-        </li>
-        <li
-          class="text-[18px] font-[600] hover:text-red-600 transition-all py-4"
-        >
-          <a href="{% url 'video_games' %}">Video Game</a>
-        </li>
-        <li
-          class="text-[18px] font-[600] hover:text-red-600 transition-all py-4"
-        >
-          <a href="{% url 'animes' %}">Anime</a>
-        </li>
-        <li
-          class="text-[18px] font-[600] hover:text-red-600 transition-all py-4"
-        >
-          <a href="{% url 'mangas' %}">Manga</a>
-        </li>
-        <li
-          class="text-[18px] font-[600] hover:text-red-600 transition-all py-4"
-        >
-          <a href="{% url 'musics' %}">Âm Nhạc</a>
-        </li>
-        <li
-          class="text-[18px] font-[600] hover:text-red-600 transition-all py-4"
-        >
-          <a href="{% url 'about-me' %}">Về tôi</a>
-        </li>
-      </nav>
     </header>
+    <nav
+      class="flex gap-x-20 justify-center items-center border-t-2 border-b-2 my-5 list-none sticky top-0 bg-white z-40"
+    >
+      <li class="text-[18px] font-[600] hover:text-red-600 transition-all py-4">
+        <a href="{% url 'movies' %}">Phim Ảnh</a>
+      </li>
+      <li class="text-[18px] font-[600] hover:text-red-600 transition-all py-4">
+        <a href="{% url 'video_games' %}">Video Game</a>
+      </li>
+      <li class="text-[18px] font-[600] hover:text-red-600 transition-all py-4">
+        <a href="{% url 'animes' %}">Anime</a>
+      </li>
+      <li class="text-[18px] font-[600] hover:text-red-600 transition-all py-4">
+        <a href="{% url 'mangas' %}">Manga</a>
+      </li>
+      <li class="text-[18px] font-[600] hover:text-red-600 transition-all py-4">
+        <a href="{% url 'musics' %}">Âm Nhạc</a>
+      </li>
+      <li class="text-[18px] font-[600] hover:text-red-600 transition-all py-4">
+        <a href="{% url 'about-me' %}">Về tôi</a>
+      </li>
+    </nav>
 
     {% comment %} MAIN CONTENT {% endcomment %}
     <main class="min-h-screen">{% block content %} {% endblock %}</main>
@@ -183,6 +171,17 @@
       closeBtn.addEventListener("click", () => {
         sidebar.classList.toggle("-translate-x-full");
         sidebarOverlay.classList.toggle("hidden");
+      });
+
+      //JavaScript code for navbar shadow whenever hit the top of page
+      const navbar = document.querySelector("nav");
+      window.addEventListener("scroll", function () {
+        const bounding = navbar.getBoundingClientRect();
+        if (bounding.top <= 0) {
+          navbar.classList.add("shadow-lg");
+        } else {
+          navbar.classList.remove("shadow-lg");
+        }
       });
     </script>
   </body>
