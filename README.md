@@ -11,4 +11,4 @@ Blog Amigos is my blog where I write my thoughts about movies I seen, video game
 - Tailwindcss
 ## Release Notes
 - Version 0.0.1
-+ Alpha version of Blog Amigos
+  + Alpha version of Blog Amigos
