@@ -1471,12 +1471,12 @@ h4{
   height: 6px;
 }
 
-.h-\[72px\]{
-  height: 72px;
+.h-\[70vh\]{
+  height: 70vh;
 }
 
-.h-\[90vh\]{
-  height: 90vh;
+.h-\[72px\]{
+  height: 72px;
 }
 
 .h-\[calc\(100\%-100px\)\]{
@@ -1493,14 +1493,6 @@ h4{
 
 .h-screen{
   height: 100vh;
-}
-
-.h-\[60vh\]{
-  height: 60vh;
-}
-
-.h-\[70vh\]{
-  height: 70vh;
 }
 
 .max-h-\[calc\(100\%-64px\)\]{
@@ -2041,6 +2033,10 @@ h4{
 
 .cursor-pointer{
   cursor: pointer;
+}
+
+.cursor-text{
+  cursor: text;
 }
 
 .touch-none{
@@ -2651,11 +2647,6 @@ h4{
 .bg-zinc-700{
   --tw-bg-opacity: 1;
   background-color: rgb(63 63 70 / var(--tw-bg-opacity));
-}
-
-.bg-red-800{
-  --tw-bg-opacity: 1;
-  background-color: rgb(153 27 27 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50{
@@ -3503,12 +3494,6 @@ h4{
 .shadow-sm{
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-md{
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 

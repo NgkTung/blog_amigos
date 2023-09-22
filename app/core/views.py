@@ -4,207 +4,209 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 
+# Get all posts
+def get_posts(tag__name=None, tag__parent_tag__name=None):
+    if tag__name is None: # Return all posts if the tag_name parameter is not passed
+        posts = Post.objects.all().order_by('-created_at')
+    else: # Or filter it
+        # Create an empty dictionary to store the filter conditions
+        filters = {}
 
-def index(request):
-    posts = Post.objects.all().order_by('-created_at')
-    posts_movie = Post.objects.filter(
-        tag__name='Phim Ảnh').order_by('-created_at')
-    posts_anime = Post.objects.filter(
-        tag__name='Anime').order_by('-created_at')
-    posts_manga = Post.objects.filter(
-        tag__name='Manga').order_by('-created_at')
-    posts_video_game = Post.objects.filter(
-        tag__name='Video Game').order_by('-created_at')
-    posts_music = Post.objects.filter(
-        tag__name='Âm Nhạc').order_by('-created_at')
-    return render(request, 'index.html', {'posts': posts, 'posts_movie': posts_movie, 'posts_anime': posts_anime, 'posts_manga': posts_manga, 'posts_video_game': posts_video_game, 'posts_music': posts_music})
+        # Add filter conditions based on the provided parameters
+        if tag__name:
+            filters['tag__name'] = tag__name
+        if tag__parent_tag__name:
+            filters['tag__parent_tag__name'] = tag__parent_tag__name
 
+        posts = Post.objects.filter(**filters).order_by('-created_at')
+    return posts
 
-def posts_all(request):
-    data = Post.objects.all().order_by('-created_at')
-
+# Get all posts with paganation
+def get_posts_pagination(request, tag__name=None, tag__parent_tag__name=None):
+    data = get_posts(tag__name=tag__name, tag__parent_tag__name=tag__parent_tag__name)
     posts_per_page = 10
     paginator = Paginator(data, posts_per_page)
     page_number = request.GET.get('page')
     posts = paginator.get_page(page_number)
+    return posts
 
+def get_tags(name=None, parent_tag__name=None):
+    if name is None and parent_tag__name is None: # Return all tags if the parameter is not passed
+        tags = Tag.objects.all()
+    elif name and parent_tag__name is None:
+        tags = Tag.objects.get(name=name)
+    else: # Or filter it
+        # Create an empty dictionary to store the filter conditions
+        filters = {}
+
+        # Add filter conditions based on the provided parameters
+        if name:
+            filters['name'] = name
+        if parent_tag__name:
+            filters['parent_tag__name'] = parent_tag__name
+        
+        tags = Tag.objects.filter(**filters).order_by('name')
+    return tags
+    
+# Main page
+def index(request):
+    posts = get_posts_pagination(request)
+    posts_movie = get_posts('Phim Ảnh')[:6]
+    posts_video_game = get_posts('Video Game')[:6]
+    posts_anime = get_posts('Anime')
+    posts_manga = get_posts('Manga')
+    posts_music = get_posts('Âm Nhạc')[:6]
+    return render(request, 'index.html', {'posts': posts, 'posts_movie': posts_movie, 'posts_anime': posts_anime, 'posts_manga': posts_manga, 'posts_video_game': posts_video_game, 'posts_music': posts_music})
+
+# All posts page
+def posts_all(request):
+    posts = get_posts_pagination(request)
     return render(request, 'list.html', {'posts': posts})
 
-
+# All review posts page
 def posts_review_all(request):
-    posts = Post.objects.filter(tag__name='Review').order_by('-created_at')
+    posts = get_posts_pagination(request, tag__name='Review')
+    # Custom tag
     tag = {'name': 'Review', 'description': 'Những bài viết review của mình, tất cả đều là đánh giá chủ quan từ bản thân. Lưu ý: Những bài viết đều chứa spoiler, xin hãy cân nhắc trước khi đọc'}
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
-
+# All thought posts page
 def posts_thought_all(request):
-    posts = Post.objects.filter(tag__name='Cảm Nhận').order_by('-created_at')
+    posts = get_posts_pagination(request, tag__name='Cảm Nhận')
+    # Custom tag
     tag = {'name': 'Cảm nhận', 'description': 'Những bài viết nói lên cảm nhận của mình về những nội dung mình đã thưởng thức. Có những suy nghĩ chi tiết hơn về nội dung đó. Lưu ý: Những bài viết có thể chứa spoiler, xin hãy cân nhắc trước khi đọc'}
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
-
-def posts_critique_all(request):
-    posts = Post.objects.filter(tag__name='Phê Bình').order_by('-created_at')
-    tag = {'name': 'Phê Bình', 'description': 'Những bài viết review của mình, tất cả đều là đánh giá chủ quan từ bản thân. Lưu ý: Những bài viết đều chứa spoiler, xin hãy cân nhắc trước khi đọc'}
+# All discuss posts page
+def posts_discuss_all(request):
+    posts = get_posts_pagination(request, tag__name='Bàn Luận')
+    # Custom tag
+    tag = {'name': 'Bàn Luận', 'description': 'Những bài viết review của mình, tất cả đều là đánh giá chủ quan từ bản thân. Lưu ý: Những bài viết đều chứa spoiler, xin hãy cân nhắc trước khi đọc'}
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
-
+# A post view page
 def post_view(request, pk):
+    # Retrieve the post based on pk
     post = Post.objects.get(pk=pk)
+    # Increase the time post has been seen
+    post.increment_click_count()
     return render(request, 'post_view.html', {'post': post})
 
 # About me page
-
-
 def about_me(request):
     return render(request, 'about-me.html')
 
 # Movies
-
-
 def movies_all(request):
-    posts = Post.objects.filter(tag__name='Phim Ảnh').order_by('-created_at')
-    tag = Tag.objects.get(name='Phim Ảnh')
-    sub_tags = Tag.objects.filter(parent_tag__name='Phim Ảnh')
+    posts = get_posts_pagination(request, tag__name='Phim Ảnh')
+    tag = get_tags(name='Phim Ảnh')
+    sub_tags = get_tags(parent_tag__name='Phim Ảnh')
     return render(request, 'list.html', {'posts': posts, 'tag': tag, 'sub_tags': sub_tags})
 
 
 def movies_review(request):
-    posts = Post.objects.filter(
-        tag__name='Review', tag__parent_tag__name='Phim Ảnh').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Phim Ảnh', name='Review')
+    posts = get_posts_pagination(request, tag__name='Review', tag__parent_tag__name='Phim Ảnh')
+    tag = Tag.objects.get(name='Review', parent_tag__name='Phim Ảnh')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
 
 def movies_thought(request):
-    posts = Post.objects.filter(
-        tag__name='Cảm Nhận', tag__parent_tag__name='Phim Ảnh').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Phim Ảnh', name='Cảm Nhận')
+    posts = get_posts_pagination(request, tag__name='Cảm Nhận', tag__parent_tag__name='Phim Ảnh')
+    tag = Tag.objects.get(name='Cảm Nhận', parent_tag__name='Phim Ảnh')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
 
 def movies_discuss(request):
-    posts = Post.objects.filter(
-        tag__name='Bàn Luận', tag__parent_tag__name='Phim Ảnh').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Phim Ảnh', name='Bàn Luận')
+    posts = get_posts_pagination(request, tag__name='Bàn Luận', tag__parent_tag__name='Phim Ảnh')
+    tag = Tag.objects.get(name='Bàn Luận', parent_tag__name='Phim Ảnh')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
 # Animes
-
-
 def animes_all(request):
-    posts = Post.objects.filter(tag__name='Anime').order_by('-created_at')
-    tag = Tag.objects.get(name='Anime')
-    sub_tags = Tag.objects.filter(parent_tag__name='Anime')
+    posts = get_posts_pagination(request, tag__name='Anime')
+    tag = get_tags(name='Anime')
+    sub_tags = get_tags(parent_tag__name='Anime')
     return render(request, 'list.html', {'posts': posts, 'tag': tag, 'sub_tags': sub_tags})
 
 
 def animes_review(request):
-    posts = Post.objects.filter(
-        tag__name='Review', tag__parent_tag__name='Anime').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Anime', name='Review')
+    posts = get_posts_pagination(request, tag__name='Review', tag__parent_tag__name='Anime')
+    tag = Tag.objects.get(name='Review', parent_tag__name='Anime')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
 
 def animes_thought(request):
-    posts = Post.objects.filter(
-        tag__name='Cảm Nhận', tag__parent_tag__name='Anime').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Anime', name='Cảm Nhận')
+    posts = get_posts_pagination(request, tag__name='Cảm Nhận', tag__parent_tag__name='Anime')
+    tag = Tag.objects.get(name='Cảm Nhận', parent_tag__name='Anime')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
 
 def animes_discuss(request):
-    posts = Post.objects.filter(
-        tag__name='Bàn Luận', tag__parent_tag__name='Anime').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Anime', name='Bàn Luận')
+    posts = get_posts_pagination(request, tag__name='Bàn Luận', tag__parent_tag__name='Anime')
+    tag = Tag.objects.get(name='Bàn Luận', parent_tag__name='Anime')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
 
 # Mangas
-
-
 def mangas_all(request):
-    posts = Post.objects.filter(tag__name='Manga').order_by('-created_at')
-    tag = Tag.objects.get(name='Manga')
-    sub_tags = Tag.objects.filter(parent_tag__name='Manga')
+    posts = get_posts_pagination(request, tag__name='Manga')
+    tag = get_tags(name='Manga')
+    sub_tags = get_tags(parent_tag__name='Manga')
     return render(request, 'list.html', {'posts': posts, 'tag': tag, 'sub_tags': sub_tags})
 
 
 def mangas_review(request):
-    posts = Post.objects.filter(
-        tag__name='Review', tag__parent_tag__name='Manga').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Manga', name='Review')
+    posts = get_posts_pagination(request, tag__name='Review', tag__parent_tag__name='Manga')
+    tag = Tag.objects.get(name='Review', parent_tag__name='Manga')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
 
 def mangas_thought(request):
-    posts = Post.objects.filter(
-        tag__name='Cảm Nhận', tag__parent_tag__name='Manga').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Manga', name='Cảm Nhận')
+    posts = get_posts_pagination(request, tag__name='Cảm Nhận', tag__parent_tag__name='Manga')
+    tag = Tag.objects.get(name='Cảm Nhận', parent_tag__name='Manga')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
 # Video Games
-
-
 def video_games_all(request):
-    posts = Post.objects.filter(tag__name='Video Game').order_by('-created_at')
-    tag = Tag.objects.get(name='Video Game')
-    sub_tags = Tag.objects.filter(parent_tag__name='Video Game')
+    posts = get_posts_pagination(request, tag__name='Video Game')
+    tag = get_tags(name='Video Game')
+    sub_tags = get_tags(parent_tag__name='Video Game')
     return render(request, 'list.html', {'posts': posts, 'tag': tag, 'sub_tags': sub_tags})
 
 
 def video_games_review(request):
-    posts = Post.objects.filter(
-        tag__name='Review', tag__parent_tag__name='Video Game').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Video Game', name='Review')
+    posts = get_posts_pagination(request, tag__name='Review', tag__parent_tag__name='Video Game').order_by('-created_at')
+    tag = Tag.objects.get(name='Review', parent_tag__name='Video Game')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
 
 def video_games_thought(request):
-    posts = Post.objects.filter(
-        tag__name='Cảm Nhận', tag__parent_tag__name='Video Game').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Video Game', name='Cảm Nhận')
+    posts = get_posts_pagination(request, tag__name='Cảm Nhận', tag__parent_tag__name='Video Game')
+    tag = Tag.objects.get(name='Cảm Nhận', parent_tag__name='Video Game')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
 
 # Musics
-
 def musics_all(request):
-    posts = Post.objects.filter(tag__name='Âm Nhạc').order_by('-created_at')
-    tag = Tag.objects.get(name='Âm Nhạc')
-    sub_tags = Tag.objects.filter(parent_tag__name='Âm Nhạc')
+    posts = get_posts_pagination(request, tag__name='Âm Nhạc')
+    tag = get_tags(name='Âm Nhạc')
+    sub_tags = get_tags(parent_tag__name='Âm Nhạc')
     return render(request, 'list.html', {'posts': posts, 'tag': tag, 'sub_tags': sub_tags})
 
 
 def musics_thought(request):
-    posts = Post.objects.filter(
-        tag__name='Cảm Nhận', tag__parent_tag__name='Âm Nhạc').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Âm Nhạc', name='Cảm Nhận')
+    posts = get_posts_pagination(request, tag__name='Cảm Nhận', tag__parent_tag__name='Âm Nhạc')
+    tag = Tag.objects.get(name='Cảm Nhận', parent_tag__name='Âm Nhạc')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
 
 def musics_album(request):
-    posts = Post.objects.filter(
-        tag__name='Album', tag__parent_tag__name='Âm Nhạc').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Âm Nhạc', name='Album')
+    posts = get_posts_pagination(request, tag__name='Album', tag__parent_tag__name='Âm Nhạc')
+    tag = Tag.objects.get(name='Album', parent_tag__name='Âm Nhạc')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})
 
 
 def musics_song(request):
-    posts = Post.objects.filter(
-        tag__name='Bài Hát', tag__parent_tag__name='Âm Nhạc').order_by('-created_at')
-    tag = Tag.objects.get(
-        parent_tag__name='Âm Nhạc', name='Bài Hát')
+    posts = get_posts_pagination(request, tag__name='Bài Hát', tag__parent_tag__name='Âm Nhạc')
+    tag = Tag.objects.get(name='Bài Hát', parent_tag__name='Âm Nhạc')
     return render(request, 'list.html', {'posts': posts, 'tag': tag})

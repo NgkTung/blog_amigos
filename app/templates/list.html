@@ -41,7 +41,7 @@ static %} {% block content %}
         <p class="text-sm text-gray-600">{{ posts.0.description }}</p>
       </div>
     </div>
-    {% comment %} Post list {% endcomment %}
+    <!-- POST LIST  -->
     <div class="flex">
       <div class="flex flex-1 flex-col border-2 border-red-800 pr-4">
         {% for post in posts|slice:"1:" %}
@@ -71,6 +71,7 @@ static %} {% block content %}
           </div>
         </div>
         {% endfor %}
+        <!-- PAGINATION  -->
         <span class="text-center my-10">
           {% if posts.has_previous %}
               <a href="?page=1" class="mx-1 px-3 py-2 {% if posts.number == 1 %}active-link{% endif %}">&laquo; Trước</a>
@@ -84,7 +85,7 @@ static %} {% block content %}
       {% for i in posts.paginator.page_range %}
           {% if i > posts.number|add:"-3" and i < posts.number|add:"3" %}
               {% if posts.number == i %}
-                <div class="active-link">
+                <div class="active-link pointer-events-none cursor-text">
                   <a href="?page={{ i }}" class="mx-1">{{ i }}</a>
                 </div>
               {% else %}

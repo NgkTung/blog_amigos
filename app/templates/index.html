@@ -318,7 +318,7 @@
   </div>
   <div class="flex gap-x-6">
     <div class="flex flex-1 flex-col">
-      {% for post in posts|slice:":10" %}
+      {% for post in posts %}
       <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
         <div class="w-[250px] h-[200px] cursor-pointer flex-shrink-0">
           <a href="{% url 'post_view' pk=post.pk %}">
@@ -345,19 +345,44 @@
         </div>
       </div>
       {% endfor %}
+
+      <span class="text-center my-10">
+        {% if posts.has_previous %}
+            <a href="/posts/?page=1" class="mx-1 px-3 py-2 {% if posts.number == 1 %}active-link{% endif %}">&laquo; Trước</a>
+        {% endif %}
+
+        {% if posts.number > 3 %}
+          <a href="/posts/?page=1" class="mx-1 px-3 py-2">1</a>
+          <span class="mx-1 px-3 py-2">...</span>
+        {% endif %}
+
+        {% for i in posts.paginator.page_range %}
+            {% if i > posts.number|add:"-3" and i < posts.number|add:"3" %}
+                {% if posts.number == i %}
+                  <div class="active-link pointer-events-none cursor-text">
+                    <a href="/posts/?page={{ i }}" class="mx-1">{{ i }}</a>
+                  </div>
+                {% else %}
+                    <a href="/posts/?page={{ i }}" class="mx-1 px-3 py-2">{{ i }}</a>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+          {% if posts.has_next %}
+              <a href="/posts/?page={{ posts.paginator.num_pages }}" class="mx-1 px-3 py-2">Sau &raquo;</a>
+          {% endif %}
+      </span>
     </div>
     <div class="w-64 flex-none">Sidebar</div>
   </div>
   {% endblock %} {% block script %}
   <script>
+    // SWIPER JS 
     const swiperElAnime = document.querySelector(".swiper-container-anime");
     const swiperElManga = document.querySelector(".swiper-container-manga");
 
     const params = {
       centeredSlides: false,
-      keyboard: {
-        enabled: true,
-      },
       breakpoints: {
         "@0.75": {
           slidesPerView: 1,
