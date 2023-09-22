@@ -1,4 +1,4 @@
-<div class="w-72 flex-none border-2 border-blue-800 px-4">
+<div class="w-72 flex-none border-l border-gray-400 px-4">
   <div>
     <div class="py-px border-b-2 border-gray-400">
       <h6 class="font-bold">
@@ -20,7 +20,7 @@
       </li>
     </ul>
   </div>
-  <div>
+  <div class="mt-5">
     <div class="py-px border-b-2 border-gray-400">
       <h6 class="font-bold">
         <a href="{% url 'posts_thought' %}">Cảm Nhận</a>
@@ -44,7 +44,7 @@
       </li>
     </ul>
   </div>
-  <div>
+  <div class="mt-5">
     <div class="py-px border-b-2 border-gray-400">
       <h6 class="font-bold">
         <a href="{% url 'posts_discuss' %}">Bàn Luận</a>
@@ -58,5 +58,13 @@
         <a href="{% url 'animes_discuss' %}">Anime</a>
       </li>
     </ul>
+  </div>
+  <div class="mt-5">
+    <div class="py-px border-b-2 border-gray-400">
+      <h6 class="font-bold">
+        Được quan tâm
+      </h6>
+    </div>
+    {% block recommend %} {% endblock %}
   </div>
 </div>

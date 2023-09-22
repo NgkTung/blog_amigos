@@ -1,5 +1,7 @@
-{% extends "base.html" %} {% load static %} {% block title %} Blog Amigos
-{%endblock%} {% block content %}
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %} Blog Amigos {%endblock%} 
+{% block content %}
 <div class="w-11/12 max-w-[1600px] mx-auto">
   {% comment %} MOVIE POST LIST {% endcomment %}
   <div>
@@ -170,6 +172,7 @@
       <swiper-container
         class="flex swiper-container-anime"
         autoplay-delay="5000"
+        autoplay-disable-on-interaction="false"
       >
         {% for post in posts_anime %}
         <swiper-slide>
@@ -222,6 +225,7 @@
       <swiper-container
         class="flex swiper-container-manga"
         autoplay-delay="5000"
+        autoplay-disable-on-interaction="false"
       >
         {% for post in posts_manga %}
         <swiper-slide>
@@ -373,9 +377,100 @@
           {% endif %}
       </span>
     </div>
-    <div class="w-64 flex-none">Sidebar</div>
+    <!-- SUB SIDEBAR  -->
+    <div class="w-72 flex-none border-l border-gray-400 px-4">
+      <div>
+        <div class="py-px border-b-2 border-gray-400">
+          <h6 class="font-bold">
+            <a href="{% url 'posts_review' %}">Review</a>
+          </h6>
+        </div>
+        <ul class="p-4 list-square">
+          <li class="font-[500] hover:underline">
+            <a href="{% url 'movies_review' %}">Phim Ảnh</a>
+          </li>
+          <li class="font-[500] hover:underline">
+            <a href="{% url 'video_games_review' %}">Video Game</a>
+          </li>
+          <li class="font-[500] hover:underline">
+            <a href="{% url 'animes_review' %}">Anime</a>
+          </li>
+          <li class="font-[500] hover:underline">
+            <a href="{% url 'mangas_review' %}">Manga</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mt-5">
+        <div class="py-px border-b-2 border-gray-400">
+          <h6 class="font-bold">
+            <a href="{% url 'posts_thought' %}">Cảm Nhận</a>
+          </h6>
+        </div>
+        <ul class="p-4 list-square">
+          <li class="font-[500] hover:underline">
+            <a href="{% url 'movies_thought' %}">Phim Ảnh</a>
+          </li>
+          <li class="font-[500] hover:underline">
+            <a href="{% url 'video_games_thought' %}">Video Game</a>
+          </li>
+          <li class="font-[500] hover:underline">
+            <a href="{% url 'animes_thought' %}">Anime</a>
+          </li>
+          <li class="font-[500] hover:underline">
+            <a href="{% url 'mangas_thought' %}">Manga</a>
+          </li>
+          <li class="font-[500] hover:underline">
+            <a href="{% url 'musics_thought' %}">Âm Nhạc</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mt-5">
+        <div class="py-px border-b-2 border-gray-400">
+          <h6 class="font-bold">
+            <a href="{% url 'posts_discuss' %}">Bàn Luận</a>
+          </h6>
+        </div>
+        <ul class="p-4 list-square">
+          <li class="font-[500] hover:underline">
+            <a href="{% url 'movies_discuss' %}">Phim Ảnh</a>
+          </li>
+          <li class="font-[500] hover:underline">
+            <a href="{% url 'animes_discuss' %}">Anime</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mt-5">
+        <div class="py-px border-b-2 border-gray-400">
+          <h6 class="font-bold">
+            Được quan tâm
+          </h6>
+        </div>
+        <div class="flex flex-col gap-y-2 mt-5">
+          {% for post in recommend_posts %}
+            <div class="flex gap-x-2">
+              <div class="w-[100px] h-[80px] cursor-pointer flex-shrink-0">
+                <a href="{% url 'post_view' pk=post.pk %}">
+                  <img
+                    src="{{ post.image.url }}"
+                    class="w-full h-full object-cover"
+                  />
+                </a>
+              </div>
+              <div>
+                <p class="cursor-pointer hover:underline text-[16px] m-0 font-playfair font-[600]">
+                  <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+                </p>
+                <p class="text-sm text-gray-400">{{ post.created_at|date:"d/m/Y" }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    
   </div>
-  {% endblock %} {% block script %}
+  {% endblock %} 
+  {% block script %}
   <script>
     // SWIPER JS 
     const swiperElAnime = document.querySelector(".swiper-container-anime");
@@ -383,18 +478,22 @@
 
     const params = {
       centeredSlides: false,
+      allowTouchMove: false,
       breakpoints: {
         "@0.75": {
           slidesPerView: 1,
           slidesPerGroup: 1,
+          allowTouchMove: true
         },
         "@1.00": {
           slidesPerView: 3,
           slidesPerGroup: 3,
+          allowTouchMove: true
         },
         "@1.50": {
           slidesPerView: 5,
           slidesPerGroup: 5,
+          allowTouchMove: false
         },
       },
       pagination: {
