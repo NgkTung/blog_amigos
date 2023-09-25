@@ -37,7 +37,7 @@ swiper-container .swiper-pagination-bullets {
     @apply w-11/12 max-w-[400px] text-3xl font-[600] mx-auto my-6 text-center leading-10;
   }
   h3 {
-    @apply text-xl lg:text-[18px] font-[600];
+    @apply text-xl lg:text-[18px] sm:text-[14px] font-[600];
   }
   h4 {
     @apply text-lg font-[600];

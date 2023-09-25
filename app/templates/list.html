@@ -16,8 +16,8 @@
   </div>
   <div>
     <div class="flex lg:flex-col gap-x-8 border-y-2 py-10">
-      <div class="flex-1 h-[300px] lg:h-[250px] md:h-[200px] flex-shrink-0 flex-grow-0">
-        <a href="{% url 'post_view' pk=posts.0.pk %}" class="h-full w-full">
+      <div class="w-1/2 lg:w-full h-[300px] md:h-[200px] flex-shrink-0">
+        <a href="{% url 'post_view' pk=posts.0.pk %}">
           <img
             class="w-full object-cover h-full"
             src="{{ posts.0.image.url }}"
@@ -32,13 +32,15 @@
           <a href="{% url 'post_view' pk=posts.0.pk %}">{{ posts.0.title}}</a>
         </h3>
         <div>
-          {% for tag in posts.0.tag.all %} {% if 'Review' in tag.name %}
-          <p class="badge-review flex-shrink-0 inline">Review</p>
-          {% elif 'Cảm Nhận' in tag.name %}
-          <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
-          {% elif 'Bàn Luận' in tag.name %}
-          <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
-          {% endif %} {% endfor %}
+          {% for tag in posts.0.tag.all %} 
+            {% if 'Review' in tag.name %}
+              <p class="badge-review flex-shrink-0 inline">Review</p>
+            {% elif 'Cảm Nhận' in tag.name %}
+              <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
+            {% elif 'Bàn Luận' in tag.name %}
+              <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
+            {% endif %} 
+          {% endfor %}
         </div>
         <p class="text-sm text-gray-600">{{ posts.0.description }}</p>
       </div>
@@ -48,7 +50,7 @@
       <div class="flex flex-1 flex-col">
         {% for post in posts|slice:"1:9" %}
         <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
-          <div class="w-[250px] md:w-[200px] h-[200px] md:h-[150px] cursor-pointer flex-shrink-0">
+          <div class="w-full max-w-[150px] sm:w-[120px] md:h-[100px] cursor-pointer flex-shrink-0">
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
                 src="{{ post.image.url }}"
@@ -172,7 +174,7 @@
           <div class="flex flex-col gap-y-2 mt-5">
             {% for post in recommend_posts %}
               <div class="flex gap-x-2">
-                <div class="w-[100px] lg:w-[200px] h-[80px] lg:h-[150px] cursor-pointer flex-shrink-0">
+                <div class="w-[100px] lg:w-[150px] sm:w-[120px] h-[80px] md:h-[100px] sm:h-[100px] cursor-pointer flex-shrink-0">
                   <a href="{% url 'post_view' pk=post.pk %}">
                     <img
                       src="{{ post.image.url }}"

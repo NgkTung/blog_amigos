@@ -18,7 +18,7 @@
       <div class="pr-5 md:p-0 w-[500px] lg:w-full lg:border-t lg:border-gray-400">
         {% for post in posts_movie|slice:"1:6"%}
         <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
-          <div class="w-full max-w-[150px] md:h-[100px] h-auto cursor-pointer flex-shrink-0">
+          <div class="w-full max-w-[150px] sm:w-[120px] md:h-[100px] sm:h-[100px] h-auto cursor-pointer flex-shrink-0">
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
                 src="{{ post.image.url }}"
@@ -95,7 +95,7 @@
       <div class="pl-5 lg:p-0 w-[500px] lg:w-full lg:border-t lg:border-gray-400">
         {% for post in posts_video_game|slice:"1:6"%}
         <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
-          <div class="w-[150px] h-[100px] cursor-pointer flex-shrink-0">
+          <div class="w-full max-w-[150px] sm:w-[120px] md:h-[100px] sm:h-[100px] h-auto cursor-pointer flex-shrink-0">
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
                 src="{{ post.image.url }}"
@@ -287,7 +287,7 @@
       autoplay-disable-on-interaction="false"
     >
       {% for post in posts_music %}
-      <swiper-slide class="h-[70vh] relative w-full">
+      <swiper-slide class="h-[70vh] md:h-[40vh] sm:h-[30vh] relative w-full">
         <img
           src="{{ post.image.url }}"
           alt=""
@@ -299,7 +299,7 @@
         ></div>
         <div class="absolute top-2/4 left-16 md:left-4">
           <h3
-            class="text-center text-white hover:underline font-playfair text-[5vh] md:text-[22px] tracking-[3px] max-w-[800px] leading-[60px] md:leading-[30px]"
+            class="text-center text-white hover:underline font-playfair text-[5vh] md:text-[22px] sm:text-[16px] tracking-[3px] max-w-[800px] leading-[60px] md:leading-[30px]"
             style="text-decoration-color: white"
           >
             <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
@@ -326,7 +326,7 @@
     <div class="flex flex-1 flex-col">
       {% for post in posts %}
       <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
-        <div class="w-[250px] md:w-[200px] h-[200px] md:h-[150px] cursor-pointer flex-shrink-0">
+        <div class="w-full max-w-[150px] sm:w-[120px] md:h-[100px] cursor-pointer flex-shrink-0">
           <a href="{% url 'post_view' pk=post.pk %}">
             <img
               src="{{ post.image.url }}"
@@ -450,7 +450,7 @@
         <div class="flex flex-col gap-y-2 mt-5">
           {% for post in recommend_posts %}
             <div class="flex gap-x-2">
-              <div class="w-[100px] lg:w-[200px] h-[80px] lg:h-[150px] cursor-pointer flex-shrink-0">
+              <div class="w-[100px] lg:w-[150px] sm:w-[120px] h-[80px] md:h-[100px] sm:h-[100px] cursor-pointer flex-shrink-0">
                 <a href="{% url 'post_view' pk=post.pk %}">
                   <img
                     src="{{ post.image.url }}"
