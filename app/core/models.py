@@ -22,7 +22,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
     # Titlte of post
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, unique=True)
     # Some small information to introduce viewers to click the post
     description = models.CharField(
         max_length=250, default='This post has no description yet!')
