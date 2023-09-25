@@ -2727,6 +2727,10 @@ h4{
   padding: auto;
 }
 
+.p-px{
+  padding: 1px;
+}
+
 .\!py-0{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
@@ -5274,6 +5278,10 @@ swiper-container .swiper-pagination-bullets {
 }
 
 @media (max-width: 768px){
+  .md\:invisible{
+    visibility: hidden;
+  }
+
   .md\:fixed{
     position: fixed;
   }
@@ -5290,8 +5298,20 @@ swiper-container .swiper-pagination-bullets {
     left: 2rem;
   }
 
-  .md\:top-12{
-    top: 3rem;
+  .md\:top-2{
+    top: 0.5rem;
+  }
+
+  .md\:top-4{
+    top: 1rem;
+  }
+
+  .md\:right-2{
+    right: 0.5rem;
+  }
+
+  .md\:right-0{
+    right: 0px;
   }
 
   .md\:order-none{
@@ -5310,6 +5330,10 @@ swiper-container .swiper-pagination-bullets {
 
   .md\:mb-0{
     margin-bottom: 0px;
+  }
+
+  .md\:mt-5{
+    margin-top: 1.25rem;
   }
 
   .md\:block{
@@ -5356,9 +5380,9 @@ swiper-container .swiper-pagination-bullets {
     padding: 0px;
   }
 
-  .md\:py-10{
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+  .md\:py-8{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .md\:pr-1{
@@ -5378,6 +5402,10 @@ swiper-container .swiper-pagination-bullets {
     font-size: 14px;
   }
 
+  .md\:text-\[16px\]{
+    font-size: 16px;
+  }
+
   .md\:text-\[22px\]{
     font-size: 22px;
   }
@@ -5394,8 +5422,8 @@ swiper-container .swiper-pagination-bullets {
     line-height: 30px;
   }
 
-  .md\:leading-\[40px\]{
-    line-height: 40px;
+  .md\:leading-\[35px\]{
+    line-height: 35px;
   }
 }
 
@@ -5418,6 +5446,11 @@ swiper-container .swiper-pagination-bullets {
 
   .sm\:w-\[120px\]{
     width: 120px;
+  }
+
+  .sm\:text-2xl{
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .sm\:text-\[12px\]{

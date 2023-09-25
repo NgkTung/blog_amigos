@@ -4,8 +4,8 @@
 {% block content %}
 <div class="mx-auto w-11/12 max-w-[1600px]">
   <div class="pb-10 flex flex-col gap-y-4">
-    <p class="text-5xl md:text-3xl tracking-[2px] font-[600] font-playfair">{{tag.name}}</p>
-    <p class="font-playfair w-full max-w-[800px]">{{tag.description}}</p>
+    <p class="text-5xl md:text-3xl sm:text-2xl tracking-[2px] font-[600] font-playfair">{{tag.name}}</p>
+    <p class="font-playfair w-full max-w-[800px] md:text-[16px] sm:text-[14px]">{{tag.description}}</p>
     <ul class="flex gap-x-4">
       {% for sub_tag in sub_tags %}
       <li class="py-1 px-5 bg-black/80 hover:bg-black/50 text-white">
@@ -27,7 +27,7 @@
       </div>
       <div class="flex flex-col gap-y-2 flex-1 justify-center">
         <h3
-          class="text-[30px] md:text-[24px] font-[600] font-playfair hover:underline leading-[50px] md:leading-[40px]"
+          class="text-[30px] md:text-[24px] font-[600] font-playfair hover:underline leading-[50px] md:leading-[35px] md:mt-5"
         >
           <a href="{% url 'post_view' pk=posts.0.pk %}">{{ posts.0.title}}</a>
         </h3>
