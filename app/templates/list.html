@@ -25,7 +25,7 @@
           />
         </a>
       </div>
-      <div class="flex flex-col gap-y-3 flex-1 justify-center">
+      <div class="flex flex-col flex-1 justify-center">
         <h3
           class="text-[30px] font-[600] font-playfair hover:underline leading-[50px]"
         >
@@ -45,9 +45,12 @@
     </div>
     <!-- POST LIST  -->
     <div class="flex mt-5">
-      <div class="flex flex-1 flex-col">
-        {% for post in posts|slice:"1:" %}
-        <div class="flex gap-x-6 border-b-2 py-4">
+      <div class="flex flex-1 flex-col pr-4">
+        {% if posts|length == 0 %}
+          <h3 class="text-center text-4xl lg:text-2xl text-gray-400">Sorry, there's nothing in here! (●´⌓`●)</h3>
+        {% else %}
+          {% for post in posts|slice:"1:" %}
+            <div class="flex gap-x-6 border-b-2 py-4">
           <div class="w-[250px] h-[200px] cursor-pointer flex-shrink-0">
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
@@ -71,8 +74,9 @@
             </div>
             <p class="text-sm text-gray-600">{{post.description}}</p>
           </div>
-        </div>
-        {% endfor %}
+            </div>
+          {% endfor %}
+        {% endif %}
         <!-- PAGINATION  -->
         <span class="text-center my-10">
           {% if posts.has_previous %}
@@ -82,27 +86,28 @@
           {% if posts.number > 3 %}
           <a href="?page=1" class="mx-1 px-3 py-2">1</a>
           <span class="mx-1 px-3 py-2">...</span>
-      {% endif %}
+      
 
-      {% for i in posts.paginator.page_range %}
-          {% if i > posts.number|add:"-3" and i < posts.number|add:"3" %}
-              {% if posts.number == i %}
-                <div class="active-link pointer-events-none cursor-text">
-                  <a href="?page={{ i }}" class="mx-1">{{ i }}</a>
-                </div>
-              {% else %}
-                  <a href="?page={{ i }}" class="mx-1 px-3 py-2">{{ i }}</a>
-              {% endif %}
-          {% endif %}
-      {% endfor %}
-  
-          {% if posts.has_next %}
-              <a href="?page={{ posts.paginator.num_pages }}" class="mx-1 px-3 py-2">Sau &raquo;</a>
-          {% endif %}
+        {% for i in posts.paginator.page_range %}
+            {% if i > posts.number|add:"-3" and i < posts.number|add:"3" %}
+                {% if posts.number == i %}
+                  <div class="active-link pointer-events-none cursor-text">
+                    <a href="?page={{ i }}" class="mx-1">{{ i }}</a>
+                  </div>
+                {% else %}
+                    <a href="?page={{ i }}" class="mx-1 px-3 py-2">{{ i }}</a>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+                
+        {% if posts.has_next %}
+            <a href="?page={{ posts.paginator.num_pages }}" class="mx-1 px-3 py-2">Sau &raquo;</a>
+        {% endif %}
+      {% endif %}
       </span>
       </div>
       <!-- SUB SIDEBAR  -->
-    <div class="w-72 flex-none border-l border-gray-400 px-4">
+    <div class="w-72 flex-none border-l border-gray-400 pl-4">
       <div>
         <div class="py-px border-b-2 border-gray-400">
           <h6 class="font-bold">

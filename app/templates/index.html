@@ -14,11 +14,11 @@
       <!-- The right line -->
       <div class="flex-grow h-[1px] bg-gray-300"></div>
     </div>
-    <div class="py-5 flex">
-      <div class="pr-5 w-[500px]">
+    <div class="py-5 flex lg:flex-col-reverse">
+      <div class="pr-5 md:p-0 w-[500px] lg:w-full lg:border-t lg:border-gray-400">
         {% for post in posts_movie|slice:"1:6"%}
         <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
-          <div class="w-[150px] h-[100px] cursor-pointer flex-shrink-0">
+          <div class="w-full max-w-[150px] md:h-[100px] h-auto cursor-pointer flex-shrink-0">
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
                 src="{{ post.image.url }}"
@@ -49,9 +49,9 @@
 
       {% comment %} RIGHT SIDE {% endcomment %}
       <div
-        class="flex flex-col flex-1 gap-y-2 border-l border-gray-400 overflow-hidden pl-5"
+        class="flex flex-col flex-1 gap-y-2 border-l lg:border-none border-gray-400 overflow-hidden pl-5 lg:pl-0 lg:pb-5"
       >
-        <div class="w-full h-[500px] cursor-pointer flex-shrink-0">
+        <div class="w-full h-[500px] lg:h-[350px] md:h-[250px] sm:h-[200px] cursor-pointer flex-shrink-0">
           <a href="{% url 'post_view' pk=posts_movie.0.pk %}">
             <img
               src="{{ posts_movie.0.image.url }}"
@@ -60,7 +60,7 @@
           </a>
         </div>
         <h3
-          class="text-[30px] font-[600] font-playfair hover:underline leading-[50px]"
+          class="text-[30px] lg:text-[24px] font-[600] font-playfair hover:underline leading-[50px] lg:leading-[30px]"
         >
           <a href="{% url 'post_view' pk=posts_movie.0.pk %}"
             >{{ posts_movie.0.title }}</a
@@ -75,7 +75,7 @@
           <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
           {% endif %} {% endfor %}
         </div>
-        <p class="text-gray-600">{{ posts_movie.0.description }}</p>
+        <p class="text-gray-600 lg:text-[14px]">{{ posts_movie.0.description }}</p>
       </div>
     </div>
   </div>
@@ -91,8 +91,8 @@
       <!-- The right line -->
       <div class="flex-grow h-[1px] bg-gray-300"></div>
     </div>
-    <div class="py-5 flex flex-row-reverse">
-      <div class="pl-5 w-[500px]">
+    <div class="py-5 flex flex-row-reverse lg:flex-col-reverse">
+      <div class="pl-5 lg:p-0 w-[500px] lg:w-full lg:border-t lg:border-gray-400">
         {% for post in posts_video_game|slice:"1:6"%}
         <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
           <div class="w-[150px] h-[100px] cursor-pointer flex-shrink-0">
@@ -126,9 +126,9 @@
 
       {% comment %} LEFT SIDE {% endcomment %}
       <div
-        class="flex flex-col flex-1 gap-y-2 border-r border-gray-400 overflow-hidden pr-5"
+        class="flex flex-col flex-1 gap-y-2 border-r lg:border-none border-gray-400 overflow-hidden pr-5 lg:pl-0 lg:pb-5"
       >
-        <div class="w-full h-[500px] cursor-pointer flex-shrink-0">
+        <div class="w-full h-[500px] lg:h-[350px] md:h-[250px] sm:h-[200px] cursor-pointer flex-shrink-0">
           <a href="{% url 'post_view' pk=posts_video_game.0.pk %}">
             <img
               src="{{ posts_video_game.0.image.url }}"
@@ -137,7 +137,7 @@
           </a>
         </div>
         <h3
-          class="text-[30px] font-[600] font-playfair hover:underline leading-[50px]"
+          class="text-[30px] lg:text-[24px] font-[600] font-playfair hover:underline leading-[50px] lg:leading-[30px]"
         >
           <a href="{% url 'post_view' pk=posts_video_game.0.pk %}"
             >{{ posts_video_game.0.title }}</a
@@ -152,7 +152,7 @@
           <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
           {% endif %} {% endfor %}
         </div>
-        <p class="text-gray-600">{{ posts_video_game.0.description }}</p>
+        <p class="text-gray-600 lg:text-[14px]">{{ posts_video_game.0.description }}</p>
       </div>
     </div>
   </div>
@@ -295,9 +295,9 @@
         <div
           class="absolute h-[70vh] w-full bg-no-repeat bg-black/50 top-0"
         ></div>
-        <div class="absolute top-2/4 left-16">
+        <div class="absolute top-2/4 left-16 md:left-4">
           <h3
-            class="text-center text-white hover:underline font-playfair text-[5vh] tracking-[3px] max-w-[800px] leading-[60px]"
+            class="text-center text-white hover:underline font-playfair text-[5vh] md:text-[22px] tracking-[3px] max-w-[800px] leading-[60px] md:leading-[30px]"
             style="text-decoration-color: white"
           >
             <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
@@ -320,11 +320,11 @@
       <div class="flex-grow h-[1px] bg-gray-300"></div>
     </div>
   </div>
-  <div class="flex gap-x-6">
+  <div class="flex gap-x-6 lg:flex-col">
     <div class="flex flex-1 flex-col">
       {% for post in posts %}
       <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
-        <div class="w-[250px] h-[200px] cursor-pointer flex-shrink-0">
+        <div class="w-[250px] md:w-[150px] h-[200px] md:h-[100px] cursor-pointer flex-shrink-0">
           <a href="{% url 'post_view' pk=post.pk %}">
             <img
               src="{{ post.image.url }}"
@@ -378,7 +378,7 @@
       </span>
     </div>
     <!-- SUB SIDEBAR  -->
-    <div class="w-72 flex-none border-l border-gray-400 px-4">
+    <div class="w-72 lg:w-full flex-none border-l border-gray-400 pl-4">
       <div>
         <div class="py-px border-b-2 border-gray-400">
           <h6 class="font-bold">
@@ -485,12 +485,12 @@
           slidesPerGroup: 1,
           allowTouchMove: true
         },
-        "@1.00": {
+        "@1.25": {
           slidesPerView: 3,
           slidesPerGroup: 3,
           allowTouchMove: true
         },
-        "@1.50": {
+        "@2.0": {
           slidesPerView: 5,
           slidesPerGroup: 5,
           allowTouchMove: false

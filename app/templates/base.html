@@ -27,9 +27,9 @@
     {% include 'sidebar.html' %}
     <header>
       <div
-        class="flex items-center justify-between mx-auto w-11/12 max-w-[1600px]"
+        class="flex items-center justify-between md:justify-center mx-auto w-11/12 max-w-[1600px]"
       >
-        <button class="text-black p-2 sidebarToggle">
+        <button id="nav-btn" class="text-black bg-white z-40 p-2 sidebarToggle md:fixed md:left-2 md:top-2">
           <svg
             class="w-6 h-6"
             fill="none"
@@ -51,11 +51,11 @@
               ><span class="font-lato text-black">Blog</span> Amigos</a
             >
           </p>
-          <p class="text-sm text-gray-500 font-playfair text-center">
+          <p class="text-sm text-gray-500 font-playfair text-center md:hidden">
             Phim ảnh, video games, âm nhạc và nhiều hơn thế!
           </p>
         </div>
-        <div class="flex justify-center items-center gap-x-8">
+        <div class="flex justify-center items-center gap-x-8 md:hidden">
           <a
             href="https://www.facebook.com/profile.php?id=100009958477102"
             target="_blank"
@@ -71,7 +71,7 @@
       </div>
     </header>
     <nav
-      class="flex gap-x-20 justify-center items-center border-t-2 border-b-2 my-5 list-none sticky top-0 bg-white z-40"
+      class="flex gap-x-20 md:hidden justify-center items-center border-t-2 border-b-2 my-5 list-none sticky top-0 bg-white z-40"
     >
       <li
         class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/movies/' in request.path %}text-red-600{% endif %}"
@@ -100,8 +100,10 @@
       </li>
     </nav>
 
-    {% comment %} MAIN CONTENT {% endcomment %}
+    <!-- MAIN CONTENT  -->
     <main class="min-h-screen">{% block content %} {% endblock %}</main>
+
+    <!-- FOOTER  -->
     <footer class="bg-black w-full py-10 text-white text-center mt-14">
       <div class="flex flex-col gap-y-5">
         <p class="logo text-[24px]">
@@ -151,15 +153,27 @@
         sidebarOverlay.classList.toggle("hidden");
       });
 
-      //JavaScript code for navbar shadow whenever hit the top of page
+      //JavaScript code for navbar shadow whenever hit the top of page and sidebar button shadow whenever scroll down
       const navbar = document.querySelector("nav");
+      const navBtn = document.querySelector("#nav-btn")
+      const logo = document.querySelector(".logo")
       window.addEventListener("scroll", function () {
-        const bounding = navbar.getBoundingClientRect();
-        if (bounding.top <= 0) {
+        const boundingNav = navbar.getBoundingClientRect();
+        const boundingLogo = logo.getBoundingClientRect();
+        if (boundingNav.top <= 0) {
           navbar.classList.add("shadow-lg");
+          navBtn.classList.add("nav-btn");
         } else {
           navbar.classList.remove("shadow-lg");
+          navBtn.classList.remove("nav-btn");
         }
+        
+        if (boundingLogo.top < 0) {
+          navBtn.classList.add("nav-btn");
+        } else {
+          navBtn.classList.remove("nav-btn");
+        }
+     
       });
     </script>
   </body>
