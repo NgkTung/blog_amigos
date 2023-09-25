@@ -543,6 +543,7 @@ h1{
   margin-right: auto;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  width: 91.666667%;
   max-width: 500px;
   font-family: Playfair Display, sans-serif;
   font-size: 2.25rem;
@@ -550,6 +551,27 @@ h1{
   font-weight: 600;
   line-height: 60px;
   letter-spacing: 3px;
+}
+
+@media (max-width: 1024px){
+  h1{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+@media (max-width: 768px){
+  h1{
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (max-width: 640px){
+  h1{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 h2{
@@ -580,6 +602,7 @@ h3{
 @media (max-width: 640px){
   h3{
     font-size: 14px;
+    line-height: 1.25rem;
   }
 }
 
@@ -1161,6 +1184,10 @@ h4{
   margin-bottom: 0px;
 }
 
+.mb-10{
+  margin-bottom: 2.5rem;
+}
+
 .mb-2{
   margin-bottom: 0.5rem;
 }
@@ -1381,10 +1408,6 @@ h4{
   height: 100px;
 }
 
-.h-\[100vh\]{
-  height: 100vh;
-}
-
 .h-\[10px\]{
   height: 10px;
 }
@@ -1491,10 +1514,6 @@ h4{
 
 .h-screen{
   height: 100vh;
-}
-
-.h-\[400px\]{
-  height: 400px;
 }
 
 .max-h-\[calc\(100\%-64px\)\]{
@@ -1619,10 +1638,6 @@ h4{
 
 .w-\[160px\]{
   width: 160px;
-}
-
-.w-\[250px\]{
-  width: 250px;
 }
 
 .w-\[260px\]{
@@ -3154,6 +3169,10 @@ h4{
 
 .leading-\[2\.15\]{
   line-height: 2.15;
+}
+
+.leading-\[35px\]{
+  line-height: 35px;
 }
 
 .leading-\[40px\]{
@@ -5196,28 +5215,16 @@ swiper-container .swiper-pagination-bullets {
 }
 
 @media (max-width: 1024px){
-  .lg\:h-\[150px\]{
-    height: 150px;
-  }
-
-  .lg\:h-\[250px\]{
-    height: 250px;
-  }
-
   .lg\:h-\[350px\]{
     height: 350px;
   }
 
-  .lg\:w-\[200px\]{
-    width: 200px;
+  .lg\:w-\[150px\]{
+    width: 150px;
   }
 
   .lg\:w-full{
     width: 100%;
-  }
-
-  .lg\:w-\[150px\]{
-    width: 150px;
   }
 
   .lg\:flex-col{
@@ -5279,6 +5286,10 @@ swiper-container .swiper-pagination-bullets {
     left: 1rem;
   }
 
+  .md\:left-8{
+    left: 2rem;
+  }
+
   .md\:top-12{
     top: 3rem;
   }
@@ -5292,8 +5303,17 @@ swiper-container .swiper-pagination-bullets {
     margin-bottom: 0px;
   }
 
+  .md\:my-10{
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
   .md\:mb-0{
     margin-bottom: 0px;
+  }
+
+  .md\:block{
+    display: block;
   }
 
   .md\:hidden{
@@ -5302,10 +5322,6 @@ swiper-container .swiper-pagination-bullets {
 
   .md\:h-\[100px\]{
     height: 100px;
-  }
-
-  .md\:h-\[150px\]{
-    height: 150px;
   }
 
   .md\:h-\[200px\]{
@@ -5320,8 +5336,12 @@ swiper-container .swiper-pagination-bullets {
     height: 40vh;
   }
 
-  .md\:w-\[200px\]{
-    width: 200px;
+  .md\:h-\[50vh\]{
+    height: 50vh;
+  }
+
+  .md\:w-80{
+    width: 20rem;
   }
 
   .md\:flex-row{
@@ -5354,12 +5374,20 @@ swiper-container .swiper-pagination-bullets {
     line-height: 2.25rem;
   }
 
+  .md\:text-\[14px\]{
+    font-size: 14px;
+  }
+
   .md\:text-\[22px\]{
     font-size: 22px;
   }
 
   .md\:text-\[24px\]{
     font-size: 24px;
+  }
+
+  .md\:leading-6{
+    line-height: 1.5rem;
   }
 
   .md\:leading-\[30px\]{
@@ -5384,20 +5412,24 @@ swiper-container .swiper-pagination-bullets {
     height: 30vh;
   }
 
+  .sm\:w-60{
+    width: 15rem;
+  }
+
   .sm\:w-\[120px\]{
     width: 120px;
   }
 
-  .sm\:text-\[18px\]{
-    font-size: 18px;
-  }
-
-  .sm\:text-\[16px\]{
-    font-size: 16px;
+  .sm\:text-\[12px\]{
+    font-size: 12px;
   }
 
   .sm\:text-\[14px\]{
     font-size: 14px;
+  }
+
+  .sm\:text-\[16px\]{
+    font-size: 16px;
   }
 }
 

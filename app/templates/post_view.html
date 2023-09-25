@@ -2,22 +2,25 @@
 {%endblock %} {% block content %}
 <div class="post-view">
   <div
-    class="bg-cover h-[100vh] min-w-[100vw] relative w-full bg-center"
+    class="bg-cover h-screen md:h-[50vh] sm:h-[30vh] min-w-[100vw] relative w-full bg-center"
     style="background-image: url('{{ post.image.url }}')"
   >
-    <div class="absolute h-screen w-full bg-no-repeat bg-black/50"></div>
-    <div class="absolute top-1/2 left-32">
+  <div class="absolute h-screen md:h-[50vh] sm:h-[30vh] w-full bg-no-repeat bg-black/50"></div>
+    <div class="absolute top-1/2 left-32 md:left-8">
       <h3
-        class="text-center text-white font-playfair text-[40px] tracking-[3px] max-w-[800px] leading-[60px]"
+        class="text-center text-white font-playfair text-[40px] tracking-[3px] max-w-[800px] leading-[60px] md:hidden"
       >
         {{ post.title }}
       </h3>
     </div>
   </div>
 
-  <div class="my-20">
+  <div class="my-20 md:my-10">
+    <h3 class="text-center font-playfair text-[24px] tracking-[3px] max-w-[800px] leading-[35px] hidden md:block mb-10 px-5">
+      {{ post.title }}
+    </h3>
     <div
-      class="max-w-[800px] mx-auto w-11/12 bg-black text-white font-helvetica p-4 mb-20 tracking-[1px] text-[1.2rem] leading-8"
+      class="max-w-[800px] mx-auto w-11/12 bg-black text-white font-helvetica p-4 mb-20 tracking-[1px] text-[1.2rem] md:text-[14px] leading-8 md:leading-6"
     >
       {{ post.description }}
     </div>
