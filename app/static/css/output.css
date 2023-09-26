@@ -5436,6 +5436,10 @@ swiper-container .swiper-pagination-bullets {
     height: 30vh;
   }
 
+  .sm\:h-\[80px\]{
+    height: 80px;
+  }
+
   .sm\:w-60{
     width: 15rem;
   }
