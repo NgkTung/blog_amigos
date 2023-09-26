@@ -98,9 +98,15 @@ def posts_discuss_all(request):
 def post_view(request, pk):
     # Retrieve the post based on pk
     post = Post.objects.get(pk=pk)
+    # Get the post main tag
+    main_tag = post.tag.first()
+    # Recommend posts with same tag
+    recommend_posts_tag = Post.objects.filter(tag__name=main_tag.name).exclude(pk=post.pk).order_by('-created_at')[:5]
+    # Recommend posts
+    recommend_posts = Post.objects.all().order_by('-created_at')[:5]
     # Increase the time post has been seen
     post.increment_click_count()
-    return render(request, 'post_view.html', {'post': post})
+    return render(request, 'post_view.html', {'post': post, 'main_tag': main_tag, 'recommend_posts_tag': recommend_posts_tag, 'recommend_posts': recommend_posts})
 
 # About me page
 def about_me(request):

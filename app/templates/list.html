@@ -50,7 +50,7 @@
       <div class="flex flex-1 flex-col">
         {% for post in posts|slice:"1:9" %}
         <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
-          <div class="w-full max-w-[150px] sm:w-[120px] md:h-[100px] cursor-pointer flex-shrink-0">
+          <div class="w-full max-w-[300px] md:w-[200px] sm:w-[120px] h-[200px] md:h-[150px] sm:h-[80px] cursor-pointer flex-shrink-0">
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
                 src="{{ post.image.url }}"

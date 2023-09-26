@@ -1296,6 +1296,10 @@ h4{
   margin-top: 0.15rem;
 }
 
+.mt-20{
+  margin-top: 5rem;
+}
+
 .box-border{
   box-sizing: border-box;
 }
@@ -1414,6 +1418,10 @@ h4{
 
 .h-\[120px\]{
   height: 120px;
+}
+
+.h-\[150px\]{
+  height: 150px;
 }
 
 .h-\[160px\]{
@@ -1774,6 +1782,18 @@ h4{
 
 .max-w-full{
   max-width: 100%;
+}
+
+.max-w-\[250px\]{
+  max-width: 250px;
+}
+
+.max-w-\[0px\]{
+  max-width: 0px;
+}
+
+.max-w-\[300px\]{
+  max-width: 300px;
 }
 
 .flex-1{
@@ -2168,12 +2188,12 @@ h4{
        column-gap: 2rem;
 }
 
-.gap-y-2{
-  row-gap: 0.5rem;
+.gap-y-1{
+  row-gap: 0.25rem;
 }
 
-.gap-y-3{
-  row-gap: 0.75rem;
+.gap-y-2{
+  row-gap: 0.5rem;
 }
 
 .gap-y-4{
@@ -3087,6 +3107,10 @@ h4{
   line-height: 1rem;
 }
 
+.text-\[14px\]{
+  font-size: 14px;
+}
+
 .font-\[500\]{
   font-weight: 500;
 }
@@ -3706,7 +3730,7 @@ body {
   overflow-x: hidden;
 }
 
-.post-view p {
+.post-content p {
   width: 95%;
   max-width: 800px;
   margin: 20px auto;
@@ -3728,13 +3752,13 @@ swiper-container .swiper-pagination-bullets {
 }
 
 @media screen and (max-width: 768px) {
-  .post-view p{
+  .post-content p{
     font-size: 1rem;
   }
 }
 
 @media screen and (max-width: 640px) {
-  .post-view p{
+  .post-content p{
     font-size: 0.9rem;
   }
 }
@@ -5286,10 +5310,6 @@ swiper-container .swiper-pagination-bullets {
 }
 
 @media (max-width: 768px){
-  .md\:invisible{
-    visibility: hidden;
-  }
-
   .md\:fixed{
     position: fixed;
   }
@@ -5304,6 +5324,10 @@ swiper-container .swiper-pagination-bullets {
 
   .md\:left-8{
     left: 2rem;
+  }
+
+  .md\:top-10{
+    top: 2.5rem;
   }
 
   .md\:top-2{
@@ -5360,8 +5384,16 @@ swiper-container .swiper-pagination-bullets {
     height: 50vh;
   }
 
+  .md\:h-\[150px\]{
+    height: 150px;
+  }
+
   .md\:w-80{
     width: 20rem;
+  }
+
+  .md\:w-\[200px\]{
+    width: 200px;
   }
 
   .md\:flex-row{
@@ -5554,6 +5586,10 @@ swiper-container .swiper-pagination-bullets {
 
 .\[\&\>\*\:last-child\]\:border-b-0>*:last-child{
   border-bottom-width: 0px;
+}
+
+.\[\&\>p\]\:text-\[12px\]>p{
+  font-size: 12px;
 }
 
 .\[\&\>svg\]\:pointer-events-none>svg{

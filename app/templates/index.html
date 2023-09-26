@@ -178,7 +178,7 @@
         {% for post in posts_anime %}
         <swiper-slide>
           <div
-            class="flex flex-col gap-x-2 border-l border-gray-400 first:border-l-0"
+            class="flex flex-col gap-y-2 border-l border-gray-400 first:border-l-0"
           >
             <div class="w-full h-[200px]">
               <a href="{% url 'post_view' pk=post.pk %}">
@@ -232,7 +232,7 @@
         {% for post in posts_manga %}
         <swiper-slide>
           <div
-            class="flex flex-col gap-y-3 border-l border-gray-400 first:border-l-0"
+            class="flex flex-col gap-y-2 border-l border-gray-400 first:border-l-0"
           >
             <div class="w-full h-[200px]">
               <a href="{% url 'post_view' pk=post.pk %}">
@@ -326,7 +326,7 @@
     <div class="flex flex-1 flex-col">
       {% for post in posts %}
       <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
-        <div class="w-full max-w-[150px] sm:w-[120px] h-[100px] cursor-pointer flex-shrink-0">
+        <div class="w-full max-w-[300px] md:w-[200px] sm:w-[120px] h-[200px] md:h-[150px] sm:h-[80px] cursor-pointer flex-shrink-0">
           <a href="{% url 'post_view' pk=post.pk %}">
             <img
               src="{{ post.image.url }}"
@@ -485,12 +485,18 @@
         "@0.75": {
           slidesPerView: 1,
           slidesPerGroup: 1,
-          allowTouchMove: true
+          allowTouchMove: true,
+          pagination: {
+            type: 'progressbar'
+          }
         },
         "@1.25": {
           slidesPerView: 3,
           slidesPerGroup: 3,
-          allowTouchMove: true
+          allowTouchMove: true,
+          pagination: {
+            type: 'progressbar'
+          }
         },
         "@2.0": {
           slidesPerView: 5,
