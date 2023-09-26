@@ -1420,10 +1420,6 @@ h4{
   height: 120px;
 }
 
-.h-\[150px\]{
-  height: 150px;
-}
-
 .h-\[160px\]{
   height: 160px;
 }
@@ -2180,6 +2176,10 @@ h4{
        column-gap: 2rem;
 }
 
+.gap-y-1{
+  row-gap: 0.25rem;
+}
+
 .gap-y-2{
   row-gap: 0.5rem;
 }
@@ -2190,10 +2190,6 @@ h4{
 
 .gap-y-5{
   row-gap: 1.25rem;
-}
-
-.gap-y-1{
-  row-gap: 0.25rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
@@ -2364,6 +2360,10 @@ h4{
   border-width: 0px;
 }
 
+.border-2{
+  border-width: 2px;
+}
+
 .border-\[\.125rem\]{
   border-width: .125rem;
 }
@@ -2374,10 +2374,6 @@ h4{
 
 .border-\[14px\]{
   border-width: 14px;
-}
-
-.border-2{
-  border-width: 2px;
 }
 
 .border-y-2{
@@ -5243,12 +5239,12 @@ swiper-container .swiper-pagination-bullets {
 }
 
 @media (max-width: 1024px){
-  .lg\:h-\[350px\]{
-    height: 350px;
-  }
-
   .lg\:h-\[150px\]{
     height: 150px;
+  }
+
+  .lg\:h-\[350px\]{
+    height: 350px;
   }
 
   .lg\:w-\[150px\]{
@@ -5257,18 +5253,6 @@ swiper-container .swiper-pagination-bullets {
 
   .lg\:w-full{
     width: 100%;
-  }
-
-  .lg\:w-\[300p\]{
-    width: 300p;
-  }
-
-  .lg\:w-\[300px\]{
-    width: 300px;
-  }
-
-  .lg\:max-w-\[300px\]{
-    max-width: 300px;
   }
 
   .lg\:max-w-\[250px\]{
@@ -5412,18 +5396,6 @@ swiper-container .swiper-pagination-bullets {
     width: 200px;
   }
 
-  .md\:w-full{
-    width: 100%;
-  }
-
-  .md\:w-\[250px\]{
-    width: 250px;
-  }
-
-  .md\:w-\[300p\]{
-    width: 300p;
-  }
-
   .md\:flex-row{
     flex-direction: row;
   }
@@ -5470,6 +5442,10 @@ swiper-container .swiper-pagination-bullets {
     font-size: 24px;
   }
 
+  .md\:text-\[20px\]{
+    font-size: 20px;
+  }
+
   .md\:leading-6{
     line-height: 1.5rem;
   }
@@ -5496,12 +5472,12 @@ swiper-container .swiper-pagination-bullets {
     height: 30vh;
   }
 
-  .sm\:h-\[80px\]{
-    height: 80px;
-  }
-
   .sm\:h-\[40vh\]{
     height: 40vh;
+  }
+
+  .sm\:h-\[80px\]{
+    height: 80px;
   }
 
   .sm\:w-60{
@@ -5510,6 +5486,14 @@ swiper-container .swiper-pagination-bullets {
 
   .sm\:w-\[120px\]{
     width: 120px;
+  }
+
+  .sm\:w-full{
+    width: 100%;
+  }
+
+  .sm\:flex-col{
+    flex-direction: column;
   }
 
   .sm\:text-2xl{
@@ -5527,6 +5511,10 @@ swiper-container .swiper-pagination-bullets {
 
   .sm\:text-\[16px\]{
     font-size: 16px;
+  }
+
+  .sm\:text-\[18px\]{
+    font-size: 18px;
   }
 }
 
@@ -5618,6 +5606,12 @@ swiper-container .swiper-pagination-bullets {
 
 .\[\&\>\*\:last-child\]\:border-b-0>*:last-child{
   border-bottom-width: 0px;
+}
+
+@media (max-width: 640px){
+  .sm\:\[\&\>h4\]\:text-\[18px\]>h4{
+    font-size: 18px;
+  }
 }
 
 .\[\&\>p\]\:text-\[12px\]>p{
