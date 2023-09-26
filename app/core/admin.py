@@ -15,10 +15,14 @@ def delete_image(public_id):
         print(f"Error deleting image with public ID '{public_id}': {str(e)}")
 
 
-class MyModelAdmin(admin.ModelAdmin):
+# Post Admin Panel
+class PostAdmin(admin.ModelAdmin):
+    # Change the image upload field to cloudinary upload field
     formfield_overrides = {
         models.ImageField: {'widget': CloudinaryFileField}
     }
+
+    exclude = ['click_count'] # The click count will be set to a default value of 0 when the post is created
 
     def save_model(self, request, obj, form, change):
         if change and 'image' in form.changed_data:
@@ -46,5 +50,5 @@ class MyModelAdmin(admin.ModelAdmin):
         super().delete_model(request, obj)
 
 
-admin.site.register(Post, MyModelAdmin)
+admin.site.register(Post, PostAdmin)
 admin.site.register(Tag)
