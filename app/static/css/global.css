@@ -29,6 +29,18 @@ swiper-container .swiper-pagination-bullets {
   bottom: -15px !important;
 }
 
+@media screen and (max-width: 768px) {
+  .post-view p{
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .post-view p{
+    font-size: 0.9rem;
+  }
+}
+
 @layer base {
   h1 {
     @apply text-4xl lg:text-3xl md:text-2xl sm:text-xl font-[600] font-playfair w-11/12 max-w-[500px] mx-auto tracking-[3px] leading-[60px] my-8;

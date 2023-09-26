@@ -2727,10 +2727,6 @@ h4{
   padding: auto;
 }
 
-.p-px{
-  padding: 1px;
-}
-
 .\!py-0{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
@@ -3729,6 +3725,18 @@ body {
 
 swiper-container .swiper-pagination-bullets {
   bottom: -15px !important;
+}
+
+@media screen and (max-width: 768px) {
+  .post-view p{
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .post-view p{
+    font-size: 0.9rem;
+  }
 }
 
 .selection\:bg-transparent *::-moz-selection{
@@ -5300,18 +5308,6 @@ swiper-container .swiper-pagination-bullets {
 
   .md\:top-2{
     top: 0.5rem;
-  }
-
-  .md\:top-4{
-    top: 1rem;
-  }
-
-  .md\:right-2{
-    right: 0.5rem;
-  }
-
-  .md\:right-0{
-    right: 0px;
   }
 
   .md\:order-none{
