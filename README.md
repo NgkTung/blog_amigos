@@ -1,4 +1,4 @@
-# blog_amigos
+# Blog Amigos
 A git code for Blog Amigos
 
 ## Description
