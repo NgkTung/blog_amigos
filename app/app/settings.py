@@ -1,24 +1,37 @@
 from pathlib import Path
 from dotenv import load_dotenv
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv()
+project_folder = os.path.expanduser('/home/tinproht123/blog_amigos/app')
+load_dotenv(os.path.join(project_folder, '.env'))
+
+import cloudinary
+CLOUD_NAME = os.environ.get('CLOUD_NAME')
+CLOUD_API_KEY = os.environ.get('CLOUD_API_KEY')
+CLOUD_API_SECRET = os.environ.get('CLOUD_API_SECRET')
+
+cloudinary.config(
+    cloud_name=CLOUD_NAME,
+    api_key=CLOUD_API_KEY,
+    api_secret=CLOUD_API_SECRET,
+    api_proxy = "http://proxy.server:3128"
+)
+
+import cloudinary.uploader
+import cloudinary.api
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-q06^4*wh08f)znqh*58rj=+cw2_n(r56s0g7-8h#v35(c^+&@3'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG')
+DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ["tinproht123.pythonanywhere.com"]
+ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
 # ALLOWED_HOSTS += os.environ.get("ALLOWED_HOSTS", "").split()
 
 # Application definition
@@ -32,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tinymce',
-    'core'
+    'core',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -76,11 +90,10 @@ DATABASES = {
     # )
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tinproht123$blog_amigos',
-        'USER': 'tinproht123',
-        'PASSWORD': 'Hermajesty123',
-        'HOST': 'tinproht123.mysql.pythonanywhere-services.com',
-        # 'PORT': os.getenv("DB_PORT")
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USERNAME'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
     }
 }
 
@@ -119,19 +132,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static'
+STATIC_URL = '/static/'
 STATIC_ROOT = '/home/tinproht123/blog_amigos/app/static'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-#     ('node_modules', os.path.join(BASE_DIR, 'node_modules/')),
-# ]
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-TINY_KEY = 'e1z2ci0o58be0byyvt0497u14ass22p30vuy9sdf6ch9hqm3'
+TINY_KEY = os.environ.get('TINY_KEY')
 TINYMCE_JS_URL = "https://cdn.tiny.cloud/1/{TINY_KEY}/tinymce/6/tinymce.min.js"
 
 TINYMCE_COMPRESSOR = False
@@ -152,42 +158,5 @@ TINYMCE_DEFAULT_CONFIG = {
 
 }
 
-CLOUD_NAME = 'dige8bejc'
-CLOUD_API_KEY = '626772879517829'
-CLOUD_API_SECRET = '7gwoTCA5_FvXBt6sdkjNDKTEki0'
-
-cloudinary.config(
-    cloud_name=CLOUD_NAME,
-    api_key=CLOUD_API_KEY,
-    api_secret=CLOUD_API_SECRET
-)
 
 CORS_ORIGIN_ALLOW_ALL = True
-
-# CORS_ORIGIN_WHITELIST = [
-#     '*',
-#     'http://tinproht123.pythonanywhere.com',
-#     'http://localhost:3000',
-#     # Add other allowed origins as needed
-# ]
-
-# CORS_ALLOW_METHODS = [
-#     'GET',
-#     'POST',
-#     'PUT',
-#     'PATCH',
-#     'DELETE',
-#     'OPTIONS',
-# ]
-
-# CORS_ALLOW_HEADERS = [
-#     'accept',
-#     'accept-encoding',
-#     'authorization',
-#     'content-type',
-#     'dnt',
-#     'origin',
-#     'user-agent',
-#     'x-csrftoken',
-#     'x-requested-with',
-# ]
