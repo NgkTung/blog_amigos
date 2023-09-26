@@ -13,4 +13,5 @@ Blog Amigos is my blog where I write my thoughts about movies I seen, video game
 - Version 0.0.1 - 22/09/2023
   + Alpha version of Blog Amigos
 - Version 0.0.2 - 25/09/2023
-  + Add reponsive
+  + Add reponsive layout
+  + Add a recommendation system
