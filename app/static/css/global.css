@@ -17,7 +17,7 @@ body {
 }
 
 .post-content code{
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #475569;
 }
 
@@ -38,6 +38,9 @@ swiper-container .swiper-pagination-bullets {
 @media (max-width: 768px) {
   .post-content p{
     font-size: 1rem;
+  }
+  .post-content code{
+    font-size: 0.8rem;
   }
 }
 
