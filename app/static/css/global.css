@@ -22,6 +22,9 @@ body {
   width: 95%;
   max-width: 700px;
   margin-inline:auto;
+  display:block;
+  text-wrap: wrap;
+  text-align:center;
 }
 
 .post-view img {
@@ -43,7 +46,7 @@ swiper-container .swiper-pagination-bullets {
     font-size: 1rem;
   }
   .post-content code{
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 }
 
