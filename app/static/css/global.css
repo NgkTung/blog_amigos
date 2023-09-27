@@ -17,9 +17,6 @@ body {
 }
 
 .post-content code{
-  width: 95%;
-  max-width:500px;
-  margin-inline: auto;
   font-size: 0.8rem;
   color: #94a3b8;
 }

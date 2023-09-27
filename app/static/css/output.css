@@ -3725,6 +3725,11 @@ body {
   font-size: 1.2rem;
 }
 
+.post-content code{
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
 .post-view img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -5434,16 +5439,16 @@ swiper-container .swiper-pagination-bullets {
     font-size: 16px;
   }
 
+  .md\:text-\[20px\]{
+    font-size: 20px;
+  }
+
   .md\:text-\[22px\]{
     font-size: 22px;
   }
 
   .md\:text-\[24px\]{
     font-size: 24px;
-  }
-
-  .md\:text-\[20px\]{
-    font-size: 20px;
   }
 
   .md\:leading-6{
@@ -5606,12 +5611,6 @@ swiper-container .swiper-pagination-bullets {
 
 .\[\&\>\*\:last-child\]\:border-b-0>*:last-child{
   border-bottom-width: 0px;
-}
-
-@media (max-width: 640px){
-  .sm\:\[\&\>h4\]\:text-\[18px\]>h4{
-    font-size: 18px;
-  }
 }
 
 .\[\&\>p\]\:text-\[12px\]>p{
