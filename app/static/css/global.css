@@ -20,6 +20,11 @@ body {
   font-size: 1rem;
   color: #475569;
 }
+.post-content pre{
+  width: 95%;
+  max-width: 700px;
+  margin-inline:auto;
+}
 
 .post-view img {
   object-fit: cover;
