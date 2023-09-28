@@ -104,9 +104,11 @@ def post_view(request, pk):
     recommend_posts_tag = Post.objects.filter(tag__name=main_tag.name).exclude(pk=pk).order_by('-created_at')[:5]
     # Recommend posts
     recommend_posts = Post.objects.all().exclude(pk=pk).order_by('-created_at')[:5]
+    # Count number of words
+    time_read = round(post.word_count() / 300)
     # Increase the time post has been seen
     post.increment_click_count()
-    return render(request, 'post_view.html', {'post': post, 'main_tag': main_tag, 'recommend_posts_tag': recommend_posts_tag, 'recommend_posts': recommend_posts})
+    return render(request, 'post_view.html', {'post': post, 'main_tag': main_tag, 'recommend_posts_tag': recommend_posts_tag, 'recommend_posts': recommend_posts, 'time_read': time_read})
 
 # About me page
 def about_me(request):

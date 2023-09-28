@@ -2204,6 +2204,16 @@ h4{
   row-gap: 1.25rem;
 }
 
+.gap-x-5{
+  -moz-column-gap: 1.25rem;
+       column-gap: 1.25rem;
+}
+
+.gap-x-10{
+  -moz-column-gap: 2.5rem;
+       column-gap: 2.5rem;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -5499,6 +5509,10 @@ swiper-container .swiper-pagination-bullets {
 }
 
 @media (max-width: 640px){
+  .sm\:mb-10{
+    margin-bottom: 2.5rem;
+  }
+
   .sm\:h-\[100px\]{
     height: 100px;
   }

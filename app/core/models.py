@@ -45,6 +45,10 @@ class Post(models.Model):
         self.click_count += 1
         self.save()
 
+    def word_count(self):
+        content_words = self.content.split()
+        return len(content_words)
+
     # Custome save post method
     def save(self, *args, **kwargs):
         # To ensure that the click_count cannot go below 0

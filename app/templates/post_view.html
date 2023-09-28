@@ -16,13 +16,18 @@
     </div>
   </div>
 
-  <div class="my-20 md:my-10">
-    <h3 class="text-center font-playfair text-[24px] tracking-[3px] max-w-[800px] leading-[35px] hidden md:block mb-10 px-5">
+  <div class="my-10">
+    <h3 class="text-center font-playfair text-[24px] tracking-[3px] max-w-[800px] leading-[35px] hidden md:block mb-5 px-5">
       <!-- POST TITLE FOR MOBILE VERSION -->
       {{ post.title }}
     </h3>
+    <!-- SUB INFORMATION  -->
+    <div class="w-11/12 max-w-[800px] mx-auto py-5 border-b-2 border-gray-400 mb-5 flex gap-x-10 text-gray-500">
+      <p>{{ post.created_at|date:"d/m/Y" }}</p>
+      <p>{{ time_read }} phút đọc</p>
+    </div>
     <div
-      class="max-w-[800px] mx-auto w-11/12 bg-black text-white font-helvetica p-4 mb-20 tracking-[1px] text-[1.2rem] md:text-[14px] leading-8 md:leading-6"
+      class="max-w-[800px] mx-auto w-11/12 bg-black text-white font-helvetica p-4 mb-20 sm:mb-10 tracking-[1px] text-[1.2rem] md:text-[14px] leading-8 md:leading-6"
     >
       <!-- POST DESCRIPTION  -->
       {{ post.description }}
