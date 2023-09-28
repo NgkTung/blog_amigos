@@ -1025,6 +1025,18 @@ h4{
   top: 100%;
 }
 
+.top-5{
+  top: 1.25rem;
+}
+
+.top-8{
+  top: 2rem;
+}
+
+.top-6{
+  top: 1.5rem;
+}
+
 .\!z-40{
   z-index: 40 !important;
 }
@@ -3105,6 +3117,10 @@ h4{
 
 .text-\[20px\]{
   font-size: 20px;
+}
+
+.text-\[26px\]{
+  font-size: 26px;
 }
 
 .font-\[500\]{
@@ -5538,6 +5554,10 @@ swiper-container .swiper-pagination-bullets {
 
   .sm\:text-\[18px\]{
     font-size: 18px;
+  }
+
+  .sm\:text-\[20px\]{
+    font-size: 20px;
   }
 }
 
