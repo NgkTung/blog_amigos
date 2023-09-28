@@ -105,7 +105,7 @@ def post_view(request, pk):
     # Recommend posts
     recommend_posts = Post.objects.all().exclude(pk=pk).order_by('-created_at')[:5]
     # Count number of words
-    time_read = round(post.word_count() / 300)
+    time_read = round(post.word_count() / 200)
     # Increase the time post has been seen
     post.increment_click_count()
     return render(request, 'post_view.html', {'post': post, 'main_tag': main_tag, 'recommend_posts_tag': recommend_posts_tag, 'recommend_posts': recommend_posts, 'time_read': time_read})
