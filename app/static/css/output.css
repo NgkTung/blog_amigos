@@ -3099,6 +3099,14 @@ h4{
   line-height: 1rem;
 }
 
+.text-\[14px\]{
+  font-size: 14px;
+}
+
+.text-\[20px\]{
+  font-size: 20px;
+}
+
 .font-\[500\]{
   font-weight: 500;
 }

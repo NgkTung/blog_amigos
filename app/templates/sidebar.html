@@ -7,8 +7,13 @@
 <div
   class="sidebar fixed p-4 inset-y-0 left-0 w-96 md:w-80 sm:w-60 bg-white shadow z-50 -translate-x-full transform ease-in-out transition-transform duration-300"
 >
-  <div class="text-right w-full close-btn">
-    <button>
+  <div class="w-full relative">
+    <p class="logo text-[24px]">
+      <a href="{% url 'index' %}"
+        ><span class="font-lato text-black">Blog</span> Amigos</a
+      >
+    </p>
+    <button class="close-btn absolute right-0 top-0">
       <svg
         fill="#000000"
         width="30px"
