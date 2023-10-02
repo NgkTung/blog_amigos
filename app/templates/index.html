@@ -21,7 +21,7 @@
           <div class="w-full max-w-[150px] sm:w-[120px] h-[100px] cursor-pointer flex-shrink-0">
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
-                src="{{ post.image.url }}"
+                data-lazy="{{ post.image.url }}"
                 class="w-full h-full object-cover"
               />
             </a>
@@ -54,7 +54,7 @@
         <div class="w-full h-[500px] lg:h-[350px] md:h-[250px] sm:h-[200px] cursor-pointer flex-shrink-0">
           <a href="{% url 'post_view' pk=posts_movie.0.pk %}">
             <img
-              src="{{ posts_movie.0.image.url }}"
+              data-lazy="{{ posts_movie.0.image.url }}"
               class="w-full h-full object-cover"
             />
           </a>
@@ -98,7 +98,7 @@
           <div class="w-full max-w-[150px] sm:w-[120px] h-[100px] cursor-pointer flex-shrink-0">
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
-                src="{{ post.image.url }}"
+                data-lazy="{{ post.image.url }}"
                 class="w-full h-full object-cover"
               />
             </a>
@@ -131,7 +131,7 @@
         <div class="w-full h-[500px] lg:h-[350px] md:h-[250px] sm:h-[200px] cursor-pointer flex-shrink-0">
           <a href="{% url 'post_view' pk=posts_video_game.0.pk %}">
             <img
-              src="{{ posts_video_game.0.image.url }}"
+              data-lazy="{{ posts_video_game.0.image.url }}"
               class="w-full h-full object-cover"
             />
           </a>
@@ -183,7 +183,7 @@
             <div class="w-full h-[200px]">
               <a href="{% url 'post_view' pk=post.pk %}">
                 <img
-                  src="{{ post.image.url }}"
+                  data-lazy="{{ post.image.url }}"
                   alt="{{ post.title }}"
                   class="w-full h-full object-cover object-center"
                 />
@@ -237,7 +237,7 @@
             <div class="w-full h-[200px]">
               <a href="{% url 'post_view' pk=post.pk %}">
                 <img
-                  src="{{ post.image.url }}"
+                  data-lazy="{{ post.image.url }}"
                   alt="{{ post.title }}"
                   class="w-full h-full object-cover object-center"
                 />
@@ -289,7 +289,7 @@
       {% for post in posts_music %}
       <swiper-slide class="h-[70vh] md:h-[40vh] sm:h-[30vh] relative w-full">
         <img
-          src="{{ post.image.url }}"
+          data-lazy="{{ post.image.url }}"
           alt=""
           class="w-full h-full object-cover object-center"
         />
@@ -329,7 +329,7 @@
         <div class="w-full max-w-[300px] md:w-[200px] sm:w-[120px] h-[200px] md:h-[150px] sm:h-[80px] cursor-pointer flex-shrink-0">
           <a href="{% url 'post_view' pk=post.pk %}">
             <img
-              src="{{ post.image.url }}"
+              data-lazy="{{ post.image.url }}"
               class="w-full h-full object-cover"
             />
           </a>
@@ -453,7 +453,7 @@
               <div class="w-[100px] lg:w-[150px] sm:w-[120px] h-[80px] md:h-[100px] cursor-pointer flex-shrink-0">
                 <a href="{% url 'post_view' pk=post.pk %}">
                   <img
-                    src="{{ post.image.url }}"
+                    data-lazy="{{ post.image.url }}"
                     class="w-full h-full object-cover"
                   />
                 </a>

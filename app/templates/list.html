@@ -20,7 +20,7 @@
         <a href="{% url 'post_view' pk=posts.0.pk %}">
           <img
             class="w-full object-cover h-full"
-            src="{{ posts.0.image.url }}"
+            data-lazy="{{ posts.0.image.url }}"
             alt=""
           />
         </a>
@@ -53,7 +53,7 @@
           <div class="w-full max-w-[300px] md:w-[200px] sm:w-[120px] h-[200px] md:h-[150px] sm:h-[80px] cursor-pointer flex-shrink-0">
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
-                src="{{ post.image.url }}"
+                data-lazy="{{ post.image.url }}"
                 class="w-full h-full object-cover"
               />
             </a>
@@ -177,7 +177,7 @@
                 <div class="w-[100px] lg:w-[150px] sm:w-[120px] h-[80px] md:h-[100px] sm:h-[100px] cursor-pointer flex-shrink-0">
                   <a href="{% url 'post_view' pk=post.pk %}">
                     <img
-                      src="{{ post.image.url }}"
+                      data-lazy="{{ post.image.url }}"
                       class="w-full h-full object-cover"
                     />
                   </a>

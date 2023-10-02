@@ -162,9 +162,14 @@
       const navbar = document.querySelector("nav");
       const navBtn = document.querySelector("#nav-btn");
       const logoHead = document.querySelector(".logo-head");
+      const images = document.querySelectorAll('img')
+
+      // Handle all scroll listeners event
       window.addEventListener("scroll", function () {
         const boundingNav = navbar.getBoundingClientRect();
         const boundingLogoHead = logoHead.getBoundingClientRect();
+
+        // Add shadow and put navbar on the top of page when scroll down
         if (boundingNav.top <= 0) {
           navbar.classList.add("shadow-lg");
           navBtn.classList.add("nav-btn");
@@ -173,6 +178,7 @@
           navBtn.classList.remove("nav-btn");
         }
 
+        // Highlight the nav button when scroll down 
         if (boundingLogoHead.top < 0) {
           navBtn.classList.add("nav-btn");
           navBtn.classList.remove("md:top-10");
@@ -183,6 +189,26 @@
           navBtn.classList.add("md:top-10");
         }
       });
+
+      // Lazy loading image
+      const lazyLoad = target => {
+          const io = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if(entry.isIntersecting) {
+                const img = entry.target;
+                const src = img.getAttribute('data-lazy');
+
+                img.setAttribute('src', src);
+                img.classList.add('fade');
+
+                observer.disconnect();
+              }
+            });
+          });
+          io.observe(target);
+        }
+        // Call the function
+        images.forEach(lazyLoad)
     </script>
   </body>
 </html>

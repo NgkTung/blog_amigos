@@ -732,6 +732,22 @@ h4{
   }
 }
 
+img{
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-delay: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade{
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-delay: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
