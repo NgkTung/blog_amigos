@@ -56,7 +56,7 @@
           <div class="w-full lg:max-w-[250px] md:w-[200px] sm:w-[120px] h-[200px] lg:h-[150px] sm:h-[80px] border-2 flex-shrink-0">
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
-                src="{{ post.image.url }}"
+                data-lazy="{{ post.image.url }}"
                 alt="{{ post.title }}"
                 class="w-full h-full object-cover object-center"
               />
@@ -101,7 +101,7 @@
           <div class="w-full lg:max-w-[250px] md:w-[200px] sm:w-[120px] h-[200px] lg:h-[150px] sm:h-[80px] border-2 flex-shrink-0">
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
-                src="{{ post.image.url }}"
+                data-lazy="{{ post.image.url }}"
                 alt="{{ post.title }}"
                 class="w-full h-full object-cover object-center"
               />
