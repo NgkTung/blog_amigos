@@ -1005,6 +1005,10 @@ h4{
   top: 50%;
 }
 
+.top-6{
+  top: 1.5rem;
+}
+
 .top-\[11px\]{
   top: 11px;
 }
@@ -1023,18 +1027,6 @@ h4{
 
 .top-full{
   top: 100%;
-}
-
-.top-5{
-  top: 1.25rem;
-}
-
-.top-8{
-  top: 2rem;
-}
-
-.top-6{
-  top: 1.5rem;
 }
 
 .\!z-40{
@@ -1159,11 +1151,6 @@ h4{
   margin-bottom: 2.5rem;
 }
 
-.my-20{
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-}
-
 .my-3{
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -1194,10 +1181,6 @@ h4{
 
 .mb-0{
   margin-bottom: 0px;
-}
-
-.mb-10{
-  margin-bottom: 2.5rem;
 }
 
 .mb-2{
@@ -2163,6 +2146,11 @@ h4{
   justify-content: space-evenly;
 }
 
+.gap-x-10{
+  -moz-column-gap: 2.5rem;
+       column-gap: 2.5rem;
+}
+
 .gap-x-2{
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
@@ -2202,16 +2190,6 @@ h4{
 
 .gap-y-5{
   row-gap: 1.25rem;
-}
-
-.gap-x-5{
-  -moz-column-gap: 1.25rem;
-       column-gap: 1.25rem;
-}
-
-.gap-x-10{
-  -moz-column-gap: 2.5rem;
-       column-gap: 2.5rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
@@ -3086,6 +3064,10 @@ h4{
   font-size: 24px;
 }
 
+.text-\[26px\]{
+  font-size: 26px;
+}
+
 .text-\[3\.75rem\]{
   font-size: 3.75rem;
 }
@@ -3119,18 +3101,6 @@ h4{
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-\[14px\]{
-  font-size: 14px;
-}
-
-.text-\[20px\]{
-  font-size: 20px;
-}
-
-.text-\[26px\]{
-  font-size: 26px;
 }
 
 .font-\[500\]{
@@ -3759,15 +3729,15 @@ body {
   font-size: 1.2rem;
 }
 
-.post-content code{
+.post-content code {
   font-size: 1rem;
   color: #475569;
   width: 95%;
   max-width: 700px;
-  margin-inline:auto;
-  display:block;
+  margin-inline: auto;
+  display: block;
   text-wrap: wrap;
-  text-align:center;
+  text-align: center;
 }
 
 .post-view img {
@@ -3785,17 +3755,17 @@ swiper-container .swiper-pagination-bullets {
 }
 
 @media (max-width: 768px) {
-  .post-content p{
+  .post-content p {
     font-size: 1rem;
   }
 
-  .post-content code{
+  .post-content code {
     font-size: 0.7rem;
   }
 }
 
 @media (max-width: 640px) {
-  .post-content p{
+  .post-content p {
     font-size: 0.9rem;
   }
 }
@@ -5390,11 +5360,6 @@ swiper-container .swiper-pagination-bullets {
   .md\:my-0{
     margin-top: 0px;
     margin-bottom: 0px;
-  }
-
-  .md\:my-10{
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
   }
 
   .md\:mb-0{

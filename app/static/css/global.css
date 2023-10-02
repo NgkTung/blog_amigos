@@ -16,15 +16,15 @@ body {
   font-size: 1.2rem;
 }
 
-.post-content code{
+.post-content code {
   font-size: 1rem;
   color: #475569;
   width: 95%;
   max-width: 700px;
-  margin-inline:auto;
-  display:block;
+  margin-inline: auto;
+  display: block;
   text-wrap: wrap;
-  text-align:center;
+  text-align: center;
 }
 
 .post-view img {
@@ -36,22 +36,21 @@ body {
   width: 100%;
 }
 
-
 swiper-container .swiper-pagination-bullets {
   bottom: -15px !important;
 }
 
 @media (max-width: 768px) {
-  .post-content p{
+  .post-content p {
     font-size: 1rem;
   }
-  .post-content code{
+  .post-content code {
     font-size: 0.7rem;
   }
 }
 
 @media (max-width: 640px) {
-  .post-content p{
+  .post-content p {
     font-size: 0.9rem;
   }
 }
@@ -86,7 +85,7 @@ swiper-container .swiper-pagination-bullets {
   .badge-critique {
     @apply bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-red-400 border border-red-400;
   }
-  .nav-btn{
+  .nav-btn {
     @apply md:shadow-md md:rounded-md md:border-2 md:border-black;
   }
 }
