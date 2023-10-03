@@ -76,7 +76,7 @@ swiper-container .swiper-pagination-bullets {
     @apply text-white bg-blue-800 w-[30px] h-[30px] border inline-flex justify-center items-center rounded-full;
   }
   .logo {
-    @apply text-[50px] md:text-[35px] font-[600] text-center tracking-[3px] font-playfair text-red-600 bg-clip-text bg-gradient-to-l text-transparent from-red-800 via-red-600 to-blue-600;
+    @apply text-[50px] lg:text-[35px] font-[600] text-center tracking-[3px] font-playfair text-red-600 bg-clip-text bg-gradient-to-l text-transparent from-red-800 via-red-600 to-blue-600;
   }
   .badge-review {
     @apply bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-100 text-xs font-medium mr-2 px-2.5 py-0.5 rounded border border-blue-400;
@@ -90,7 +90,7 @@ swiper-container .swiper-pagination-bullets {
     @apply bg-red-100 dark:bg-red-800 text-red-800 dark:text-red-100 text-xs font-medium mr-2 px-2.5 py-0.5 rounded border border-red-400;
   }
   .nav-btn {
-    @apply md:shadow-md md:rounded-md md:border-2 bg-white md:border-black dark:bg-dark text-dark dark:border-white;
+    @apply lg:shadow-md lg:rounded-md lg:border-2 bg-white lg:border-black dark:bg-dark text-dark dark:border-white;
   }
   .lazy-img{
     @apply opacity-0 transition-all ease-in-out duration-500;

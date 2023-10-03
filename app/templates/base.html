@@ -27,11 +27,11 @@
     {% include 'sidebar.html' %}
     <header>
       <div
-        class="flex items-center justify-between md:justify-center mx-auto w-11/12 max-w-[1600px] md:py-8"
+        class="flex items-center justify-between lg:justify-center mx-auto w-11/12 max-w-[1600px] lg:py-8"
       >
         <button
           id="nav-btn"
-          class="text-dark dark:text-white z-40 p-2 sidebarToggle md:fixed md:left-2 md:top-10"
+          class="text-dark dark:text-white z-40 p-2 sidebarToggle lg:fixed lg:left-2 lg:top-10"
         >
           <svg
             class="w-6 h-6"
@@ -54,11 +54,11 @@
               ><span class="font-lato text-dark dark:text-transparent">Blog</span> Amigos</a
             >
           </h6>
-          <p class="text-sm text-gray-500 font-playfair text-center md:hidden">
+          <p class="text-sm text-gray-500 font-playfair text-center">
             Phim ảnh, video games, âm nhạc và nhiều hơn thế!
           </p>
         </div>
-        <div class="flex justify-center items-center gap-x-8 md:hidden dark:text-white">
+        <div class="flex justify-center items-center gap-x-8 lg:hidden dark:text-white">
           <a
             href="https://www.facebook.com/profile.php?id=100009958477102"
             target="_blank"
@@ -78,7 +78,7 @@
       </div>
     </header>
     <nav
-      class="flex gap-x-20 md:hidden justify-center items-center border-t-2 border-b-2 my-5 list-none sticky top-0 bg-white dark:bg-dark dark:text-white z-40"
+      class="flex gap-x-20 lg:hidden justify-center items-center border-t-2 border-b-2 my-5 list-none sticky top-0 bg-white dark:bg-dark dark:text-white z-40"
     >
       <li
         class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/movies/' in request.path %}text-red-600{% endif %}"
@@ -188,12 +188,12 @@
         // Highlight the nav button when scroll down 
         if (boundingLogoHead.top < 0) {
           navBtn.classList.add("nav-btn");
-          navBtn.classList.remove("md:top-10");
-          navBtn.classList.add("md:top-2");
+          navBtn.classList.remove("lg:top-10");
+          navBtn.classList.add("lg:top-2");
         } else {
           navBtn.classList.remove("nav-btn");
-          navBtn.classList.remove("md:top-2");
-          navBtn.classList.add("md:top-10");
+          navBtn.classList.remove("lg:top-2");
+          navBtn.classList.add("lg:top-10");
         }
       });
 
