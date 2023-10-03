@@ -71,7 +71,7 @@
             ><i class="fa-solid fa-envelope"></i
           ></a>
           <!-- THEME BUTTON  -->
-          <button class="theme-btn ml-5">
+          <button class="theme-btn nav-theme-btn ml-5">
             <i class="fa-regular fa-moon"></i>
           </button>
         </div>
@@ -146,7 +146,9 @@
       const sidebar = document.querySelector(".sidebar");
       const sidebarOverlay = document.querySelector(".sidebarOverlay");
       const closeBtn = document.querySelector(".close-btn");
-      const body = document.querySelector('body')
+      const body = document.querySelector('body');
+      const nav = document.querySelector('nav');
+      const navThemeBtn = document.querySelector('.nav-theme-btn');
 
       sidebarToggle.addEventListener("click", () => {
         sidebar.classList.toggle("-translate-x-full");
@@ -174,10 +176,13 @@
         const boundingLogoHead = logoHead.getBoundingClientRect();
 
         // Add shadow and put navbar on the top of page when scroll down
+        // Fixed a theme button with navbar
         if (boundingNav.top <= 0) {
           navbar.classList.add("shadow-lg");
+          navThemeBtn.classList.add('fixed-theme-btn');
         } else {
           navbar.classList.remove("shadow-lg");
+          navThemeBtn.classList.remove('fixed-theme-btn');
         }
 
         // Highlight the nav button when scroll down 
@@ -229,9 +234,11 @@
         function toggleDarkMode() {
           isDarkMode = !isDarkMode;
           body.classList.add('fade');
+          nav.classList.add('fade');
           document.documentElement.classList.toggle('dark', isDarkMode);
           setTimeout(() => {
             body.classList.remove('fade');
+            nav.classList.remove('fade');
           }, 300);
         
           // Change icon
@@ -254,6 +261,21 @@
           document.documentElement.classList.toggle('dark', prefersDarkMode || isDarkMode);
         
           themeBtn.addEventListener('click', toggleDarkMode);
+        });
+
+        //Handle events when page is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+          // Code to be executed when the page has finished loading
+          themeBtns.forEach(themeBtn => {
+            const icon = themeBtn.querySelector(':first-child');
+            if (!isDarkMode) {
+              icon.classList.remove('fa-sun');
+              icon.classList.add('fa-moon');
+            } else {
+              icon.classList.remove('fa-moon');
+              icon.classList.add('fa-sun');
+            }
+          })
         });
 
     </script>

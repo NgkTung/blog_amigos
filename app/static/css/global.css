@@ -98,4 +98,10 @@ swiper-container .swiper-pagination-bullets {
   .fade {
     @apply opacity-100 transition-all ease-in-out duration-500;
   }
+  .post-content code {
+    @apply dark:text-white;
+  }
+  .fixed-theme-btn{
+    @apply fixed top-5 z-50;
+  }
 }

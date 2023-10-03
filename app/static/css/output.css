@@ -795,6 +795,17 @@ h4{
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+:is(.dark .post-content code){
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.fixed-theme-btn{
+  position: fixed;
+  top: 1.25rem;
+  z-index: 50;
+}
+
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
