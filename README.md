@@ -15,3 +15,6 @@ Blog Amigos is my blog where I write my thoughts about movies I seen, video game
 - Version 0.0.2 - 25/09/2023
   + Add reponsive layout
   + Add a recommendation system
+- Version 0.0.3 - 3/10/2023
+  + Introduce dark mode &#127769;
+  + Add lazy loading image
