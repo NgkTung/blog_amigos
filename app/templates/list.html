@@ -177,8 +177,8 @@
                 <div class="w-[100px] lg:w-[150px] sm:w-[120px] h-[80px] md:h-[100px] sm:h-[100px] cursor-pointer flex-shrink-0">
                   <a href="{% url 'post_view' pk=post.pk %}">
                     <img
-                      data-lazy="{{ post.image.url }} lazy-img"
-                      class="w-full h-full object-cover"
+                      data-lazy="{{ post.image.url }}"
+                      class="w-full h-full object-cover lazy-img"
                     />
                   </a>
                 </div>
