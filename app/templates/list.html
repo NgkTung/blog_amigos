@@ -19,7 +19,7 @@
       <div class="w-1/2 lg:w-full h-[300px] md:h-[200px] flex-shrink-0">
         <a href="{% url 'post_view' pk=posts.0.pk %}">
           <img
-            class="w-full object-cover h-full"
+            class="w-full object-cover h-full lazy-img"
             data-lazy="{{ posts.0.image.url }}"
             alt=""
           />
@@ -54,7 +54,7 @@
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
                 data-lazy="{{ post.image.url }}"
-                class="w-full h-full object-cover"
+                class="w-full h-full object-cover lazy-img"
               />
             </a>
           </div>
@@ -104,7 +104,7 @@
         </span>
       </div>
       <!-- SUB SIDEBAR  -->
-      <div class="w-72 lg:w-full flex-none border-l lg:border-none border-gray-400 pl-4 lg:pl-0">
+      <div class="w-72 lg:w-full flex-none border-l lg:border-none border-gray-400 pl-4 lg:pl-0 dark:text-white">
         <div>
           <div class="py-px border-b-2 border-gray-400">
             <h6 class="font-bold">
@@ -177,7 +177,7 @@
                 <div class="w-[100px] lg:w-[150px] sm:w-[120px] h-[80px] md:h-[100px] sm:h-[100px] cursor-pointer flex-shrink-0">
                   <a href="{% url 'post_view' pk=post.pk %}">
                     <img
-                      data-lazy="{{ post.image.url }}"
+                      data-lazy="{{ post.image.url }} lazy-img"
                       class="w-full h-full object-cover"
                     />
                   </a>

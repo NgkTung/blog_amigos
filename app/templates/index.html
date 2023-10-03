@@ -7,7 +7,7 @@
   <div>
     <div class="flex items-center py-4">
       <!-- Your text here -->
-      <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans">
+      <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
         <a href="{% url 'movies' %}">PHIM ẢNH</a>
       </span>
 
@@ -22,7 +22,7 @@
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
                 data-lazy="{{ post.image.url }}"
-                class="w-full h-full object-cover"
+                class="w-full h-full object-cover lazy-img"
               />
             </a>
           </div>
@@ -55,7 +55,7 @@
           <a href="{% url 'post_view' pk=posts_movie.0.pk %}">
             <img
               data-lazy="{{ posts_movie.0.image.url }}"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover lazy-img"
             />
           </a>
         </div>
@@ -84,7 +84,7 @@
   <div>
     <div class="flex items-center py-4">
       <!-- Your text here -->
-      <span class="flex-shrink text-[16px] pr-4 font-open-sans font-[900]">
+      <span class="flex-shrink text-[16px] pr-4 font-open-sans font-[900] dark:text-white">
         <a href="{% url 'video_games' %}">VIDEO GAME</a>
       </span>
 
@@ -99,7 +99,7 @@
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
                 data-lazy="{{ post.image.url }}"
-                class="w-full h-full object-cover"
+                class="w-full h-full object-cover lazy-img"
               />
             </a>
           </div>
@@ -132,7 +132,7 @@
           <a href="{% url 'post_view' pk=posts_video_game.0.pk %}">
             <img
               data-lazy="{{ posts_video_game.0.image.url }}"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover lazy-img"
             />
           </a>
         </div>
@@ -161,7 +161,7 @@
   <div>
     <div class="flex items-center py-4">
       <!-- Your text here -->
-      <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans">
+      <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
         <a href="{% url 'animes' %}">ANIME</a>
       </span>
 
@@ -185,7 +185,7 @@
                 <img
                   data-lazy="{{ post.image.url }}"
                   alt="{{ post.title }}"
-                  class="w-full h-full object-cover object-center"
+                  class="w-full h-full object-cover object-center lazy-img"
                 />
               </a>
             </div>
@@ -215,7 +215,7 @@
   <div>
     <div class="flex items-center py-4">
       <!-- Your text here -->
-      <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans">
+      <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
         <a href="{% url 'mangas' %}">MANGA</a>
       </span>
 
@@ -239,7 +239,7 @@
                 <img
                   data-lazy="{{ post.image.url }}"
                   alt="{{ post.title }}"
-                  class="w-full h-full object-cover object-center"
+                  class="w-full h-full object-cover object-center lazy-img"
                 />
               </a>
             </div>
@@ -291,7 +291,7 @@
         <img
           data-lazy="{{ post.image.url }}"
           alt=""
-          class="w-full h-full object-cover object-center"
+          class="w-full h-full object-cover object-center lazy-img"
         />
         <!-- FILTER DARKEN  -->
         <div
@@ -314,7 +314,7 @@
   <div>
     <div class="flex items-center py-4">
       <!-- Your text here -->
-      <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans">
+      <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
         <a href="{% url 'posts' %}">DANH SÁCH BÀI VIẾT</a>
       </span>
 
@@ -330,7 +330,7 @@
           <a href="{% url 'post_view' pk=post.pk %}">
             <img
               data-lazy="{{ post.image.url }}"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover lazy-img"
             />
           </a>
         </div>
@@ -380,7 +380,7 @@
       </span>
     </div>
     <!-- SUB SIDEBAR  -->
-    <div class="w-72 lg:w-full flex-none border-l lg:border-none border-gray-400 pl-4 lg:pl-0">
+    <div class="w-72 lg:w-full flex-none border-l lg:border-none border-gray-400 pl-4 lg:pl-0 dark:text-white">
       <div>
         <div class="py-px border-b-2 border-gray-400">
           <h6 class="font-bold">
@@ -454,7 +454,7 @@
                 <a href="{% url 'post_view' pk=post.pk %}">
                   <img
                     data-lazy="{{ post.image.url }}"
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-cover lazy-img"
                   />
                 </a>
               </div>

@@ -23,7 +23,7 @@
     />
     <title>{% block title %} {% endblock %}</title>
   </head>
-  <body>
+  <body class="dark:bg-dark">
     {% include 'sidebar.html' %}
     <header>
       <div
@@ -31,7 +31,7 @@
       >
         <button
           id="nav-btn"
-          class="text-black bg-white z-40 p-2 sidebarToggle md:fixed md:left-2 md:top-10"
+          class="text-dark dark:text-white z-40 p-2 sidebarToggle md:fixed md:left-2 md:top-10"
         >
           <svg
             class="w-6 h-6"
@@ -49,20 +49,20 @@
           </svg>
         </button>
         <div>
-          <p class="logo logo-head">
+          <h6 class="logo logo-head ">
             <a href="{% url 'index' %}"
-              ><span class="font-lato text-black">Blog</span> Amigos</a
+              ><span class="font-lato text-dark dark:text-transparent">Blog</span> Amigos</a
             >
-          </p>
+          </h6>
           <p class="text-sm text-gray-500 font-playfair text-center md:hidden">
             Phim ảnh, video games, âm nhạc và nhiều hơn thế!
           </p>
         </div>
-        <div class="flex justify-center items-center gap-x-8 md:hidden">
+        <div class="flex justify-center items-center gap-x-8 md:hidden dark:text-white">
           <a
             href="https://www.facebook.com/profile.php?id=100009958477102"
             target="_blank"
-            ><i class="fa-brands fa-facebook-f"></i
+            ><i class="fa-brands fa-facebook-f "></i
           ></a>
           <a href="https://twitter.com/minh_anh30" target="_blank"
             ><i class="fa-brands fa-x-twitter"></i
@@ -70,11 +70,15 @@
           <a href="mailto:tinproht123@gmail.com" target="_blank"
             ><i class="fa-solid fa-envelope"></i
           ></a>
+          <!-- THEME BUTTON  -->
+          <button class="theme-btn ml-5">
+            <i class="fa-regular fa-moon"></i>
+          </button>
         </div>
       </div>
     </header>
     <nav
-      class="flex gap-x-20 md:hidden justify-center items-center border-t-2 border-b-2 my-5 list-none sticky top-0 bg-white z-40"
+      class="flex gap-x-20 md:hidden justify-center items-center border-t-2 border-b-2 my-5 list-none sticky top-0 bg-white dark:bg-dark dark:text-white z-40"
     >
       <li
         class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/movies/' in request.path %}text-red-600{% endif %}"
@@ -107,13 +111,13 @@
     <main class="min-h-screen">{% block content %} {% endblock %}</main>
 
     <!-- FOOTER  -->
-    <footer class="bg-black w-full py-10 text-white text-center mt-14">
+    <footer class="bg-black w-full py-10 text-white text-center mt-14 border-t-2 border-white">
       <div class="flex flex-col gap-y-5">
-        <p class="logo text-[24px]">
+        <h6 class="logo text-[24px]">
           <a href="{% url 'index' %}"
-            ><span class="font-lato text-white">Blog</span> Amigos</a
+            ><span class="font-lato text-white dark:text-transparent">Blog</span> Amigos</a
           >
-        </p>
+        </h6>
         <p>Bản quyền thuộc về Khánh Tùng@2023</p>
         <p class="text-sm italic px-2 sm:text-[14px]">
           Hiện tại web vẫn đang chạy thử nghiệm, mình rất vui lòng nếu các bạn
@@ -142,6 +146,7 @@
       const sidebar = document.querySelector(".sidebar");
       const sidebarOverlay = document.querySelector(".sidebarOverlay");
       const closeBtn = document.querySelector(".close-btn");
+      const body = document.querySelector('body')
 
       sidebarToggle.addEventListener("click", () => {
         sidebar.classList.toggle("-translate-x-full");
@@ -162,7 +167,6 @@
       const navbar = document.querySelector("nav");
       const navBtn = document.querySelector("#nav-btn");
       const logoHead = document.querySelector(".logo-head");
-      const images = document.querySelectorAll('img')
 
       // Handle all scroll listeners event
       window.addEventListener("scroll", function () {
@@ -172,10 +176,8 @@
         // Add shadow and put navbar on the top of page when scroll down
         if (boundingNav.top <= 0) {
           navbar.classList.add("shadow-lg");
-          navBtn.classList.add("nav-btn");
         } else {
           navbar.classList.remove("shadow-lg");
-          navBtn.classList.remove("nav-btn");
         }
 
         // Highlight the nav button when scroll down 
@@ -191,24 +193,69 @@
       });
 
       // Lazy loading image
+      const lazyImages = document.querySelectorAll('.lazy-img');
+
       const lazyLoad = target => {
-          const io = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-              if(entry.isIntersecting) {
-                const img = entry.target;
-                const src = img.getAttribute('data-lazy');
-
-                img.setAttribute('src', src);
-                img.classList.add('fade');
-
-                observer.disconnect();
-              }
-            });
+        const io = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              const src = img.getAttribute('data-lazy');
+            
+              img.setAttribute('src', src);
+              img.classList.add('fade');
+            
+              observer.disconnect();
+            }
           });
-          io.observe(target);
+        });
+        io.observe(target);
+      }
+      
+      lazyImages.forEach(lazyImage => {
+        lazyLoad(lazyImage);
+      });
+
+        // Dark mode
+        // THEME BUTTON ACTION
+        const themeBtns = document.querySelectorAll('.theme-btn');
+
+        // Check user preference or trigger based on user interaction to toggle dark mode
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const storedDarkMode = localStorage.getItem('darkMode');
+        let isDarkMode = storedDarkMode === 'true';
+
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+          isDarkMode = !isDarkMode;
+          body.classList.add('fade');
+          document.documentElement.classList.toggle('dark', isDarkMode);
+          setTimeout(() => {
+            body.classList.remove('fade');
+          }, 300);
+        
+          // Change icon
+          themeBtns.forEach(themeBtn => {
+            const icon = themeBtn.querySelector(':first-child');
+            if (!isDarkMode) {
+              icon.classList.remove('fa-sun');
+              icon.classList.add('fa-moon');
+            } else {
+              icon.classList.remove('fa-moon');
+              icon.classList.add('fa-sun');
+            }
+          });
+        
+          localStorage.setItem('darkMode', isDarkMode);
         }
-        // Call the function
-        images.forEach(lazyLoad)
+
+        themeBtns.forEach(themeBtn => {
+          // Initial setup based on user preference or stored preference
+          document.documentElement.classList.toggle('dark', prefersDarkMode || isDarkMode);
+        
+          themeBtn.addEventListener('click', toggleDarkMode);
+        });
+
     </script>
   </body>
 </html>

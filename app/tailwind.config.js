@@ -22,7 +22,11 @@ module.exports = {
       'md': {'max': '768px'},
       'sm': {'max': '640px'},
     },
-    extend: {},
+    extend: {
+      colors:{
+        'dark': '#1a1a1a',
+      }
+    },
   },
   plugins: [require("tw-elements/dist/plugin.cjs")],
   darkMode: "class",

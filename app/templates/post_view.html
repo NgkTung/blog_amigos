@@ -42,7 +42,7 @@
       <div class="w-11/12 mx-auto">
         <div class="flex items-center py-4">
           <!-- Your text here -->
-          <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans">
+          <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
             <a href="{% url main_tag.url_name %}">ĐỌC THÊM VỀ {{ main_tag.name|upper }}</a>
           </span>
         
@@ -58,7 +58,7 @@
               <img
                 data-lazy="{{ post.image.url }}"
                 alt="{{ post.title }}"
-                class="w-full h-full object-cover object-center"
+                class="w-full h-full object-cover object-center lazy-img"
               />
             </a>
           </div>
@@ -87,7 +87,7 @@
       <div class="w-11/12 mx-auto">
       <div class="flex items-center py-4">
         <!-- Your text here -->
-        <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans">
+        <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
           <a href="{% url 'posts' %}">BÀI VIẾT MỚI</a>
         </span>
   
@@ -103,7 +103,7 @@
               <img
                 data-lazy="{{ post.image.url }}"
                 alt="{{ post.title }}"
-                class="w-full h-full object-cover object-center"
+                class="w-full h-full object-cover object-center lazy-img"
               />
             </a>
           </div>

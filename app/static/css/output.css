@@ -553,6 +553,11 @@ h1{
   letter-spacing: 3px;
 }
 
+:is(.dark h1){
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 @media (max-width: 1024px){
   h1{
     font-size: 1.875rem;
@@ -587,10 +592,20 @@ h2{
   line-height: 2.5rem;
 }
 
+:is(.dark h2){
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 h3{
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 600;
+}
+
+:is(.dark h3){
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 @media (max-width: 1024px){
@@ -612,6 +627,16 @@ h4{
   font-weight: 600;
 }
 
+:is(.dark h4){
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+:is(.dark p){
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .active-link{
   display: inline-flex;
   height: 30px;
@@ -627,6 +652,15 @@ h4{
 }
 
 .logo{
+  background-image: linear-gradient(to left, var(--tw-gradient-stops));
+  --tw-gradient-from: #991b1b var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(153 27 27 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: rgb(220 38 38 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #dc2626 var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-to: #2563eb var(--tw-gradient-to-position);
+  -webkit-background-clip: text;
+          background-clip: text;
   text-align: center;
   font-family: Playfair Display, sans-serif;
   font-size: 50px;
@@ -634,6 +668,7 @@ h4{
   letter-spacing: 3px;
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
+  color: transparent;
 }
 
 @media (max-width: 768px){
@@ -663,9 +698,9 @@ h4{
 
 :is(.dark .badge-review){
   --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(96 165 250 / var(--tw-text-opacity));
+  color: rgb(219 234 254 / var(--tw-text-opacity));
 }
 
 .badge-thoughts{
@@ -689,9 +724,9 @@ h4{
 
 :is(.dark .badge-thoughts){
   --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  background-color: rgb(107 33 168 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(192 132 252 / var(--tw-text-opacity));
+  color: rgb(243 232 255 / var(--tw-text-opacity));
 }
 
 .badge-critique{
@@ -715,9 +750,23 @@ h4{
 
 :is(.dark .badge-critique){
   --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  background-color: rgb(153 27 27 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(248 113 113 / var(--tw-text-opacity));
+  color: rgb(254 226 226 / var(--tw-text-opacity));
+}
+
+.nav-btn{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(26 26 26 / var(--tw-text-opacity));
+}
+
+:is(.dark .nav-btn){
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(26 26 26 / var(--tw-bg-opacity));
 }
 
 @media (max-width: 768px){
@@ -732,19 +781,17 @@ h4{
   }
 }
 
-img{
+.lazy-img{
   opacity: 0;
   transition-property: all;
-  transition-duration: 150ms;
-  transition-delay: 500ms;
+  transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade{
   opacity: 1;
   transition-property: all;
-  transition-duration: 150ms;
-  transition-delay: 500ms;
+  transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1237,6 +1284,10 @@ img{
 
 .ml-3{
   margin-left: 0.75rem;
+}
+
+.ml-5{
+  margin-left: 1.25rem;
 }
 
 .ml-6{
@@ -3361,6 +3412,11 @@ img{
   color: rgb(29 78 216 / var(--tw-text-opacity));
 }
 
+.text-dark{
+  --tw-text-opacity: 1;
+  color: rgb(26 26 26 / var(--tw-text-opacity));
+}
+
 .text-gray-200{
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
@@ -5007,6 +5063,11 @@ swiper-container .swiper-pagination-bullets {
   background-color: rgb(82 82 82 / var(--tw-bg-opacity)) !important;
 }
 
+:is(.dark .dark\:bg-dark){
+  --tw-bg-opacity: 1;
+  background-color: rgb(26 26 26 / var(--tw-bg-opacity));
+}
+
 :is(.dark .dark\:bg-neutral-600){
   --tw-bg-opacity: 1;
   background-color: rgb(82 82 82 / var(--tw-bg-opacity));
@@ -5059,6 +5120,11 @@ swiper-container .swiper-pagination-bullets {
   color: rgb(143 174 224 / var(--tw-text-opacity)) !important;
 }
 
+:is(.dark .dark\:text-black){
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
 :is(.dark .dark\:text-gray-200){
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
@@ -5087,6 +5153,10 @@ swiper-container .swiper-pagination-bullets {
 :is(.dark .dark\:text-primary-400){
   --tw-text-opacity: 1;
   color: rgb(143 174 224 / var(--tw-text-opacity));
+}
+
+:is(.dark .dark\:text-transparent){
+  color: transparent;
 }
 
 :is(.dark .dark\:text-white){

@@ -57,41 +57,45 @@ swiper-container .swiper-pagination-bullets {
 
 @layer base {
   h1 {
-    @apply text-4xl lg:text-3xl md:text-2xl sm:text-xl font-[600] font-playfair w-11/12 max-w-[500px] mx-auto tracking-[3px] leading-[60px] my-8;
+    @apply text-4xl lg:text-3xl md:text-2xl sm:text-xl font-[600] font-playfair w-11/12 max-w-[500px] mx-auto tracking-[3px] leading-[60px] my-8 dark:text-white;
   }
   h2 {
-    @apply w-11/12 max-w-[400px] text-3xl font-[600] mx-auto my-6 text-center leading-10;
+    @apply w-11/12 max-w-[400px] text-3xl font-[600] mx-auto my-6 text-center leading-10 dark:text-white;
   }
   h3 {
-    @apply text-xl lg:text-[18px] sm:text-[14px] font-[600] sm:leading-5;
+    @apply text-xl lg:text-[18px] sm:text-[14px] font-[600] sm:leading-5 dark:text-white;
   }
   h4 {
-    @apply text-lg font-[600];
+    @apply text-lg font-[600] dark:text-white;
+  }
+  p
+  {
+    @apply dark:text-white
   }
   .active-link {
     @apply text-white bg-blue-800 w-[30px] h-[30px] border inline-flex justify-center items-center rounded-full;
   }
   .logo {
-    @apply text-[50px] md:text-[35px] font-[600] text-center tracking-[3px] font-playfair text-red-600;
+    @apply text-[50px] md:text-[35px] font-[600] text-center tracking-[3px] font-playfair text-red-600 bg-clip-text bg-gradient-to-l text-transparent from-red-800 via-red-600 to-blue-600;
   }
   .badge-review {
-    @apply bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400;
+    @apply bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-100 text-xs font-medium mr-2 px-2.5 py-0.5 rounded border border-blue-400;
   }
 
   .badge-thoughts {
-    @apply bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-purple-400 border border-purple-400;
+    @apply bg-purple-100 dark:bg-purple-800 text-purple-800 dark:text-purple-100 text-xs font-medium mr-2 px-2.5 py-0.5 rounded border border-purple-400;
   }
 
   .badge-critique {
-    @apply bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-red-400 border border-red-400;
+    @apply bg-red-100 dark:bg-red-800 text-red-800 dark:text-red-100 text-xs font-medium mr-2 px-2.5 py-0.5 rounded border border-red-400;
   }
   .nav-btn {
-    @apply md:shadow-md md:rounded-md md:border-2 md:border-black;
+    @apply md:shadow-md md:rounded-md md:border-2 bg-white md:border-black dark:bg-dark text-dark dark:border-white;
   }
-  img{
-    @apply opacity-0 transition-all ease-in-out delay-500;
+  .lazy-img{
+    @apply opacity-0 transition-all ease-in-out duration-500;
   }
   .fade {
-    @apply opacity-100 transition-all ease-in-out delay-500;
+    @apply opacity-100 transition-all ease-in-out duration-500;
   }
 }
