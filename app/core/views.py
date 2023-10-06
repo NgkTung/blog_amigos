@@ -232,17 +232,3 @@ def musics_thought(request):
     recommend_posts = get_recommend_posts(tag__name='Cảm Nhận', tag__parent_tag__name='Âm Nhạc')
     tag = Tag.objects.get(name='Cảm Nhận', parent_tag__name='Âm Nhạc')
     return render(request, 'list.html', {'posts': posts, 'recommend_posts': recommend_posts, 'tag': tag})
-
-
-def musics_album(request):
-    posts = get_posts_pagination(request, tag__name='Album', tag__parent_tag__name='Âm Nhạc')
-    recommend_posts = get_recommend_posts(tag__name='Album', tag__parent_tag__name='Âm Nhạc')
-    tag = Tag.objects.get(name='Album', parent_tag__name='Âm Nhạc')
-    return render(request, 'list.html', {'posts': posts, 'recommend_posts': recommend_posts, 'tag': tag})
-
-
-def musics_song(request):
-    posts = get_posts_pagination(request, tag__name='Bài Hát', tag__parent_tag__name='Âm Nhạc')
-    recommend_posts = get_recommend_posts(tag__name='Bài Hát', tag__parent_tag__name='Âm Nhạc')
-    tag = Tag.objects.get(name='Bài Hát', parent_tag__name='Âm Nhạc')
-    return render(request, 'list.html', {'posts': posts, 'recommend_posts': recommend_posts, 'tag': tag})
