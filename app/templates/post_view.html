@@ -5,24 +5,30 @@
     class="bg-cover h-screen md:h-[50vh] sm:h-[40vh] min-w-[100vw] relative w-full bg-center"
     style="background-image: url('{{ post.image.url }}')"
   >
-  <div class="absolute h-screen md:h-[50vh] sm:h-[40vh] w-full bg-no-repeat bg-black/50"></div>
+    <div
+      class="absolute h-screen md:h-[50vh] sm:h-[40vh] w-full bg-no-repeat bg-black/50"
+    ></div>
     <div class="absolute top-1/2 left-32 md:left-8">
-      <h3
+      <h2
         class="text-center text-white font-playfair text-[40px] tracking-[3px] max-w-[800px] leading-[60px] md:hidden"
       >
-      <!-- POST TITLE FOR DESKTOP VERSION  -->
+        <!-- POST TITLE FOR DESKTOP VERSION  -->
         {{ post.title }}
-      </h3>
+      </h2>
     </div>
   </div>
 
   <div class="my-10">
-    <h3 class="text-center font-playfair text-[24px] tracking-[3px] max-w-[800px] leading-[35px] hidden md:block mb-5 px-5">
+    <h2
+      class="text-center font-playfair text-[24px] tracking-[3px] max-w-[800px] leading-[35px] hidden md:block mb-5 px-5"
+    >
       <!-- POST TITLE FOR MOBILE VERSION -->
       {{ post.title }}
-    </h3>
+    </h2>
     <!-- SUB INFORMATION  -->
-    <div class="w-11/12 max-w-[800px] mx-auto py-5 border-b-2 border-gray-400 mb-5 flex gap-x-10 text-gray-500">
+    <div
+      class="w-11/12 max-w-[800px] mx-auto py-5 border-b-2 border-gray-400 mb-5 flex gap-x-10 text-gray-500"
+    >
       <p>{{ post.created_at|date:"d/m/Y" }}</p>
       <p>{{ time_read }} phút đọc</p>
     </div>
@@ -33,27 +39,31 @@
       {{ post.description }}
     </div>
     <!-- BODY OF POST  -->
-    <div class="post-content">
-      {{ post.content|safe }}
-    </div>
+    <div class="post-content">{{ post.content|safe }}</div>
 
     <!-- RECOMMEND POSTS WITH SAME TAG -->
     <div class="mt-20 mb-5 w-11/12 mx-auto">
       <div class="w-11/12 mx-auto">
         <div class="flex items-center py-4">
           <!-- Your text here -->
-          <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
-            <a href="{% url main_tag.url_name %}">ĐỌC THÊM VỀ {{ main_tag.name|upper }}</a>
+          <span
+            class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white"
+          >
+            <a href="{% url main_tag.url_name %}"
+              >ĐỌC THÊM VỀ {{ main_tag.name|upper }}</a
+            >
           </span>
-        
+
           <!-- The right line -->
           <div class="flex-grow h-[1px] bg-gray-300"></div>
         </div>
       </div>
       <div class="flex gap-x-2 gap-y-2 w-11/12 mx-auto lg:flex-col">
-      {% for post in recommend_posts_tag %}
+        {% for post in recommend_posts_tag %}
         <div class="flex flex-1 flex-col gap-y-1 gap-x-4 lg:flex-row">
-          <div class="w-full lg:max-w-[250px] md:w-[200px] sm:w-[120px] h-[200px] lg:h-[150px] sm:h-[80px] border-2 flex-shrink-0">
+          <div
+            class="w-full lg:max-w-[250px] md:w-[200px] sm:w-[120px] h-[200px] lg:h-[150px] sm:h-[80px] border-2 flex-shrink-0"
+          >
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
                 data-lazy="{{ post.image.url }}"
@@ -63,42 +73,50 @@
             </a>
           </div>
           <div>
-            <h3 class="cursor-pointer hover:underline font-playfair text-[16px]">
+            <h2
+              class="cursor-pointer hover:underline font-playfair text-[16px]"
+            >
               <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
-            </h3>
+            </h2>
             <div class="[&>p]:text-[12px]">
               {%for tag in post.tag.all%} {%if 'Review' in tag.name%}
-                <p class="badge-review flex-shrink-0 inline">Review</p>
+              <p class="badge-review flex-shrink-0 inline">Review</p>
               {% elif 'Cảm Nhận' in tag.name %}
-                <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
+              <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
               {% elif 'Bàn Luận' in tag.name %}
-                <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
+              <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
               {% endif %} {% endfor %}
             </div>
-            <p class="text-gray-400 text-sm">{{ post.created_at|date:"d/m/Y" }}</p>
+            <p class="text-gray-400 text-sm">
+              {{ post.created_at|date:"d/m/Y" }}
+            </p>
           </div>
         </div>
-      {% endfor %}
+        {% endfor %}
       </div>
     </div>
 
     <!-- RECOMMEND POSTS  -->
     <div class="mt-10 mb-20 w-11/12 mx-auto">
       <div class="w-11/12 mx-auto">
-      <div class="flex items-center py-4">
-        <!-- Your text here -->
-        <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
-          <a href="{% url 'posts' %}">BÀI VIẾT MỚI</a>
-        </span>
-  
-        <!-- The right line -->
-        <div class="flex-grow h-[1px] bg-gray-300"></div>
-      </div>
+        <div class="flex items-center py-4">
+          <!-- Your text here -->
+          <span
+            class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white"
+          >
+            <a href="{% url 'posts' %}">BÀI VIẾT MỚI</a>
+          </span>
+
+          <!-- The right line -->
+          <div class="flex-grow h-[1px] bg-gray-300"></div>
+        </div>
       </div>
       <div class="flex gap-x-2 gap-y-2 w-11/12 mx-auto lg:flex-col">
-      {% for post in recommend_posts %}
+        {% for post in recommend_posts %}
         <div class="flex flex-1 flex-col gap-y-1 gap-x-4 lg:flex-row">
-          <div class="w-full lg:max-w-[250px] md:w-[200px] sm:w-[120px] h-[200px] lg:h-[150px] sm:h-[80px] border-2 flex-shrink-0">
+          <div
+            class="w-full lg:max-w-[250px] md:w-[200px] sm:w-[120px] h-[200px] lg:h-[150px] sm:h-[80px] border-2 flex-shrink-0"
+          >
             <a href="{% url 'post_view' pk=post.pk %}">
               <img
                 data-lazy="{{ post.image.url }}"
@@ -108,22 +126,26 @@
             </a>
           </div>
           <div class="flex flex-col gap-y-1">
-            <h3 class="cursor-pointer hover:underline font-playfair text-[16px]">
+            <h2
+              class="cursor-pointer hover:underline font-playfair text-[16px]"
+            >
               <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
-            </h3>
+            </h2>
             <div class="[&>p]:text-[12px]">
               {%for tag in post.tag.all%} {%if 'Review' in tag.name%}
-                <p class="badge-review flex-shrink-0 inline">Review</p>
+              <p class="badge-review flex-shrink-0 inline">Review</p>
               {% elif 'Cảm Nhận' in tag.name %}
-                <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
+              <p class="badge-thoughts flex-shrink-0 inline">Cảm Nhận</p>
               {% elif 'Bàn Luận' in tag.name %}
-                <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
+              <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
               {% endif %} {% endfor %}
             </div>
-            <p class="text-gray-400 text-sm">{{ post.created_at|date:"d/m/Y" }}</p>
+            <p class="text-gray-400 text-sm">
+              {{ post.created_at|date:"d/m/Y" }}
+            </p>
           </div>
         </div>
-      {% endfor %}
+        {% endfor %}
       </div>
     </div>
   </div>

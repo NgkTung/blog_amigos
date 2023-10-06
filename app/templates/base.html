@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,6 +25,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <meta name="description" content="{% block description %} {% endblock %}" />
     <title>{% block title %} {% endblock %}</title>
   </head>
   <body class="dark:bg-dark">
@@ -53,14 +54,14 @@
           </svg>
         </button>
         <div>
-          <h6 class="logo logo-head">
+          <h1 class="logo logo-head">
             <a href="{% url 'index' %}"
               ><span class="font-lato text-dark dark:text-transparent"
                 >Blog</span
               >
               Amigos</a
             >
-          </h6>
+          </h1>
           <p class="text-sm text-gray-500 font-playfair text-center">
             Phim ảnh, video games, âm nhạc và nhiều hơn thế!
           </p>

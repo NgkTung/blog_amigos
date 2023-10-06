@@ -56,21 +56,20 @@ swiper-container .swiper-pagination-bullets {
 }
 
 @layer base {
-  h1 {
-    @apply text-4xl lg:text-3xl md:text-2xl sm:text-xl font-[600] font-playfair w-11/12 max-w-[500px] mx-auto tracking-[3px] leading-[60px] my-8 dark:text-white;
-  }
   h2 {
-    @apply w-11/12 max-w-[400px] text-3xl font-[600] mx-auto my-6 text-center leading-10 dark:text-white;
-  }
-  h3 {
     @apply text-xl lg:text-[18px] sm:text-[14px] font-[600] sm:leading-5 dark:text-white;
   }
+  h3 {
+    @apply text-4xl lg:text-3xl md:text-2xl sm:text-xl font-[600] font-playfair w-11/12 max-w-[500px] mx-auto tracking-[3px] leading-[60px] my-8 dark:text-white;
+  }
+  /* h2 {
+    @apply w-11/12 max-w-[400px] text-3xl font-[600] mx-auto my-6 text-center leading-10 dark:text-white;
+  } */
   h4 {
     @apply text-lg font-[600] dark:text-white;
   }
-  p
-  {
-    @apply dark:text-white
+  p {
+    @apply dark:text-white;
   }
   .active-link {
     @apply text-white bg-blue-800 w-[30px] h-[30px] border inline-flex justify-center items-center rounded-full;
@@ -92,7 +91,7 @@ swiper-container .swiper-pagination-bullets {
   .nav-btn {
     @apply lg:shadow-md lg:rounded-md lg:border-2 bg-white lg:border-black dark:bg-dark text-dark dark:border-white;
   }
-  .lazy-img{
+  .lazy-img {
     @apply opacity-0 transition-all ease-in-out duration-500;
   }
   .fade {
@@ -101,7 +100,7 @@ swiper-container .swiper-pagination-bullets {
   .post-content code {
     @apply dark:text-white;
   }
-  .fixed-theme-btn{
+  .fixed-theme-btn {
     @apply fixed top-5 z-50;
   }
 }

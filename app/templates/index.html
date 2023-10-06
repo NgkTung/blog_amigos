@@ -1,6 +1,7 @@
 {% extends "base.html" %} 
 {% load static %} 
-{% block title %} Blog Amigos {%endblock%} 
+{% block title %} Blog Amigos - Phim Ảnh, Video Game, Anime và nhiều hơn thế! {%endblock%} 
+{% block description %} Khám phá những bài viết và thông tin thú vị về phim ảnh, trò chơi điện tử, anime, manga và âm nhạc tại Blog Amigos. {% endblock %}
 {% block content %}
 <div class="w-11/12 max-w-[1600px] mx-auto">
   {% comment %} MOVIE POST LIST {% endcomment %}
@@ -27,9 +28,9 @@
             </a>
           </div>
           <div class="flex flex-col gap-y-2">
-            <h3 class="cursor-pointer hover:underline font-playfair">
+            <h2 class="cursor-pointer hover:underline font-playfair">
               <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
-            </h3>
+            </h2>
             <div>
               {% for tag in post.tag.all %} {% if 'Review' in tag.name %}
               <p class="badge-review flex-shrink-0 inline">Review</p>
@@ -59,13 +60,13 @@
             />
           </a>
         </div>
-        <h3
+        <h2
           class="text-[30px] lg:text-[24px] font-[600] font-playfair hover:underline leading-[50px] lg:leading-[30px]"
         >
           <a href="{% url 'post_view' pk=posts_movie.0.pk %}"
             >{{ posts_movie.0.title }}</a
           >
-        </h3>
+        </h2>
         <div>
           {% for tag in posts_movie.0.tag.all %} {% if 'Review' in tag.name %}
           <p class="badge-review flex-shrink-0 inline">Review</p>
@@ -104,9 +105,9 @@
             </a>
           </div>
           <div class="flex flex-col gap-y-2">
-            <h3 class="cursor-pointer hover:underline font-playfair">
+            <h2 class="cursor-pointer hover:underline font-playfair">
               <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
-            </h3>
+            </h2>
             <div>
               {% for tag in post.tag.all %} {% if 'Review' in tag.name %}
               <p class="badge-review flex-shrink-0 inline">Review</p>
@@ -136,13 +137,13 @@
             />
           </a>
         </div>
-        <h3
+        <h2
           class="text-[30px] lg:text-[24px] font-[600] font-playfair hover:underline leading-[50px] lg:leading-[30px]"
         >
           <a href="{% url 'post_view' pk=posts_video_game.0.pk %}"
             >{{ posts_video_game.0.title }}</a
           >
-        </h3>
+        </h2>
         <div>
           {%for tag in posts_video_game.0.tag.all%} {%if 'Review' in tag.name%}
           <p class="badge-review flex-shrink-0 inline">Review</p>
@@ -189,9 +190,9 @@
                 />
               </a>
             </div>
-            <h3 class="cursor-pointer hover:underline font-playfair">
+            <h2 class="cursor-pointer hover:underline font-playfair">
               <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
-            </h3>
+            </h2>
             <div>
               {%for tag in post.tag.all%} {%if 'Review' in tag.name%}
               <p class="badge-review flex-shrink-0 inline">Review</p>
@@ -243,9 +244,9 @@
                 />
               </a>
             </div>
-            <h3 class="cursor-pointer hover:underline font-playfair">
+            <h2 class="cursor-pointer hover:underline font-playfair">
               <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
-            </h3>
+            </h2>
             <div>
               {%for tag in post.tag.all%} {%if 'Review' in tag.name%}
               <p class="badge-review flex-shrink-0 inline">Review</p>
@@ -298,12 +299,12 @@
           class="absolute h-[70vh] w-full bg-no-repeat bg-black/50 top-0"
         ></div>
         <div class="absolute top-2/4 left-16 md:left-4">
-          <h3
+          <h2
             class="text-center text-white hover:underline font-playfair text-[5vh] md:text-[22px] sm:text-[16px] tracking-[3px] max-w-[800px] leading-[60px] md:leading-[30px]"
             style="text-decoration-color: white"
           >
             <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
-          </h3>
+          </h2>
         </div>
       </swiper-slide>
       {% endfor %}
@@ -335,9 +336,9 @@
           </a>
         </div>
         <div class="flex flex-col gap-y-2">
-          <h3 class="cursor-pointer hover:underline font-playfair">
+          <h2 class="cursor-pointer hover:underline font-playfair">
             <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
-          </h3>
+          </h2>
           <div>
             {% for tag in post.tag.all %} {% if 'Review' in tag.name %}
             <p class="badge-review flex-shrink-0 inline">Review</p>
