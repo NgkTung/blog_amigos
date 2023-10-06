@@ -26,11 +26,11 @@
         </a>
       </div>
       <div class="flex flex-col gap-y-2 flex-1 justify-center">
-        <h3
+        <h2
           class="text-[30px] md:text-[24px] font-[600] font-playfair hover:underline leading-[50px] md:leading-[35px] md:mt-5"
         >
           <a href="{% url 'post_view' pk=posts.0.pk %}">{{ posts.0.title}}</a>
-        </h3>
+        </h2>
         <div>
           {% for tag in posts.0.tag.all %} 
             {% if 'Review' in tag.name %}
@@ -59,9 +59,9 @@
             </a>
           </div>
           <div class="flex flex-col gap-y-2">
-            <h3 class="cursor-pointer hover:underline font-playfair">
+            <h2 class="cursor-pointer hover:underline font-playfair">
               <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
-            </h3>
+            </h2>
             <div>
               {% for tag in post.tag.all %} {% if 'Review' in tag.name %}
               <p class="badge-review flex-shrink-0 inline">Review</p>
