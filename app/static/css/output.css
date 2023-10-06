@@ -3191,6 +3191,11 @@ h4{
   line-height: 1rem;
 }
 
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .font-\[500\]{
   font-weight: 500;
 }
@@ -5468,6 +5473,11 @@ swiper-container .swiper-pagination-bullets {
     font-size: 24px;
   }
 
+  .lg\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .lg\:leading-\[30px\]{
     line-height: 30px;
   }
@@ -5574,6 +5584,11 @@ swiper-container .swiper-pagination-bullets {
 
   .md\:text-\[24px\]{
     font-size: 24px;
+  }
+
+  .md\:text-2xl{
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .md\:leading-6{

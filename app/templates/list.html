@@ -4,11 +4,11 @@
 {% block content %}
 <div class="mx-auto w-11/12 max-w-[1600px]">
   <div class="pb-10 flex flex-col gap-y-4">
-    <p class="text-5xl md:text-3xl sm:text-2xl tracking-[2px] font-[600] font-playfair">{{tag.name}}</p>
+    <p class="text-4xl lg:text-3xl md:text-2xl tracking-[2px] font-[600] font-playfair">{{tag.name}}</p>
     <p class="font-playfair w-full max-w-[800px] md:text-[16px] sm:text-[14px]">{{tag.description}}</p>
     <ul class="flex gap-x-4">
       {% for sub_tag in sub_tags %}
-      <li class="py-1 px-5 bg-black/80 hover:bg-black/50 text-white">
+      <li class="py-1 px-5 bg-black/80 hover:bg-black/50 text-white md:text-[14px] sm:text-[12px]">
         <a href="{% url sub_tag.url_name %}">{{ sub_tag.name|safe }}</a>
       </li>
       {% endfor %}
@@ -21,7 +21,7 @@
           <img
             class="w-full object-cover h-full lazy-img"
             data-lazy="{{ posts.0.image.url }}"
-            alt=""
+            alt="{{ posts.0.title }}"
           />
         </a>
       </div>
@@ -55,6 +55,7 @@
               <img
                 data-lazy="{{ post.image.url }}"
                 class="w-full h-full object-cover lazy-img"
+                alt="{{ post.title }}"
               />
             </a>
           </div>
@@ -179,6 +180,7 @@
                     <img
                       data-lazy="{{ post.image.url }}"
                       class="w-full h-full object-cover lazy-img"
+                      alt="{{ post.title }}"
                     />
                   </a>
                 </div>
