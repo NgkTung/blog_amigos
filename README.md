@@ -1,6 +1,6 @@
 # Blog Amigos
 A git code for Blog Amigos
-
+link: https://www.blogamigos.com/
 ## Description
 Blog Amigos is my blog where I write my thoughts about movies I seen, video games I played, musics I heard and more. It's a personal blog still in developing but I hope it will be better and better.
 
