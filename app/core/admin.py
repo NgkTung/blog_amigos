@@ -18,12 +18,12 @@ def delete_image(public_id):
 
 # Post Admin Panel
 class PostAdmin(admin.ModelAdmin):
-    # Change the image upload field to cloudinary upload field
+    # Change the image upload field to a Cloudinary upload field
     formfield_overrides = {
-        models.ImageField: {'widget': CloudinaryFileField}
+        models.ImageField: {'widget': CloudinaryFileField},
     }
-    readonly_fields = ('slug',) # Readonly fields
-    exclude = ['click_count'] # The click count will be set to a default value of 0 when the post is created
+    readonly_fields = ('slug',)  # Readonly fields
+    exclude = ['click_count']  # The click count will be set to a default value of 0 when the post is created
 
     def save_model(self, request, obj, form, change):
         if change and 'image' in form.changed_data:
@@ -39,15 +39,7 @@ class PostAdmin(admin.ModelAdmin):
             # Update the image field with the new secure URL
             obj.image = result.get('secure_url', '')
 
-        if not obj.slug_title: # Generate slug_title default only if it doesn't exist
-            base_slug_title = obj.title[:50]
-            if Post.objects.filter(slug=slugify(base_slug_title)).exists:
-                self.message_user(request, "Title does not exist.", level="ERROR")
-                return
-            else: 
-                obj.slug_title = base_slug_title
-        
-        if not obj.slug_title:
+        if not obj.slug_title:  # Generate slug_title default only if it doesn't exist
             obj.slug_title = obj.title[:50]
 
         if change and obj.slug_title != obj.slug:
@@ -63,9 +55,9 @@ class PostAdmin(admin.ModelAdmin):
 
     def delete_model(self, request, obj):
         # Delete associated image from Cloudinary
-        if obj.image:
+        if obj.image and hasattr(obj.image, 'public_id'):
             public_id = obj.image.public_id
-            delete_image(public_id)
+            uploader.destroy(public_id)
 
         # Call the default delete_model method to delete the object
         super().delete_model(request, obj)
