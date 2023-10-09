@@ -39,13 +39,13 @@ class PostAdmin(admin.ModelAdmin):
             # Update the image field with the new secure URL
             obj.image = result.get('secure_url', '')
 
-        if not self.slug_title: # Generate slug_title default only if it doesn't exist
-            base_slug_title = self.title[:50]
+        if not obj.slug_title: # Generate slug_title default only if it doesn't exist
+            base_slug_title = obj.title[:50]
             if Post.objects.filter(slug=slugify(base_slug_title)).exists:
                 self.message_user(request, "Title does not exist.", level="ERROR")
                 return
             else: 
-                self.slug_title = base_slug_title
+                obj.slug_title = base_slug_title
         
         if not obj.slug_title:
             obj.slug_title = obj.title[:50]
