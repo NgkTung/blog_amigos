@@ -32,7 +32,7 @@ class PostAdmin(admin.ModelAdmin):
 
             # Delete the old image if it exists
             existing_obj = Post.objects.get(pk=obj.pk)
-            if existing_obj.image and obj.image != existing_obj.image:
+            if existing_obj.image and obj.image.url != existing_obj.image.url:
                 if hasattr(existing_obj.image, 'public_id'):
                     public_id = existing_obj.image.public_id
                     uploader.destroy(public_id)
