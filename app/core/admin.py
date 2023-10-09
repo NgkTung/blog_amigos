@@ -32,9 +32,10 @@ class PostAdmin(admin.ModelAdmin):
 
             # Delete the old image if it exists
             existing_obj = Post.objects.get(pk=obj.pk)
-            if existing_obj.image and hasattr(existing_obj.image, 'public_id'):
-                public_id = existing_obj.image.public_id
-                uploader.destroy(public_id)
+            if existing_obj.image and obj.image != existing_obj.image:
+                if hasattr(existing_obj.image, 'public_id'):
+                    public_id = existing_obj.image.public_id
+                    uploader.destroy(public_id)
 
             # Update the image field with the new secure URL
             obj.image = result.get('secure_url', '')
