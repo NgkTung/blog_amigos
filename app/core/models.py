@@ -1,8 +1,6 @@
 from django.db import models
-from django.contrib import messages
 from tinymce import models as tinymce_models
 from cloudinary.models import CloudinaryField
-from slugify import slugify
 
 class Tag(models.Model):
     # Name of tag
@@ -56,32 +54,6 @@ class Post(models.Model):
 
     # Custome save post method
     def save(self, *args, **kwargs):
-        if not self.slug_title: # Generate slug_title default only if it doesn't exist
-            base_slug_title = self.title[:50]
-            if Post.objects.filter(slug=slugify(base_slug_title)).exists:
-                messages.error(None, "Slug title existed!")
-                return
-            else: 
-                self.slug_title = base_slug_title
-
-        # Update the slug field when slug_title changes
-        if self.id and self.slug_title != self.slug:
-            base_slug = slugify(self.slug_title)
-            slug = base_slug
-            counter = 1
-            while Post.objects.filter(slug=slug).exclude(id=self.id).exists():
-                slug = f"{base_slug}-{counter}"
-                counter += 1
-            self.slug = slug
-
-        if not self.slug:  # Generate slug only if it doesn't exist
-            base_slug = slugify(self.slug_title)
-            slug = base_slug
-            counter = 1
-            while Post.objects.filter(slug=slug).exists():
-                slug = f"{base_slug}-{counter}"
-                counter += 1
-            self.slug = slug
         # To ensure that the click_count cannot go below 0
         if self.click_count < 0:
             self.click_count = 0

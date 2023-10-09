@@ -3,6 +3,7 @@ from cloudinary.forms import CloudinaryFileField
 from cloudinary import uploader
 from cloudinary.exceptions import Error
 from django.db import models
+from slugify import slugify
 
 from .models import Post, Tag
 
@@ -37,6 +38,26 @@ class PostAdmin(admin.ModelAdmin):
 
             # Update the image field with the new secure URL
             obj.image = result.get('secure_url', '')
+
+        if not self.slug_title: # Generate slug_title default only if it doesn't exist
+            base_slug_title = self.title[:50]
+            if Post.objects.filter(slug=slugify(base_slug_title)).exists:
+                self.message_user(request, "Title does not exist.", level="ERROR")
+                return
+            else: 
+                self.slug_title = base_slug_title
+        
+        if not obj.slug_title:
+            obj.slug_title = obj.title[:50]
+
+        if change and obj.slug_title != obj.slug:
+            base_slug = slugify(obj.slug_title)
+            slug = base_slug
+            counter = 1
+            while Post.objects.filter(slug=slug).exclude(id=obj.id).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            obj.slug = slug
 
         super().save_model(request, obj, form, change)
 
