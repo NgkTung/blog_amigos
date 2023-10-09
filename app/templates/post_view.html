@@ -1,5 +1,8 @@
-{% extends "base.html" %} {% load static %} {% block title %}{{post.title}}
-{%endblock %} {% block content %}
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %} {{ post.title }} {% endblock %} 
+{% block description %} {{ post.description }} {% endblock %}
+{% block content %}
 <div class="post-view">
   <div
     class="bg-cover h-screen md:h-[50vh] sm:h-[40vh] min-w-[100vw] relative w-full bg-center"
@@ -8,23 +11,23 @@
     <div
       class="absolute h-screen md:h-[50vh] sm:h-[40vh] w-full bg-no-repeat bg-black/50"
     ></div>
-    <div class="absolute top-1/2 left-32 md:left-8">
-      <h2
-        class="text-center text-white font-playfair text-[40px] tracking-[3px] max-w-[800px] leading-[60px] md:hidden"
+    <div class="absolute top-1/2 left-32 lg:left-8">
+      <h1
+        class="text-center text-white font-playfair text-[35px] w-11/12 tracking-[3px] max-w-[800px] leading-[60px] md:hidden"
       >
         <!-- POST TITLE FOR DESKTOP VERSION  -->
         {{ post.title }}
-      </h2>
+      </h1>
     </div>
   </div>
 
   <div class="my-10">
-    <h2
-      class="text-center font-playfair text-[24px] tracking-[3px] max-w-[800px] leading-[35px] hidden md:block mb-5 px-5"
+    <h1
+      class="text-center font-playfair text-[24px] sm:text-[20px] tracking-[3px] max-w-[800px] leading-[35px] hidden md:block mb-5 px-5"
     >
       <!-- POST TITLE FOR MOBILE VERSION -->
       {{ post.title }}
-    </h2>
+    </h1>
     <!-- SUB INFORMATION  -->
     <div
       class="w-11/12 max-w-[800px] mx-auto py-5 border-b-2 border-gray-400 mb-5 flex gap-x-10 text-gray-500"
@@ -49,7 +52,7 @@
           <span
             class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white"
           >
-            <a href="{% url main_tag.url_name %}"
+            <a href="{% url main_tag.url_name %}" rel="nofollow"
               >ĐỌC THÊM VỀ {{ main_tag.name|upper }}</a
             >
           </span>
@@ -64,7 +67,7 @@
           <div
             class="w-full lg:max-w-[250px] md:w-[200px] sm:w-[120px] h-[200px] lg:h-[150px] sm:h-[80px] border-2 flex-shrink-0"
           >
-            <a href="{% url 'post_view' pk=post.pk %}">
+            <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">
               <img
                 data-lazy="{{ post.image.url }}"
                 alt="{{ post.title }}"
@@ -76,7 +79,7 @@
             <h2
               class="cursor-pointer hover:underline font-playfair text-[16px]"
             >
-              <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+              <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">{{ post.title }}</a>
             </h2>
             <div class="[&>p]:text-[12px]">
               {%for tag in post.tag.all%} {%if 'Review' in tag.name%}
@@ -104,7 +107,7 @@
           <span
             class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white"
           >
-            <a href="{% url 'posts' %}">BÀI VIẾT MỚI</a>
+            <a href="{% url 'posts' %}" rel="nofollow">BÀI VIẾT MỚI</a>
           </span>
 
           <!-- The right line -->
@@ -117,7 +120,7 @@
           <div
             class="w-full lg:max-w-[250px] md:w-[200px] sm:w-[120px] h-[200px] lg:h-[150px] sm:h-[80px] border-2 flex-shrink-0"
           >
-            <a href="{% url 'post_view' pk=post.pk %}">
+            <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">
               <img
                 data-lazy="{{ post.image.url }}"
                 alt="{{ post.title }}"
@@ -129,7 +132,7 @@
             <h2
               class="cursor-pointer hover:underline font-playfair text-[16px]"
             >
-              <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+              <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">{{ post.title }}</a>
             </h2>
             <div class="[&>p]:text-[12px]">
               {%for tag in post.tag.all%} {%if 'Review' in tag.name%}

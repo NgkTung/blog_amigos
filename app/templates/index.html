@@ -9,7 +9,7 @@
     <div class="flex items-center py-4">
       <!-- Your text here -->
       <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
-        <a href="{% url 'movies' %}">PHIM ẢNH</a>
+        <a href="{% url 'movies' %}" rel="nofollow">PHIM ẢNH</a>
       </span>
 
       <!-- The right line -->
@@ -20,7 +20,7 @@
         {% for post in posts_movie|slice:"1:6"%}
         <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
           <div class="w-full max-w-[150px] sm:w-[120px] h-[100px] cursor-pointer flex-shrink-0">
-            <a href="{% url 'post_view' pk=post.pk %}">
+            <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">
               <img
                 data-lazy="{{ post.image.url }}"
                 class="w-full h-full object-cover lazy-img"
@@ -30,7 +30,7 @@
           </div>
           <div class="flex flex-col gap-y-2">
             <h2 class="cursor-pointer hover:underline font-playfair">
-              <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+              <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">{{ post.title }}</a>
             </h2>
             <div>
               {% for tag in post.tag.all %} {% if 'Review' in tag.name %}
@@ -42,7 +42,11 @@
               {% endif %} {% endfor %}
             </div>
             <p class="text-sm text-gray-600 lg:text-[14px] sm:text-[12px]">
-              {{post.description|slice:":120"}}
+              {% if post.description|length > 120  %}
+                {{post.description|slice:":120"}}...
+              {% else %}
+                {{ post.description }}
+              {% endif %}
             </p>
           </div>
         </div>
@@ -54,7 +58,7 @@
         class="flex flex-col flex-1 gap-y-2 border-l lg:border-none border-gray-400 overflow-hidden pl-5 lg:pl-0 lg:pb-5"
       >
         <div class="w-full h-[500px] lg:h-[350px] md:h-[250px] sm:h-[200px] cursor-pointer flex-shrink-0">
-          <a href="{% url 'post_view' pk=posts_movie.0.pk %}">
+          <a href="{% url 'post_view' slug=posts_movie.0.slug %}" rel="nofollow">
             <img
               data-lazy="{{ posts_movie.0.image.url }}"
               class="w-full h-full object-cover lazy-img"
@@ -65,7 +69,7 @@
         <h2
           class="text-[30px] lg:text-[24px] font-[600] font-playfair hover:underline leading-[50px] lg:leading-[30px]"
         >
-          <a href="{% url 'post_view' pk=posts_movie.0.pk %}"
+          <a href="{% url 'post_view' slug=posts_movie.0.slug %}" rel="nofollow"
             >{{ posts_movie.0.title }}</a
           >
         </h2>
@@ -88,7 +92,7 @@
     <div class="flex items-center py-4">
       <!-- Your text here -->
       <span class="flex-shrink text-[16px] pr-4 font-open-sans font-[900] dark:text-white">
-        <a href="{% url 'video_games' %}">VIDEO GAME</a>
+        <a href="{% url 'video_games' %}" rel="nofollow">VIDEO GAME</a>
       </span>
 
       <!-- The right line -->
@@ -99,7 +103,7 @@
         {% for post in posts_video_game|slice:"1:6"%}
         <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
           <div class="w-full max-w-[150px] sm:w-[120px] h-[100px] cursor-pointer flex-shrink-0">
-            <a href="{% url 'post_view' pk=post.pk %}">
+            <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">
               <img
                 data-lazy="{{ post.image.url }}"
                 class="w-full h-full object-cover lazy-img"
@@ -109,7 +113,7 @@
           </div>
           <div class="flex flex-col gap-y-2">
             <h2 class="cursor-pointer hover:underline font-playfair">
-              <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+              <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">{{ post.title }}</a>
             </h2>
             <div>
               {% for tag in post.tag.all %} {% if 'Review' in tag.name %}
@@ -121,7 +125,11 @@
               {% endif %} {% endfor %}
             </div>
             <p class="text-sm text-gray-600 lg:text-[14px] sm:text-[12px]">
-              {{post.description|slice:":120"}}
+              {% if post.description|length > 120  %}
+                {{post.description|slice:":120"}}...
+              {% else %}
+                {{ post.description }}
+              {% endif %}
             </p>
           </div>
         </div>
@@ -133,7 +141,7 @@
         class="flex flex-col flex-1 gap-y-2 border-r lg:border-none border-gray-400 overflow-hidden pr-5 lg:pl-0 lg:pb-5"
       >
         <div class="w-full h-[500px] lg:h-[350px] md:h-[250px] sm:h-[200px] cursor-pointer flex-shrink-0">
-          <a href="{% url 'post_view' pk=posts_video_game.0.pk %}">
+          <a href="{% url 'post_view' slug=posts_video_game.0.slug %}" rel="nofollow">
             <img
               data-lazy="{{ posts_video_game.0.image.url }}"
               class="w-full h-full object-cover lazy-img"
@@ -144,7 +152,7 @@
         <h2
           class="text-[30px] lg:text-[24px] font-[600] font-playfair hover:underline leading-[50px] lg:leading-[30px]"
         >
-          <a href="{% url 'post_view' pk=posts_video_game.0.pk %}"
+          <a href="{% url 'post_view' slug=posts_video_game.0.slug %}" rel="nofollow"
             >{{ posts_video_game.0.title }}</a
           >
         </h2>
@@ -167,7 +175,7 @@
     <div class="flex items-center py-4">
       <!-- Your text here -->
       <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
-        <a href="{% url 'animes' %}">ANIME</a>
+        <a href="{% url 'animes' %}" rel="nofollow">ANIME</a>
       </span>
 
       <!-- The right line -->
@@ -186,7 +194,7 @@
             class="flex flex-col gap-y-2 border-l border-gray-400 first:border-l-0"
           >
             <div class="w-full h-[200px]">
-              <a href="{% url 'post_view' pk=post.pk %}">
+              <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">
                 <img
                   data-lazy="{{ post.image.url }}"
                   alt="{{ post.title }}"
@@ -195,7 +203,7 @@
               </a>
             </div>
             <h2 class="cursor-pointer hover:underline font-playfair">
-              <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+              <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">{{ post.title }}</a>
             </h2>
             <div>
               {%for tag in post.tag.all%} {%if 'Review' in tag.name%}
@@ -207,7 +215,11 @@
               {% endif %} {% endfor %}
             </div>
             <p class="text-sm text-gray-600 lg:text-[14px] sm:text-[12px]">
-              {{post.description|slice:":120"}}
+              {% if post.description|length > 120  %}
+                {{post.description|slice:":120"}}...
+              {% else %}
+                {{ post.description }}
+              {% endif %}
             </p>
           </div>
         </swiper-slide>
@@ -221,7 +233,7 @@
     <div class="flex items-center py-4">
       <!-- Your text here -->
       <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
-        <a href="{% url 'mangas' %}">MANGA</a>
+        <a href="{% url 'mangas' %}" rel="nofollow">MANGA</a>
       </span>
 
       <!-- The right line -->
@@ -240,7 +252,7 @@
             class="flex flex-col gap-y-2 border-l border-gray-400 first:border-l-0"
           >
             <div class="w-full h-[200px]">
-              <a href="{% url 'post_view' pk=post.pk %}">
+              <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">
                 <img
                   data-lazy="{{ post.image.url }}"
                   alt="{{ post.title }}"
@@ -249,7 +261,7 @@
               </a>
             </div>
             <h2 class="cursor-pointer hover:underline font-playfair">
-              <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+              <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">{{ post.title }}</a>
             </h2>
             <div>
               {%for tag in post.tag.all%} {%if 'Review' in tag.name%}
@@ -261,7 +273,11 @@
               {% endif %} {% endfor %}
             </div>
             <p class="text-sm text-gray-600 lg:text-[14px] sm:text-[12px]">
-              {{post.description|slice:":120"}}
+              {% if post.description|length > 120  %}
+                {{post.description|slice:":120"}}...
+              {% else %}
+                {{ post.description }}
+              {% endif %}
             </p>
           </div>
         </swiper-slide>
@@ -275,7 +291,7 @@
     <div class="flex items-center py-4">
       <!-- Your text here -->
       <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
-        <a href="{% url 'musics' %}">ÂM NHẠC</a>
+        <a href="{% url 'musics' %}" rel="nofollow">ÂM NHẠC</a>
       </span>
 
       <!-- The right line -->
@@ -307,7 +323,7 @@
             class="text-center text-white hover:underline font-playfair text-[5vh] md:text-[22px] sm:text-[16px] tracking-[3px] max-w-[800px] leading-[60px] md:leading-[30px]"
             style="text-decoration-color: white"
           >
-            <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+            <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">{{ post.title }}</a>
           </h2>
         </div>
       </swiper-slide>
@@ -320,7 +336,7 @@
     <div class="flex items-center py-4">
       <!-- Your text here -->
       <span class="flex-shrink text-[16px] pr-4 font-[900] font-open-sans dark:text-white">
-        <a href="{% url 'posts' %}">DANH SÁCH BÀI VIẾT</a>
+        <a href="{% url 'posts' %}" rel="nofollow">DANH SÁCH BÀI VIẾT</a>
       </span>
 
       <!-- The right line -->
@@ -332,7 +348,7 @@
       {% for post in posts %}
       <div class="flex gap-x-6 border-b-2 py-4 last:border-0">
         <div class="w-full max-w-[300px] md:w-[200px] sm:w-[120px] h-[200px] md:h-[150px] sm:h-[80px] cursor-pointer flex-shrink-0">
-          <a href="{% url 'post_view' pk=post.pk %}">
+          <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">
             <img
               data-lazy="{{ post.image.url }}"
               class="w-full h-full object-cover lazy-img"
@@ -342,7 +358,7 @@
         </div>
         <div class="flex flex-col gap-y-2">
           <h2 class="cursor-pointer hover:underline font-playfair">
-            <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
+            <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">{{ post.title }}</a>
           </h2>
           <div>
             {% for tag in post.tag.all %} {% if 'Review' in tag.name %}
@@ -353,18 +369,24 @@
             <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
             {% endif %} {% endfor %}
           </div>
-          <p class="text-sm text-gray-600 lg:text-[14px] sm:text-[12px]">{{post.description|slice:":80"}}</p>
+          <p class="text-sm text-gray-600 lg:text-[14px] sm:text-[12px]">
+            {% if post.description|length > 120  %}
+              {{post.description|slice:":120"}}...
+            {% else %}
+              {{ post.description }}
+            {% endif %}
+          </p>
         </div>
       </div>
       {% endfor %}
 
       <span class="text-center my-10 dark:text-white">
         {% if posts.has_previous %}
-            <a href="/posts/?page=1" class="mx-1 px-3 py-2 {% if posts.number == 1 %}active-link{% endif %}">&laquo; Trước</a>
+            <a href="/posts/?page=1" class="mx-1 px-3 py-2 {% if posts.number == 1 %}active-link{% endif %}" rel="nofollow">&laquo; Trước</a>
         {% endif %}
 
         {% if posts.number > 3 %}
-          <a href="/posts/?page=1" class="mx-1 px-3 py-2">1</a>
+          <a href="/posts/?page=1" class="mx-1 px-3 py-2" rel="nofollow">1</a>
           <span class="mx-1 px-3 py-2">...</span>
         {% endif %}
 
@@ -372,16 +394,16 @@
             {% if i > posts.number|add:"-3" and i < posts.number|add:"3" %}
                 {% if posts.number == i %}
                   <div class="active-link pointer-events-none cursor-text">
-                    <a href="/posts/?page={{ i }}" class="mx-1">{{ i }}</a>
+                    <a href="/posts/?page={{ i }}" class="mx-1" rel="nofollow">{{ i }}</a>
                   </div>
                 {% else %}
-                    <a href="/posts/?page={{ i }}" class="mx-1 px-3 py-2">{{ i }}</a>
+                    <a href="/posts/?page={{ i }}" class="mx-1 px-3 py-2" rel="nofollow">{{ i }}</a>
                 {% endif %}
             {% endif %}
         {% endfor %}
 
           {% if posts.has_next %}
-              <a href="/posts/?page={{ posts.paginator.num_pages }}" class="mx-1 px-3 py-2">Sau &raquo;</a>
+              <a href="/posts/?page={{ posts.paginator.num_pages }}" class="mx-1 px-3 py-2" rel="nofollow">Sau &raquo;</a>
           {% endif %}
       </span>
     </div>
@@ -390,60 +412,60 @@
       <div>
         <div class="py-px border-b-2 border-gray-400">
           <h6 class="font-bold">
-            <a href="{% url 'posts_review' %}">Review</a>
+            <a href="{% url 'posts_review' %}" rel="nofollow">Review</a>
           </h6>
         </div>
         <ul class="p-4 list-square">
           <li class="font-[500] hover:underline">
-            <a href="{% url 'movies_review' %}">Phim Ảnh</a>
+            <a href="{% url 'movies_review' %}" rel="nofollow">Phim Ảnh</a>
           </li>
           <li class="font-[500] hover:underline">
-            <a href="{% url 'video_games_review' %}">Video Game</a>
+            <a href="{% url 'video_games_review' %}" rel="nofollow">Video Game</a>
           </li>
           <li class="font-[500] hover:underline">
-            <a href="{% url 'animes_review' %}">Anime</a>
+            <a href="{% url 'animes_review' %}" rel="nofollow">Anime</a>
           </li>
           <li class="font-[500] hover:underline">
-            <a href="{% url 'mangas_review' %}">Manga</a>
+            <a href="{% url 'mangas_review' %}" rel="nofollow">Manga</a>
           </li>
         </ul>
       </div>
       <div class="mt-5">
         <div class="py-px border-b-2 border-gray-400">
           <h6 class="font-bold">
-            <a href="{% url 'posts_thought' %}">Cảm Nhận</a>
+            <a href="{% url 'posts_thought' %}" rel="nofollow">Cảm Nhận</a>
           </h6>
         </div>
         <ul class="p-4 list-square">
           <li class="font-[500] hover:underline">
-            <a href="{% url 'movies_thought' %}">Phim Ảnh</a>
+            <a href="{% url 'movies_thought' %}" rel="nofollow">Phim Ảnh</a>
           </li>
           <li class="font-[500] hover:underline">
-            <a href="{% url 'video_games_thought' %}">Video Game</a>
+            <a href="{% url 'video_games_thought' %}" rel="nofollow">Video Game</a>
           </li>
           <li class="font-[500] hover:underline">
-            <a href="{% url 'animes_thought' %}">Anime</a>
+            <a href="{% url 'animes_thought' %}" rel="nofollow">Anime</a>
           </li>
           <li class="font-[500] hover:underline">
-            <a href="{% url 'mangas_thought' %}">Manga</a>
+            <a href="{% url 'mangas_thought' %}" rel="nofollow">Manga</a>
           </li>
           <li class="font-[500] hover:underline">
-            <a href="{% url 'musics_thought' %}">Âm Nhạc</a>
+            <a href="{% url 'musics_thought' %}" rel="nofollow">Âm Nhạc</a>
           </li>
         </ul>
       </div>
       <div class="mt-5">
         <div class="py-px border-b-2 border-gray-400">
           <h6 class="font-bold">
-            <a href="{% url 'posts_discuss' %}">Bàn Luận</a>
+            <a href="{% url 'posts_discuss' %}" rel="nofollow">Bàn Luận</a>
           </h6>
         </div>
         <ul class="p-4 list-square">
           <li class="font-[500] hover:underline">
-            <a href="{% url 'movies_discuss' %}">Phim Ảnh</a>
+            <a href="{% url 'movies_discuss' %}" rel="nofollow">Phim Ảnh</a>
           </li>
           <li class="font-[500] hover:underline">
-            <a href="{% url 'animes_discuss' %}">Anime</a>
+            <a href="{% url 'animes_discuss' %}" rel="nofollow">Anime</a>
           </li>
         </ul>
       </div>
@@ -457,7 +479,7 @@
           {% for post in recommend_posts %}
             <div class="flex gap-x-2">
               <div class="w-[100px] lg:w-[150px] sm:w-[120px] h-[80px] md:h-[100px] cursor-pointer flex-shrink-0">
-                <a href="{% url 'post_view' pk=post.pk %}">
+                <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">
                   <img
                     data-lazy="{{ post.image.url }}"
                     class="w-full h-full object-cover lazy-img"
@@ -466,9 +488,9 @@
                 </a>
               </div>
               <div>
-                <p class="cursor-pointer hover:underline text-[16px] m-0 font-playfair font-[600]">
-                  <a href="{% url 'post_view' pk=post.pk %}">{{ post.title }}</a>
-                </p>
+                <h5 class="cursor-pointer hover:underline text-[16px] m-0 font-playfair font-[600]">
+                  <a href="{% url 'post_view' slug=post.slug %}" rel="nofollow">{{ post.title }}</a>
+                </h5>
                 <p class="text-sm text-gray-400">{{ post.created_at|date:"d/m/Y" }}</p>
               </div>
             </div>

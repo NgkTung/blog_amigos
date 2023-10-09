@@ -538,6 +538,19 @@ input[type="range"]:active::-webkit-slider-thumb{
   background: #3061AF;
 }
 
+h1{
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px){
+  h1{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
 h2{
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1229,6 +1242,11 @@ h4{
 .my-\[5px\]{
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.mx-5{
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
 }
 
 .-ml-\[1\.5rem\]{
@@ -3103,9 +3121,9 @@ h4{
   font-family: Playfair Display, sans-serif;
 }
 
-.text-5xl{
-  font-size: 3rem;
-  line-height: 1;
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-\[0\.8rem\]{
@@ -3191,9 +3209,8 @@ h4{
   line-height: 1rem;
 }
 
-.text-4xl{
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+.text-\[35px\]{
+  font-size: 35px;
 }
 
 .font-\[500\]{
@@ -5395,6 +5412,10 @@ swiper-container .swiper-pagination-bullets {
     top: 0.5rem;
   }
 
+  .lg\:left-8{
+    left: 2rem;
+  }
+
   .lg\:hidden{
     display: none;
   }
@@ -5465,6 +5486,11 @@ swiper-container .swiper-pagination-bullets {
     padding-left: 0px;
   }
 
+  .lg\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .lg\:text-\[14px\]{
     font-size: 14px;
   }
@@ -5473,9 +5499,12 @@ swiper-container .swiper-pagination-bullets {
     font-size: 24px;
   }
 
-  .lg\:text-3xl{
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+  .lg\:text-\[30px\]{
+    font-size: 30px;
+  }
+
+  .lg\:text-\[25px\]{
+    font-size: 25px;
   }
 
   .lg\:leading-\[30px\]{
@@ -5565,9 +5594,9 @@ swiper-container .swiper-pagination-bullets {
     padding-right: 17px;
   }
 
-  .md\:text-3xl{
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+  .md\:text-2xl{
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .md\:text-\[14px\]{
@@ -5584,11 +5613,6 @@ swiper-container .swiper-pagination-bullets {
 
   .md\:text-\[24px\]{
     font-size: 24px;
-  }
-
-  .md\:text-2xl{
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 
   .md\:leading-6{
@@ -5643,11 +5667,6 @@ swiper-container .swiper-pagination-bullets {
 
   .sm\:flex-col{
     flex-direction: column;
-  }
-
-  .sm\:text-2xl{
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 
   .sm\:text-\[12px\]{

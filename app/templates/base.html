@@ -54,14 +54,14 @@
           </svg>
         </button>
         <div>
-          <h1 class="logo logo-head">
-            <a href="{% url 'index' %}"
+          <p class="logo logo-head">
+            <a href="{% url 'index' %}" rel="nofollow"
               ><span class="font-lato text-dark dark:text-transparent"
                 >Blog</span
               >
               Amigos</a
             >
-          </h1>
+        </p>
           <p class="text-sm text-gray-500 font-playfair text-center">
             Phim ảnh, video games, âm nhạc và nhiều hơn thế!
           </p>
@@ -93,27 +93,27 @@
       <li
         class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/movies/' in request.path %}text-red-600{% endif %}"
       >
-        <a href="{% url 'movies' %}">Phim Ảnh</a>
+        <a href="{% url 'movies' %}" rel="nofollow">Phim Ảnh</a>
       </li>
       <li
         class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/video-games/' in request.path %}text-red-600{% endif %}"
       >
-        <a href="{% url 'video_games' %}">Video Game</a>
+        <a href="{% url 'video_games' %}" rel="nofollow">Video Game</a>
       </li>
       <li
         class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/animes/' in request.path %}text-red-600{% endif %}"
       >
-        <a href="{% url 'animes' %}">Anime</a>
+        <a href="{% url 'animes' %}" rel="nofollow">Anime</a>
       </li>
       <li
         class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/mangas/' in request.path %}text-red-600{% endif %}"
       >
-        <a href="{% url 'mangas' %}">Manga</a>
+        <a href="{% url 'mangas' %}" rel="nofollow">Manga</a>
       </li>
       <li
         class="text-[18px] font-[600] hover:text-red-600 transition-all py-4 {% if '/musics/' in request.path %}text-red-600{% endif %}"
       >
-        <a href="{% url 'musics' %}">Âm Nhạc</a>
+        <a href="{% url 'musics' %}" rel="nofollow">Âm Nhạc</a>
       </li>
     </nav>
 
@@ -125,14 +125,14 @@
       class="bg-black w-full py-10 text-white text-center mt-14 border-t-2 border-white"
     >
       <div class="flex flex-col gap-y-5">
-        <h6 class="logo text-[24px]">
-          <a href="{% url 'index' %}"
+        <p class="logo text-[24px]">
+          <a href="{% url 'index' %}" rel="nofollow"
             ><span class="font-lato text-white dark:text-transparent"
               >Blog</span
             >
             Amigos</a
           >
-        </h6>
+        </p>
         <p>Bản quyền thuộc về Khánh Tùng@2023</p>
         <p class="text-sm italic px-2 sm:text-[14px]">
           Hiện tại web vẫn đang chạy thử nghiệm, mình rất vui lòng nếu các bạn

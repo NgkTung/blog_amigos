@@ -21,7 +21,7 @@ class PostAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.ImageField: {'widget': CloudinaryFileField}
     }
-
+    readonly_fields = ('slug',) # Readonly fields
     exclude = ['click_count'] # The click count will be set to a default value of 0 when the post is created
 
     def save_model(self, request, obj, form, change):

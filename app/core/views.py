@@ -95,18 +95,18 @@ def posts_discuss_all(request):
     return render(request, 'list.html', {'posts': posts, 'recommend_posts': recommend_posts, 'tag': tag})
 
 # A post view page
-def post_view(request, pk):
-    # Retrieve the post based on pk
-    post = Post.objects.get(pk=pk)
-    # Get the post main tag
+def post_view(request, slug):
+    # Retrieve the post based on the slug
+    post = Post.objects.get(slug=slug)
+    # Rest of the code remains the same
     main_tag = post.tag.first()
     # Recommend posts with same tag
-    recommend_posts_tag = Post.objects.filter(tag__name=main_tag.name).exclude(pk=pk).order_by('-created_at')[:5]
-    # Recommend posts
-    recommend_posts = Post.objects.all().exclude(pk=pk).order_by('-created_at')[:5]
-    # Count number of words
+    recommend_posts_tag = Post.objects.filter(tag__name=main_tag.name).exclude(slug=slug).order_by('-created_at')[:5]
+    # Recommend newest posts
+    recommend_posts = Post.objects.all().exclude(slug=slug).order_by('-created_at')[:5]
+    # Calculate time to read the post
     time_read = round(post.word_count() / 200)
-    # Increase the time post has been seen
+    # Increment number of times post has been clicked on
     post.increment_click_count()
     return render(request, 'post_view.html', {'post': post, 'main_tag': main_tag, 'recommend_posts_tag': recommend_posts_tag, 'recommend_posts': recommend_posts, 'time_read': time_read})
 

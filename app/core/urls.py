@@ -32,7 +32,7 @@ urlpatterns = [
     path('musics/thought', musics_thought, name='musics_thought'),
 
     # Post details
-    path('posts/<int:pk>', post_view, name='post_view'),
+    path('posts/<slug:slug>', post_view, name='post_view'),
 
     # About me page
     path('about-me/', about_me, name='about-me')

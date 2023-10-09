@@ -56,6 +56,9 @@ swiper-container .swiper-pagination-bullets {
 }
 
 @layer base {
+  h1{
+    @apply font-[600] text-2xl md:text-xl;
+  }
   h2 {
     @apply text-xl lg:text-[18px] sm:text-[14px] font-[600] sm:leading-5 dark:text-white;
   }
