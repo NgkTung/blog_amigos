@@ -32,16 +32,15 @@ class PostAdmin(admin.ModelAdmin):
 
             # Delete the old image if it exists
             existing_obj = Post.objects.get(pk=obj.pk)
-            if existing_obj.image and obj.image.url != existing_obj.image.url:
-                if hasattr(existing_obj.image, 'public_id'):
-                    public_id = existing_obj.image.public_id
-                    uploader.destroy(public_id)
+            if existing_obj.image and hasattr(existing_obj.image, 'public_id'):
+                public_id = existing_obj.image.public_id
+                uploader.destroy(public_id)
 
             # Update the image field with the new secure URL
             obj.image = result.get('secure_url', '')
 
         if not obj.slug_title:  # Generate slug_title default only if it doesn't exist
-            obj.slug_title = obj.title[:50]
+           obj.slug_title = obj.title[:50]
 
         if change and obj.slug_title != obj.slug:
             base_slug = slugify(obj.slug_title)
