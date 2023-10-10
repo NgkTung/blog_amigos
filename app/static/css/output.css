@@ -1363,6 +1363,10 @@ h4{
   margin-top: 0.15rem;
 }
 
+.ml-10{
+  margin-left: 2.5rem;
+}
+
 .box-border{
   box-sizing: border-box;
 }
@@ -3065,6 +3069,14 @@ h4{
 
 .pt-\[6px\]{
   padding-top: 6px;
+}
+
+.pl-10{
+  padding-left: 2.5rem;
+}
+
+.pl-20{
+  padding-left: 5rem;
 }
 
 .text-left{
