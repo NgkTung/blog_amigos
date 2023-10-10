@@ -612,14 +612,35 @@ h3{
   } */
 
 h4{
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: 600;
 }
 
 :is(.dark h4){
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+@media (max-width: 1024px){
+  h4{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (max-width: 768px){
+  h4{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (max-width: 640px){
+  h4{
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 :is(.dark p){
@@ -1361,10 +1382,6 @@ h4{
 
 .mt-\[0\.15rem\]{
   margin-top: 0.15rem;
-}
-
-.ml-10{
-  margin-left: 2.5rem;
 }
 
 .box-border{
@@ -3015,6 +3032,10 @@ h4{
   padding-left: 0.5rem;
 }
 
+.pl-20{
+  padding-left: 5rem;
+}
+
 .pl-4{
   padding-left: 1rem;
 }
@@ -3069,14 +3090,6 @@ h4{
 
 .pt-\[6px\]{
   padding-top: 6px;
-}
-
-.pl-10{
-  padding-left: 2.5rem;
-}
-
-.pl-20{
-  padding-left: 5rem;
 }
 
 .text-left{
@@ -3184,8 +3197,8 @@ h4{
   font-size: 34px;
 }
 
-.text-\[35px\]{
-  font-size: 35px;
+.text-\[45px\]{
+  font-size: 45px;
 }
 
 .text-\[5vh\]{
@@ -3205,14 +3218,6 @@ h4{
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-\[40px\]{
-  font-size: 40px;
-}
-
-.text-\[45px\]{
-  font-size: 45px;
 }
 
 .font-\[500\]{
@@ -3319,16 +3324,16 @@ h4{
   line-height: 60px;
 }
 
+.leading-\[70px\]{
+  line-height: 70px;
+}
+
 .leading-loose{
   line-height: 2;
 }
 
 .leading-normal{
   line-height: 1.5;
-}
-
-.leading-\[70px\]{
-  line-height: 70px;
 }
 
 .tracking-\[-0\.00833em\]{
@@ -5434,18 +5439,6 @@ swiper-container .swiper-pagination-bullets {
     height: 350px;
   }
 
-  .lg\:h-\[40vh\]{
-    height: 40vh;
-  }
-
-  .lg\:h-\[5vh\]{
-    height: 5vh;
-  }
-
-  .lg\:h-\[50vh\]{
-    height: 50vh;
-  }
-
   .lg\:h-\[60vh\]{
     height: 60vh;
   }
@@ -5521,10 +5514,6 @@ swiper-container .swiper-pagination-bullets {
     font-size: 24px;
   }
 
-  .lg\:text-\[30px\]{
-    font-size: 30px;
-  }
-
   .lg\:text-\[35px\]{
     font-size: 35px;
   }
@@ -5582,10 +5571,6 @@ swiper-container .swiper-pagination-bullets {
 
   .md\:h-\[40vh\]{
     height: 40vh;
-  }
-
-  .md\:h-\[50vh\]{
-    height: 50vh;
   }
 
   .md\:w-80{
@@ -5663,16 +5648,8 @@ swiper-container .swiper-pagination-bullets {
     height: 30vh;
   }
 
-  .sm\:h-\[40vh\]{
-    height: 40vh;
-  }
-
   .sm\:h-\[80px\]{
     height: 80px;
-  }
-
-  .sm\:h-\[20vh\]{
-    height: 20vh;
   }
 
   .sm\:w-60{

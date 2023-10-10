@@ -69,7 +69,7 @@ swiper-container .swiper-pagination-bullets {
     @apply w-11/12 max-w-[400px] text-3xl font-[600] mx-auto my-6 text-center leading-10 dark:text-white;
   } */
   h4 {
-    @apply text-lg font-[600] dark:text-white;
+    @apply text-2xl lg:text-xl md:text-lg sm:text-base font-[600] dark:text-white;
   }
   p {
     @apply dark:text-white;

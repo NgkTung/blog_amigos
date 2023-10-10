@@ -1,6 +1,6 @@
 {% extends 'base.html' %} 
 {% block title %} 
-  Blog Amigos - {{ tag.name }} - {% if posts.number != 1 %} {{ posts.number }} {% endif %}
+  Blog Amigos - {% if tag.parent_tag.name|length != 0  %} {{ tag.parent_tag.name }} - {% endif %} {% if tag.name|length == 0 %} Danh sách bài viết {% else %} {{ tag.name }} {% endif %} - Trang{% if posts.number != 1 %} {{ posts.number }} {% else %} 1 {% endif %}
 {% endblock%} 
 {% load static %} 
 {% block content %}
