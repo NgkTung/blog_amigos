@@ -5,15 +5,15 @@
 {% block content %}
 <div class="post-view">
   <div
-    class="bg-cover h-screen md:h-[50vh] sm:h-[40vh] min-w-[100vw] relative w-full bg-center"
+    class="bg-cover h-screen lg:h-[60vh] md:h-[40vh] sm:h-[30vh] min-w-[100vw] relative w-full bg-center"
     style="background-image: url('{{ post.image.url }}')"
   >
     <div
-      class="absolute h-screen md:h-[50vh] sm:h-[40vh] w-full bg-no-repeat bg-black/50"
+      class="absolute h-screen lg:h-[60vh] md:h-[40vh] sm:h-[30vh] w-full bg-no-repeat bg-black/50"
     ></div>
     <div class="absolute top-1/2 left-32 lg:left-8">
       <h1
-        class="text-center text-white font-playfair text-[35px] w-11/12 tracking-[3px] max-w-[800px] leading-[60px] md:hidden"
+        class="text-center text-white font-playfair text-[45px] lg:text-[35px] w-11/12 tracking-[3px] max-w-[800px] leading-[70px] md:hidden"
       >
         <!-- POST TITLE FOR DESKTOP VERSION  -->
         {{ post.title }}
@@ -23,7 +23,7 @@
 
   <div class="my-10">
     <h1
-      class="text-center font-playfair text-[24px] sm:text-[20px] tracking-[3px] max-w-[800px] leading-[35px] hidden md:block mb-5 px-5"
+      class="text-center dark:text-white font-playfair text-[24px] sm:text-[20px] tracking-[3px] max-w-[800px] leading-[35px] hidden md:block mb-5 px-5"
     >
       <!-- POST TITLE FOR MOBILE VERSION -->
       {{ post.title }}

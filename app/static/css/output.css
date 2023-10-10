@@ -539,16 +539,7 @@ input[type="range"]:active::-webkit-slider-thumb{
 }
 
 h1{
-  font-size: 1.5rem;
-  line-height: 2rem;
   font-weight: 600;
-}
-
-@media (max-width: 768px){
-  h1{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
 }
 
 h2{
@@ -672,7 +663,7 @@ h4{
 
 @media (max-width: 1024px){
   .logo{
-    font-size: 35px;
+    font-size: 40px;
   }
 }
 
@@ -1242,11 +1233,6 @@ h4{
 .my-\[5px\]{
   margin-top: 5px;
   margin-bottom: 5px;
-}
-
-.mx-5{
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
 }
 
 .-ml-\[1\.5rem\]{
@@ -3186,8 +3172,8 @@ h4{
   font-size: 34px;
 }
 
-.text-\[40px\]{
-  font-size: 40px;
+.text-\[35px\]{
+  font-size: 35px;
 }
 
 .text-\[5vh\]{
@@ -3209,8 +3195,12 @@ h4{
   line-height: 1rem;
 }
 
-.text-\[35px\]{
-  font-size: 35px;
+.text-\[40px\]{
+  font-size: 40px;
+}
+
+.text-\[45px\]{
+  font-size: 45px;
 }
 
 .font-\[500\]{
@@ -3323,6 +3313,10 @@ h4{
 
 .leading-normal{
   line-height: 1.5;
+}
+
+.leading-\[70px\]{
+  line-height: 70px;
 }
 
 .tracking-\[-0\.00833em\]{
@@ -5404,16 +5398,16 @@ swiper-container .swiper-pagination-bullets {
     left: 0.5rem;
   }
 
+  .lg\:left-8{
+    left: 2rem;
+  }
+
   .lg\:top-10{
     top: 2.5rem;
   }
 
   .lg\:top-2{
     top: 0.5rem;
-  }
-
-  .lg\:left-8{
-    left: 2rem;
   }
 
   .lg\:hidden{
@@ -5426,6 +5420,22 @@ swiper-container .swiper-pagination-bullets {
 
   .lg\:h-\[350px\]{
     height: 350px;
+  }
+
+  .lg\:h-\[40vh\]{
+    height: 40vh;
+  }
+
+  .lg\:h-\[5vh\]{
+    height: 5vh;
+  }
+
+  .lg\:h-\[50vh\]{
+    height: 50vh;
+  }
+
+  .lg\:h-\[60vh\]{
+    height: 60vh;
   }
 
   .lg\:w-\[150px\]{
@@ -5503,8 +5513,8 @@ swiper-container .swiper-pagination-bullets {
     font-size: 30px;
   }
 
-  .lg\:text-\[25px\]{
-    font-size: 25px;
+  .lg\:text-\[35px\]{
+    font-size: 35px;
   }
 
   .lg\:leading-\[30px\]{
@@ -5515,10 +5525,6 @@ swiper-container .swiper-pagination-bullets {
 @media (max-width: 768px){
   .md\:left-4{
     left: 1rem;
-  }
-
-  .md\:left-8{
-    left: 2rem;
   }
 
   .md\:order-none{
@@ -5651,6 +5657,10 @@ swiper-container .swiper-pagination-bullets {
 
   .sm\:h-\[80px\]{
     height: 80px;
+  }
+
+  .sm\:h-\[20vh\]{
+    height: 20vh;
   }
 
   .sm\:w-60{
