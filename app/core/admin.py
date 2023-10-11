@@ -43,6 +43,9 @@ class PostAdmin(admin.ModelAdmin):
         if not obj.slug_title:  # Generate slug_title default only if it doesn't exist
            obj.slug_title = obj.title[:50]
 
+        if not obj.slug:
+            obj.slug = slugify(obj.slug_title)
+
         if change and obj.slug_title != obj.slug:
             base_slug = slugify(obj.slug_title)
             slug = base_slug
