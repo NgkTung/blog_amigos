@@ -35,6 +35,7 @@ class PostAdmin(admin.ModelAdmin):
             if existing_obj.image and hasattr(existing_obj.image, 'public_id'):
                 public_id = existing_obj.image.public_id
                 uploader.destroy(public_id)
+                print("Old image has detroyed")
 
             # Update the image field with the new secure URL
             obj.image = result.get('secure_url', '')
