@@ -1,7 +1,13 @@
 {% extends "base.html" %} 
 {% load static %} 
 {% block title %} {{ post.title }} {% endblock %} 
-{% block description %} {{ post.description }} {% endblock %}
+{% block description %} 
+  {% if post.description|length > 90 %}
+    {{ post.description|slice:":90" }}...
+  {% else %}
+    {{ post.description }}
+  {% endif %}
+{% endblock %}
 {% block content %}
 <div class="post-view">
   <div

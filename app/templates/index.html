@@ -41,12 +41,8 @@
               <p class="badge-critique flex-shrink-0 inline">Bàn Luận</p>
               {% endif %} {% endfor %}
             </div>
-            <p class="text-sm text-gray-600 lg:text-[14px] sm:text-[12px]">
-              {% if post.description|length > 120  %}
-                {{post.description|slice:":120"}}...
-              {% else %}
+            <p class="text-sm text-gray-600 lg:text-[14px] sm:text-[12px]">    
                 {{ post.description }}
-              {% endif %}
             </p>
           </div>
         </div>
@@ -125,11 +121,7 @@
               {% endif %} {% endfor %}
             </div>
             <p class="text-sm text-gray-600 lg:text-[14px] sm:text-[12px]">
-              {% if post.description|length > 120  %}
-                {{post.description|slice:":120"}}...
-              {% else %}
                 {{ post.description }}
-              {% endif %}
             </p>
           </div>
         </div>
@@ -215,11 +207,7 @@
               {% endif %} {% endfor %}
             </div>
             <p class="text-sm text-gray-600 lg:text-[14px] sm:text-[12px]">
-              {% if post.description|length > 120  %}
-                {{post.description|slice:":120"}}...
-              {% else %}
                 {{ post.description }}
-              {% endif %}
             </p>
           </div>
         </swiper-slide>
@@ -273,11 +261,7 @@
               {% endif %} {% endfor %}
             </div>
             <p class="text-sm text-gray-600 lg:text-[14px] sm:text-[12px]">
-              {% if post.description|length > 120  %}
-                {{post.description|slice:":120"}}...
-              {% else %}
                 {{ post.description }}
-              {% endif %}
             </p>
           </div>
         </swiper-slide>
@@ -370,11 +354,7 @@
             {% endif %} {% endfor %}
           </div>
           <p class="text-sm text-gray-600 lg:text-[14px] sm:text-[12px]">
-            {% if post.description|length > 120  %}
-              {{post.description|slice:":120"}}...
-            {% else %}
               {{ post.description }}
-            {% endif %}
           </p>
         </div>
       </div>
