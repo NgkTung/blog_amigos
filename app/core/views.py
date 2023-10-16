@@ -98,8 +98,10 @@ def posts_discuss_all(request):
 def post_view(request, slug):
     # Retrieve the post based on the slug
     post = Post.objects.get(slug=slug)
-    # Rest of the code remains the same
+    # Main tag
     main_tag = post.tag.first()
+    #Sub tag
+    sub_tag = post.tag.filter(parent_tag__isnull=False).first()
     # Recommend posts with same tag
     recommend_posts_tag = Post.objects.filter(tag__name=main_tag.name).exclude(slug=slug).order_by('-created_at')[:5]
     # Recommend newest posts
@@ -108,7 +110,7 @@ def post_view(request, slug):
     time_read = round(post.word_count() / 200)
     # Increment number of times post has been clicked on
     post.increment_click_count()
-    return render(request, 'post_view.html', {'post': post, 'main_tag': main_tag, 'recommend_posts_tag': recommend_posts_tag, 'recommend_posts': recommend_posts, 'time_read': time_read})
+    return render(request, 'post_view.html', {'post': post, 'main_tag': main_tag, 'sub_tag': sub_tag, 'recommend_posts_tag': recommend_posts_tag, 'recommend_posts': recommend_posts, 'time_read': time_read})
 
 # About me page
 def about_me(request):

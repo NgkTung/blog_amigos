@@ -1256,6 +1256,11 @@ h4{
   margin-bottom: 5px;
 }
 
+.mx-10{
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
 .-ml-\[1\.5rem\]{
   margin-left: -1.5rem;
 }
@@ -3220,6 +3225,14 @@ h4{
   line-height: 1rem;
 }
 
+.text-\[8px\]{
+  font-size: 8px;
+}
+
+.text-\[9px\]{
+  font-size: 9px;
+}
+
 .font-\[500\]{
   font-weight: 500;
 }
@@ -3366,6 +3379,14 @@ h4{
 
 .tracking-normal{
   letter-spacing: 0em;
+}
+
+.tracking-widest{
+  letter-spacing: 0.1em;
+}
+
+.tracking-\[5px\]{
+  letter-spacing: 5px;
 }
 
 .\!text-\[\#14a44d\]{
@@ -4102,6 +4123,10 @@ swiper-container .swiper-pagination-bullets {
 
 .hover\:rounded-\[50\%\]:hover{
   border-radius: 50%;
+}
+
+.hover\:border-b-2:hover{
+  border-bottom-width: 2px;
 }
 
 .hover\:\!bg-\[\#eee\]:hover{

@@ -18,8 +18,14 @@
       class="absolute h-screen lg:h-[60vh] md:h-[40vh] sm:h-[30vh] w-full bg-no-repeat bg-black/50"
     ></div>
     <div class="absolute top-1/2 left-32 lg:left-8">
+      <!-- BREADCUMBS FOR DESKTOP VERSION  -->
+      <div class="text-white tracking-widest uppercase text-[10px] font-semibold md:hidden">
+        <p class="tracking-[3px]">
+          <a href="{% url main_tag.url_name %}" class="hover:border-b-2 border-white transition duration-300">{{ main_tag.name }}</a><span class="text-gray-300 mx-1">/</span><a href="{% url sub_tag.url_name %}" class="hover:border-b-2 border-white transition duration-300">{{ sub_tag.name }}</a>
+        </p>
+      </div>
       <h1
-        class="text-center text-white font-playfair text-[45px] lg:text-[35px] w-11/12 tracking-[3px] max-w-[800px] leading-[70px] md:hidden"
+        class=" text-white font-playfair text-[45px] lg:text-[35px] w-11/12 tracking-[3px] max-w-[800px] leading-[70px] md:hidden"
       >
         <!-- POST TITLE FOR DESKTOP VERSION  -->
         {{ post.title }}
@@ -27,9 +33,15 @@
     </div>
   </div>
 
-  <div class="my-10">
+  <div class="my-10 mx-10">
+    <!-- BREADCUMBS FOR MOBILE VERSION  -->
+    <div class="text-white tracking-widest uppercase text-[10px] font-semibold hidden md:block mb-5">
+      <p class="tracking-[3px]">
+        <a href="{% url main_tag.url_name %}" class="hover:border-b-2 border-white transition duration-300">{{ main_tag.name }}</a><span class="text-gray-300 mx-1">/</span><a href="{% url sub_tag.url_name %}" class="hover:border-b-2 border-white transition duration-300">{{ sub_tag.name }}</a>
+      </p>
+    </div>
     <h1
-      class="text-center dark:text-white font-playfair text-[24px] sm:text-[20px] tracking-[3px] max-w-[800px] leading-[35px] hidden md:block mb-5 px-5"
+      class=" dark:text-white font-playfair text-[24px] sm:text-[20px] tracking-[3px] leading-[35px] hidden md:block mb-5"
     >
       <!-- POST TITLE FOR MOBILE VERSION -->
       {{ post.title }}
