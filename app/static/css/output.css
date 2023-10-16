@@ -1216,6 +1216,11 @@ h4{
   margin-right: 0.25rem;
 }
 
+.mx-10{
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
 .mx-\[10px\]{
   margin-left: 10px;
   margin-right: 10px;
@@ -1254,11 +1259,6 @@ h4{
 .my-\[5px\]{
   margin-top: 5px;
   margin-bottom: 5px;
-}
-
-.mx-10{
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
 }
 
 .-ml-\[1\.5rem\]{
@@ -3215,6 +3215,11 @@ h4{
   line-height: 1.5rem;
 }
 
+.text-lg{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -3225,12 +3230,9 @@ h4{
   line-height: 1rem;
 }
 
-.text-\[8px\]{
-  font-size: 8px;
-}
-
-.text-\[9px\]{
-  font-size: 9px;
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-\[500\]{
@@ -3383,10 +3385,6 @@ h4{
 
 .tracking-widest{
   letter-spacing: 0.1em;
-}
-
-.tracking-\[5px\]{
-  letter-spacing: 5px;
 }
 
 .\!text-\[\#14a44d\]{
