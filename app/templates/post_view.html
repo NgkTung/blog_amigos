@@ -3,7 +3,7 @@
 {% block title %} {{ post.title }} {% endblock %} 
 {% block description %} 
   {% if post.description|length > 90 %}
-    {{ post.description|slice:":120" }}...
+    {{ post.description|slice:":160" }}...
   {% else %}
     {{ post.description }}
   {% endif %}
