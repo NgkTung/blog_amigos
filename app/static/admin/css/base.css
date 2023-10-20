@@ -2,6 +2,8 @@
     DJANGO Admin styles
 */
 
+.tox-notification { display: none !important }
+
 /* VARIABLE DEFINITIONS */
 html[data-theme="light"],
 :root {

@@ -1273,6 +1273,10 @@ h4{
   margin-bottom: 0px;
 }
 
+.mb-10{
+  margin-bottom: 2.5rem;
+}
+
 .mb-2{
   margin-bottom: 0.5rem;
 }
@@ -1387,10 +1391,6 @@ h4{
 
 .mt-\[0\.15rem\]{
   margin-top: 0.15rem;
-}
-
-.mb-10{
-  margin-bottom: 2.5rem;
 }
 
 .box-border{
@@ -3141,6 +3141,11 @@ h4{
   font-family: Playfair Display, sans-serif;
 }
 
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .text-4xl{
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -3219,19 +3224,9 @@ h4{
   line-height: 1.5rem;
 }
 
-.text-lg{
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-
-.text-xs{
-  font-size: 0.75rem;
-  line-height: 1rem;
 }
 
 .text-xl{
@@ -3239,14 +3234,9 @@ h4{
   line-height: 1.75rem;
 }
 
-.text-2xl{
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.text-3xl{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.text-xs{
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .font-\[500\]{
@@ -5705,6 +5695,11 @@ swiper-container .swiper-pagination-bullets {
     flex-direction: column;
   }
 
+  .sm\:text-2xl{
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .sm\:text-\[12px\]{
     font-size: 12px;
   }
@@ -5719,16 +5714,6 @@ swiper-container .swiper-pagination-bullets {
 
   .sm\:text-\[20px\]{
     font-size: 20px;
-  }
-
-  .sm\:text-xl{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  .sm\:text-2xl{
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 }
 
