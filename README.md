@@ -23,3 +23,6 @@ Blog Amigos is my blog where I write my thoughts about movies I seen, video game
   + Own domain: https://www.blogamigos.com
   + Change the URL path from the post's ID to the slug
   + Adjustment the page to be good for SEO
+
+### CLOSED
+- The blog has been discontinued since 31/10/2023.
