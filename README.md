@@ -20,7 +20,7 @@ Blog Amigos is my blog where I write my thoughts about movies I seen, video game
   + Add lazy loading image
 ### Offical versions
 - Version 1.0.0 - 09/10/2023 - Welcome to first version of Blog Amigos
-  + Own domain: https://www.blogamigos.com
+  + Own domain: [https://www.blogamigos.com](https://tinproht123.pythonanywhere.com/)
   + Change the URL path from the post's ID to the slug
   + Adjustment the page to be good for SEO
 
