@@ -2,7 +2,7 @@
 A git code for Blog Amigos
 link: https://www.blogamigos.com/
 ## Description
-Blog Amigos is my blog where I write my thoughts about movies I seen, video games I played, musics I heard and more. It's a personal blog still in developing but I hope it will be better and better.
+Blog Amigos is my personal blog where I share my thoughts about movies I’ve watched, video games I’ve played, music I’ve listened to, and more. It’s still a work in progress, but I hope it will continue to improve over time.
 
 ## Technology
 - Python
