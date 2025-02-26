@@ -1,6 +1,6 @@
 # Blog Amigos
 A git code for Blog Amigos
-link: https://www.blogamigos.com/
+link: [https://www.blogamigos.com/](https://tinproht123.pythonanywhere.com/)
 ## Description
 Blog Amigos is my personal blog where I share my thoughts about movies I’ve watched, video games I’ve played, music I’ve listened to, and more. It’s still a work in progress, but I hope it will continue to improve over time.
 
