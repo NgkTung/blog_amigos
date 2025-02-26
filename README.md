@@ -26,3 +26,4 @@ Blog Amigos is my blog where I write my thoughts about movies I seen, video game
 
 ### CLOSED
 - The blog has been discontinued since 31/10/2023.
+- NOTED: Some blog content has been written by ChatGPT because I haven’t had enough time to fill all the blog posts myself.
